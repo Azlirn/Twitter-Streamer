@@ -227,7 +227,8 @@ class listener(StreamListener):
                      'InnovateNAU', '866-561-2500', 'RNA', 'DNA', 'ApplevsFBI', 'WeAreNotThis'
                      'woofwoofwednesday', 'job', 'DBaileyAppeals', 'Administrator', 'Engineer', 'OpOlympicHacking',
                      'OpNimr', 'OpSweden', 'FreeAnons', 'OpWhales', 'OpKillingBay', 'pinterest', 'OpNo2Fur',
-                     '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon']
+                     '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon', 'wikipedia',
+                     'thinblueline']
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist
 
