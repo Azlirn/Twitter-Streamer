@@ -5,15 +5,15 @@ import datetime
 def scriptstart_notify():
     systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
     start_email = """
-            ##### STREAMER RESTARTED #####
+##### STREAMER RESTARTED #####
 
-            System Time: %s
-            
-            - StreamerBot
+System Time: %s
 
-            ***************************************************************************
-            This is an automated message from the Twitter Streamer.
-            ***************************************************************************
+- StreamerBot
+
+***************************************************************************
+This is an automated message from the Twitter Streamer.
+***************************************************************************
 """ % systime
     gmail_mailer.streamer_start_notify(start_email.encode('utf8'))
     return
@@ -21,21 +21,21 @@ def scriptstart_notify():
 def error_notify(e, all_data):
     systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
     error_email = """
-            ##### ERROR OCCURRED #####
+##### ERROR OCCURRED #####
 
-            Script error occurred at: %s
+Script error occurred at: %s
 
-            Exception occurred: %s
+Exception occurred: %s
 
-            Data: %s
+Data: %s
 
-            Please report this error to the application admin!
+Please report this error to the application admin!
 
-            - StreamerBot
+- StreamerBot
 
-            ***************************************************************************
-            This is an automated message from the Twitter Streamer.
-            ***************************************************************************
+***************************************************************************
+This is an automated message from the Twitter Streamer.
+***************************************************************************
 """ % (systime, e, all_data)
 
     gmail_mailer.streamer_system_error(error_email.encode('utf8'))
@@ -44,26 +44,26 @@ def error_notify(e, all_data):
 def notify(data, url, hit):
         systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
         data_text = """
-            ##### NOTIFICATION #####
+##### NOTIFICATION #####
 
-            System Time: %s
-            Hit Type: %s
-            Screen Name: %s
-            Tweeter ID: %s
-            Tweet Text: %s
-            Created At: %s
-            Created Using: %s
-            Expanded Urls: %s
-            Tweet Link: https://twitter.com/%s/status/%s\n
+System Time: %s
+Hit Type: %s
+Screen Name: %s
+Tweeter ID: %s
+Tweet Text: %s
+Created At: %s
+Created Using: %s
+Expanded Urls: %s
+Tweet Link: https://twitter.com/%s/status/%s\n
 
-            - StreamerBot
+- StreamerBot
 
-            ***************************************************************************
-            This is an automated message from the Twitter Streamer.
+***************************************************************************
+This is an automated message from the Twitter Streamer.
 
-            WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR
-            INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
-            ***************************************************************************
+WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR
+INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
+***************************************************************************
 
             """ % (systime, hit, data["user"]["screen_name"], data['user']['id'], data["text"], data["created_at"], data["source"], url, str(data['user']['screen_name']), str(data['id']))
 
@@ -76,23 +76,23 @@ def notify(data, url, hit):
 def refresh(all_data):
         systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
         refresh_email = """
-            ##### SYSTEM REFRESH #####
+##### SYSTEM REFRESH #####
 
-            System Time is:  %s
+System Time is:  %s
 
-            The streamer is having a hard time keeping up.
+The streamer is having a hard time keeping up.
 
-            You are currently %s tweets behind.
+You are currently %s tweets behind.
 
-            I am refreshing your connection to purge the cache with the Twitter API.
+I am refreshing your connection to purge the cache with the Twitter API.
 
-            The tweets in the stream that are backlogged will be lost in this process.
+The tweets in the stream that are backlogged will be lost in this process.
 
-            - StreamerBot
+- StreamerBot
 
-            ***************************************************************************
-            This is an automated message from the Twitter Streamer.
-            ***************************************************************************
+***************************************************************************
+This is an automated message from the Twitter Streamer.
+***************************************************************************
 """ % (systime, all_data['limit']['track'])
         gmail_mailer.backlog_refresh(refresh_email.encode('utf8'))
         from TwitterStreamer import main
