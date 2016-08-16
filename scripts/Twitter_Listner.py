@@ -254,7 +254,6 @@ class listener(StreamListener):
         '''
         Will test to see if the Urls mentioned are part of the loaded domains.
         '''
-
         result = []
         try:
             for x in data['entities']['urls']:
@@ -262,7 +261,6 @@ class listener(StreamListener):
         except Exception, e:
             print str(e)
             return False
-
         return any(result)
 
 
