@@ -11,3 +11,5 @@ Hits.csv
 .idea/
 venv/
 *pyc
+*.xlsx
+data/Twitter Streamer Accounts.csv
