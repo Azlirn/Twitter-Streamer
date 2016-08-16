@@ -184,7 +184,7 @@ class listener(StreamListener):
                     print red, "#" * 40, off
                     print yel, 'Exception --> Message: %s' % e
                     print ''
-                    from TwitterStreamer import error_notify
+                    from notifier import error_notify
                     error_notify(e, all_data)
 
     def health_notify(self):
@@ -227,7 +227,8 @@ class listener(StreamListener):
                      'InnovateNAU', '866-561-2500', 'RNA', 'DNA', 'ApplevsFBI', 'WeAreNotThis'
                      'woofwoofwednesday', 'job', 'DBaileyAppeals', 'Administrator', 'Engineer', 'OpOlympicHacking',
                      'OpNimr', 'OpSweden', 'FreeAnons', 'OpWhales', 'OpKillingBay', 'pinterest', 'OpNo2Fur',
-                     '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon']
+                     '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon', 'wikipedia',
+                     'thinblueline']
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist
 
@@ -265,51 +266,6 @@ class listener(StreamListener):
         return any(result)
 
 
-    def stringify_hashtags_lower(self, data):
-        """
-        converts the multiple url referenced into a single string
-        """
-
-        string_hashtags = []
-        hashtag = []
-        for item in data['entities']['hashtags']:
-            hashtag.append(item["text"])
-            string_hashtags = ', '.join(hashtag).lower()
-        return string_hashtags
-
-    def stringify_hashtags_reg(self, data):
-
-        string_hashtags = []
-        hashtag = []
-        for item in data['entities']['hashtags']:
-            hashtag.append(item["text"])
-            string_hashtags = ', '.join(hashtag)
-        return string_hashtags
-
-    def stringify_mentions(self, data):
-        """
-        converts multiple user mentions into a single string
-        """
-
-        string_user_mentions = []
-        user_mention = []
-
-        for x in data['entities']['user_mentions']:
-            user_mention.append(x['name'])
-            string_user_mentions = ', '.join(user_mention)
-        return string_user_mentions
-
-    def stringify_url(self, data):
-        """
-        converts the multiple url referenced into a single string
-        """
-
-        string_url = []
-        urls = []
-        for x in data["entities"]["urls"]:
-            urls.append(x["expanded_url"])
-            string_url = ', '.join(urls)
-        return string_url
 
     def SLTT_mention(self, data):
         '''
@@ -324,11 +280,6 @@ class listener(StreamListener):
             print str(e)
             return False
         return any(result)
-
-
-
-
-
 
 
 ##### WISH LIST #####

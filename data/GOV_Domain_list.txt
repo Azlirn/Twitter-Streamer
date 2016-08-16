@@ -24987,7 +24987,6 @@ en.cityofcrisfield-md.gov
 en.halifax.k12.nc.us
 en.lancsd.org
 en.mukilteo.wednet.edu
-en.wikipedia.org
 enable.cityofcrisfield-md.gov
 enadiaway-lausd-ca.schoolloop.com
 encampment.miwg.cap.gov
@@ -43720,7 +43719,6 @@ m.cityofboston.gov
 m.cityofcrisfield-md.gov
 m.cityofnewburgh-ny.gov
 m.d55.k12.id.us
-m.facebook.com
 m.fortlauderdale.gov
 m.harrison-ny.gov
 m.innopac.fauquiercounty.gov
