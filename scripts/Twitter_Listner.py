@@ -281,11 +281,6 @@ class listener(StreamListener):
         return any(result)
 
 
-
-
-
-
-
 ##### WISH LIST #####
 
 # Natural Language Processing
