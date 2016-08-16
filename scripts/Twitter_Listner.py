@@ -210,7 +210,7 @@ class listener(StreamListener):
         - Cyb3rdude""" % (systime, self.counter_all, self.blacklistcounter, self.counter_false, self.counter_hit,
                              self.counter_hit_SLTT, self.counter_hit_Domain, self.counter_hit_Keyword,
                              self.counter_exception)
-        gmail_mailer.health_check(health_data.encode('utf8'))
+        gmail_mailer.error_message(health_data.encode('utf8'), 'health_check')
         return
 
 
