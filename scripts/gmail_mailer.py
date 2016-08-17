@@ -18,7 +18,7 @@ except ImportError:
 SCOPES = 'https://www.googleapis.com/auth/gmail.send'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Twit Notifier'
-to_address = "iic@cisecurity.org"
+to_address = "iic@cisecurity.org, philippe.langlois925@gmail.com, christopher.a.cooley@gmail.com"
 from_address = 'spider.sec070@gmail.com'
 
 def get_credentials():

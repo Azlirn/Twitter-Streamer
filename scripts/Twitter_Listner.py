@@ -217,6 +217,7 @@ class listener(StreamListener):
     def blacklist(self, all_data):
         twitText = str(all_data['text'].lower().encode('utf8'))
         twitHash = starter.stringify_hashtags_lower(all_data)
+        screenName = str(all_data['user']['screen_name'].lower().encode('utf8'))
         # twitMention = self.SLTT_mention(all_data)
 
         blacklist = ['Trump', 'TRUMP', 'Obama', 'Hillary', 'OpAfrica', 'OpTibet', 'OpJAT', 'Tibet', 'Yemen',
@@ -228,11 +229,14 @@ class listener(StreamListener):
                      'woofwoofwednesday', 'job', 'DBaileyAppeals', 'Administrator', 'Engineer', 'OpOlympicHacking',
                      'OpNimr', 'OpSweden', 'FreeAnons', 'OpWhales', 'OpKillingBay', 'pinterest', 'OpNo2Fur',
                      '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon', 'wikipedia',
-                     'thinblueline']
+                     'thinblueline', 'OfficeAdmJobsUT', 'AllJobsUT', 'FoodPrepJobsUT', 'Cyb3rdude', 'BlueLivesMatter']
+
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist
+        # Checks hashtags, text, and screen names.
 
         for word in bl:
+
             if word in twitHash:
                 termfound = word
                 self.blacklistcounter = self.blacklistcounter + 1
@@ -248,6 +252,16 @@ class listener(StreamListener):
                 starter.displayBlacklist(all_data, termfound)
                 starter.writeToText(all_data, word)
                 return True
+
+            elif word in screenName:
+                termfound = word
+                self.blacklistcounter = self.blacklistcounter + 1
+                self.counter_all = self.counter_all + 1
+                starter.displayBlacklist(all_data, termfound)
+                starter.writeToText(all_data, word)
+                return True
+
+
 
 
     def domain_test(self, data):
@@ -278,6 +292,7 @@ class listener(StreamListener):
             print str(e)
             return False
         return any(result)
+
 
 
 ##### WISH LIST #####
