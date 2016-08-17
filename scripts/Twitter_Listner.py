@@ -210,13 +210,14 @@ class listener(StreamListener):
         - Cyb3rdude""" % (systime, self.counter_all, self.blacklistcounter, self.counter_false, self.counter_hit,
                              self.counter_hit_SLTT, self.counter_hit_Domain, self.counter_hit_Keyword,
                              self.counter_exception)
-        gmail_mailer.health_check(health_data.encode('utf8'))
+        gmail_mailer.error_message(health_data.encode('utf8'), 'health_check')
         return
 
 
     def blacklist(self, all_data):
         twitText = str(all_data['text'].lower().encode('utf8'))
         twitHash = starter.stringify_hashtags_lower(all_data)
+        screenName = str(all_data['user']['screen_name'].lower().encode('utf8'))
         # twitMention = self.SLTT_mention(all_data)
 
         blacklist = ['Trump', 'TRUMP', 'Obama', 'Hillary', 'OpAfrica', 'OpTibet', 'OpJAT', 'Tibet', 'Yemen',
@@ -228,11 +229,14 @@ class listener(StreamListener):
                      'woofwoofwednesday', 'job', 'DBaileyAppeals', 'Administrator', 'Engineer', 'OpOlympicHacking',
                      'OpNimr', 'OpSweden', 'FreeAnons', 'OpWhales', 'OpKillingBay', 'pinterest', 'OpNo2Fur',
                      '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon', 'wikipedia',
-                     'thinblueline']
+                     'thinblueline', 'OfficeAdmJobsUT', 'AllJobsUT', 'FoodPrepJobsUT', 'Cyb3rdude', 'BlueLivesMatter']
+
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist
+        # Checks hashtags, text, and screen names.
 
         for word in bl:
+
             if word in twitHash:
                 termfound = word
                 self.blacklistcounter = self.blacklistcounter + 1
@@ -249,12 +253,21 @@ class listener(StreamListener):
                 starter.writeToText(all_data, word)
                 return True
 
+            elif word in screenName:
+                termfound = word
+                self.blacklistcounter = self.blacklistcounter + 1
+                self.counter_all = self.counter_all + 1
+                starter.displayBlacklist(all_data, termfound)
+                starter.writeToText(all_data, word)
+                return True
+
+
+
 
     def domain_test(self, data):
         '''
         Will test to see if the Urls mentioned are part of the loaded domains.
         '''
-
         result = []
         try:
             for x in data['entities']['urls']:
@@ -262,7 +275,6 @@ class listener(StreamListener):
         except Exception, e:
             print str(e)
             return False
-
         return any(result)
 
 
@@ -280,6 +292,7 @@ class listener(StreamListener):
             print str(e)
             return False
         return any(result)
+
 
 
 ##### WISH LIST #####

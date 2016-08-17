@@ -18,7 +18,7 @@ except ImportError:
 SCOPES = 'https://www.googleapis.com/auth/gmail.send'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Twit Notifier'
-to_address = "iic@cisecurity.org"
+to_address = 'iic@cisecurity.org'
 from_address = 'spider.sec070@gmail.com'
 
 def get_credentials():
@@ -73,94 +73,7 @@ def main(text_data, hittype, username):
         print ' [!] An error occurred while attempting to send a notification email: %s' % error
 
 
-def backlog(email):
-    credentials = get_credentials()
-    http = credentials.authorize(httplib2.Http())
-
-    # Build the Gmail service from discovery
-    gmail_service = build('gmail', 'v1', http=http)
-
-    # Create a message to send
-    message = MIMEText(email)
-    message['to'] = to_address
-    message['from'] = from_address
-    message['subject'] = '[!] Streamer is backlogged - RESTART IMMINENT'
-    body = {'raw': base64.urlsafe_b64encode(message.as_string())}
-
-    try:
-        message = (gmail_service.users().messages().send(userId="me", body=body).execute())
-        print ' [*] Backlog Email Sent - Message ID: %s' % message['id']
-        print '\n'
-    except Exception as error:
-        print ' [!] An error occurred while sending a backlog email: %s' % error
-
-
-def backlog_refresh(email):
-    credentials = get_credentials()
-    http = credentials.authorize(httplib2.Http())
-
-    # Build the Gmail service from discovery
-    gmail_service = build('gmail', 'v1', http=http)
-
-    # Create a message to send
-    message = MIMEText(email)
-    message['to'] = to_address
-    message['from'] = from_address
-    message['subject'] = '[!] Twitter Streamer is overloaded - RESTARTING'
-    body = {'raw': base64.urlsafe_b64encode(message.as_string())}
-
-    try:
-        message = (gmail_service.users().messages().send(userId="me", body=body).execute())
-        print ' [*] Refresh Email Sent - Message ID: %s' % message['id']
-        print '\n'
-    except Exception as error:
-        print ' [!] An error occurred while sending a backlog email: %s' % error
-
-
-def health_check(health_data):
-    credentials = get_credentials()
-    http = credentials.authorize(httplib2.Http())
-
-    # Build the Gmail service from discovery
-    gmail_service = build('gmail', 'v1', http=http)
-
-    # Create a message to send
-    message = MIMEText(health_data)
-    message['to'] = to_address
-    message['from'] = from_address
-    message['subject'] = 'Twitter Health Check: %s' % (strftime("%Y-%m-%d %H:%M:%S"))
-    body = {'raw': base64.urlsafe_b64encode(message.as_string())}
-
-    try:
-        message = (gmail_service.users().messages().send(userId="me", body=body).execute())
-        print ' [*] Health Check Email Sent - Message ID: %s' % message['id']
-        print '\n'
-    except Exception as error:
-        print ' [!] An error occurred while sending a health check email: %s' % error
-
-
-def streamer_system_error(error_email):
-    credentials = get_credentials()
-    http = credentials.authorize(httplib2.Http())
-
-    # Build the Gmail service from discovery
-    gmail_service = build('gmail', 'v1', http=http)
-
-    message = MIMEText(error_email)
-    message['to'] = to_address
-    message['from'] = from_address
-    message['subject'] = '[!] Twitter Streamer Error - %s' % strftime("%Y-%m-%d %H:%M:%S")
-    body = {'raw': base64.urlsafe_b64encode(message.as_string())}
-
-    try:
-        message = (gmail_service.users().messages().send(userId="me", body=body).execute())
-        print ' [*] Streamer Error email sent - Message ID: %s' % message['id']
-        print '\n'
-    except Exception as error:
-        print ' [!] An error occurred (Error: %s) at %s' % (error, strftime("%Y-%m-%d %H:%M:%S"))
-
-
-def streamer_start_notify(email):
+def error_message(email, types):
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
 
@@ -170,43 +83,33 @@ def streamer_start_notify(email):
     message = MIMEText(email)
     message['to'] = to_address
     message['from'] = from_address
-    message['subject'] = 'STREAMER RESTARTED at %s' % strftime("%Y-%m-%d %H:%M:%S")
-    body = {'raw': base64.urlsafe_b64encode(message.as_string())}
 
-    try:
-        message = (gmail_service.users().messages().send(userId="me", body=body).execute())
-        print ' [*] System start email sent - Message ID: %s' % message['id']
-        print '\n'
-    except Exception as error:
-        print ' [!] An error occurred (Error: %s) at %s' % (error, strftime("%Y-%m-%d %H:%M:%S"))
-
-
-def error_message(email, type):
-    credentials = get_credentials()
-    http = credentials.authorize(httplib2.Http())
-
-    # Build the Gmail service from discovery
-    gmail_service = build('gmail', 'v1', http=http)
-
-    message = MIMEText(email)
-    message['to'] = to_address
-    message['from'] = from_address
-    message['subject'] = 'Default Error'
-    body = {'raw': base64.urlsafe_b64encode(message.as_string())}
-
-    if type == 'start':
-        message['subject'] = 'STREAMER RESTARTED at %s' % strftime("%Y-%m-%d %H:%M:%S")
+    if types == 'start':
+        subject = 'STREAMER RESTARTED at %s' % strftime("%Y-%m-%d %H:%M:%S")
         print_message = '[*] System start email sent - Message ID: %s'
-    elif type == 'system_error':
-        message['subject'] = '[!] Twitter Streamer Error - %s' % strftime("%Y-%m-%d %H:%M:%S")
+
+    elif types == 'system_error':
+        subject = '[!] Twitter Streamer Error - %s' % strftime("%Y-%m-%d %H:%M:%S")
         print_message = ' [*] Streamer Error email sent - Message ID: %s'
 
+    elif types == 'health_check':
+        subject = 'Twitter Health Check: %s' % (strftime("%Y-%m-%d %H:%M:%S"))
+        print_message = ' [*] Health Check Email Sent - Message ID: %s'
+
+    elif types == 'backlog_refresh':
+        subject = '[!] Twitter Streamer is overloaded - RESTARTING'
+        print_message = ' [*] Refresh Email Sent - Message ID: %s'
+
+
+
+    message['subject'] = subject
+    body = {'raw': base64.urlsafe_b64encode(message.as_string())}
     try:
         message = (gmail_service.users().messages().send(userId="me", body=body).execute())
         print print_message % message['id']
         print '\n'
     except Exception as error:
-        print '[!] An error occurred (Error: %s) at %s' % (error, strftime("%Y-%m-%d %H:%M:%S"))
+        print '[!] An error occurred (Error: %s) at %s while sending a %s' % (error, strftime("%Y-%m-%d %H:%M:%S"), types)
 
 if __name__ == '__main__':
     main()
