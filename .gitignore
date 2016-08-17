@@ -13,3 +13,4 @@ venv/
 *pyc
 *.xlsx
 data/Twitter Streamer Accounts.csv
+credential/*.json
