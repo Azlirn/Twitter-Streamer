@@ -229,7 +229,9 @@ class listener(StreamListener):
                      'woofwoofwednesday', 'job', 'DBaileyAppeals', 'Administrator', 'Engineer', 'OpOlympicHacking',
                      'OpNimr', 'OpSweden', 'FreeAnons', 'OpWhales', 'OpKillingBay', 'pinterest', 'OpNo2Fur',
                      '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon', 'wikipedia',
-                     'thinblueline', 'OfficeAdmJobsUT', 'AllJobsUT', 'FoodPrepJobsUT', 'Cyb3rdude', 'BlueLivesMatter']
+                     'thinblueline', 'OfficeAdmJobsUT', 'AllJobsUT', 'FoodPrepJobsUT', 'Cyb3rdude', 'BlueLivesMatter',
+                     'TransportJobsUT', 'PersonCareJobUT', 'EducTrngJobsUT', 'HealthTecJobsUT', 'ConstructJobsUT',
+                     'OpISIS', 'HillaryRottenClinton', 'ArtMediaJobs', ]
 
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist

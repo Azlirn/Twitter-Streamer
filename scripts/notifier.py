@@ -51,8 +51,8 @@ Hit Type: %s
 Screen Name: %s
 Tweeter ID: %s
 Tweet Text: %s
-Created At: %s
-Created Using: %s
+\nCreated At: %s
+\nCreated Using: %s
 Expanded Urls: %s
 Tweet Link: https://twitter.com/%s/status/%s\n
 
