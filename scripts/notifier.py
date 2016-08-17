@@ -15,7 +15,7 @@ System Time: %s
 This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % systime
-    gmail_mailer.streamer_start_notify(start_email.encode('utf8'))
+    gmail_mailer.error_message(start_email.encode('utf8'), 'start')
     return
 
 def error_notify(e, all_data):
@@ -38,7 +38,7 @@ This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % (systime, e, all_data)
 
-    gmail_mailer.streamer_system_error(error_email.encode('utf8'))
+    gmail_mailer.error_message(error_email.encode('utf8'), 'system_error')
     return
 
 def notify(data, url, hit):
@@ -94,7 +94,7 @@ The tweets in the stream that are backlogged will be lost in this process.
 This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % (systime, all_data['limit']['track'])
-        gmail_mailer.backlog_refresh(refresh_email.encode('utf8'))
+        gmail_mailer.error_message(refresh_email.encode('utf8'), 'backlog_refresh')
         from TwitterStreamer import main
         main()
         return

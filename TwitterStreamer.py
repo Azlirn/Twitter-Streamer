@@ -12,16 +12,6 @@ reload(Twitter_Listner)
 reload(starter)
 reload(notifier)
 
-# print "Fixing a known issue with the Gmail API..."
-#`
-# gmailfix = "source ~/.bashrc"
-# os.system(gmailfix)
-# time.sleep(2)
-#
-# print "Complete..."
-
-# consumer key, consumer secret, access token, access secret.
-
 ##### Color Options #####
 
 blk = '\033[0;30m'  # Black - Regular
@@ -32,23 +22,17 @@ blu = '\033[0;34m'  # Blue - Regular
 pur = '\033[0;35m'  # Purple - Regular
 cyn = '\033[0;36m'  # Cyan - Regular
 wht = '\033[0;37m'  # White - Regular
-off = '\033[0m'  # Text Reset
+off = '\033[0m'     # Text Reset
 
 
-###########################
-
-##### Global Variables ######
-
-##### MAIN #####
 # Activates the Streamer
 def main():
-    #PHILEDIT: Added this to ENSURE that it uses the right BASH profile
+    #Intended fix for Gmail API error when running OSX
     subprocess.call(['bash', '-c', 'source ~/.bashrc'])
 
-    # Set up debug logging
+    #Set up debug logging
     logging.basicConfig(filename="test.log", level=logging.DEBUG, format='%(asctime)s %(message)s ')
 
-    # You may include a maximum of 400 key terms in this list according to the default access level
     track = starter.get_track()
 
     starter.print_headers()

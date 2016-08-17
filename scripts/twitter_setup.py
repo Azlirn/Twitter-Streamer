@@ -29,6 +29,6 @@ def set_up_listener():
     listen = Twitter_Listner.listener(api)
 
     # set up the stream
-    print "\n[*]  Starting the live stream..."
+    print "\n [*]  Starting the live stream..."
     return tweepy.Stream(auth, listen)
 
