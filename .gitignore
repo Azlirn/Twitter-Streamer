@@ -14,4 +14,3 @@ venv/
 *.xlsx
 data/Twitter Streamer Accounts.csv
 credential/*.json
-credential/gmail-quickstart.json
