@@ -1,0 +1,25 @@
+---
+engines:
+  duplication:
+    enabled: true
+    exclude_fingerprints:
+    - bb38d1988acb1557bf37ef97e4c53d87
+    - 836694c29945deab11e38a3fc24a2d53
+    - 49bd1349d1015e4c9b99db64e8686bc3
+    - cf9785a5b06df0dc6ec4b831f9ab3226
+    - 632600b550cfe6c91621527d47473825
+    - 72494f5870021534357662d5e66ccc15
+    - 10712d50eac62face20a1779e2b11867
+    - 6284b05373f56fc18a2bec5f3b4d7205
+    
+    config:
+      languages:
+      - python
+  fixme:
+    enabled: true
+  radon:
+    enabled: true
+ratings:
+  paths:
+  - "**.py"
+exclude_paths: []
