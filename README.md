@@ -2,7 +2,7 @@ Twitter Streamer
 ================
 _Version 2.1_
 
-[![Code Climate](https://codeclimate.com/repos/57c042a426b4261722001b78/badges/6e5ebeeee2273a0fc6fe/gpa.svg)](https://codeclimate.com/repos/57c042a426b4261722001b78/feed) [![Test Coverage](https://codeclimate.com/repos/57c042a426b4261722001b78/badges/6e5ebeeee2273a0fc6fe/coverage.svg)](https://codeclimate.com/repos/57c042a426b4261722001b78/coverage) [![Issue Count](https://codeclimate.com/repos/57c042a426b4261722001b78/badges/6e5ebeeee2273a0fc6fe/issue_count.svg)](https://codeclimate.com/repos/57c042a426b4261722001b78/feed)
+[![Code Climate](https://codeclimate.com/repos/57c042a426b4261722001b78/badges/6e5ebeeee2273a0fc6fe/gpa.svg)](https://codeclimate.com/repos/57c042a426b4261722001b78/feed) [![Issue Count](https://codeclimate.com/repos/57c042a426b4261722001b78/badges/6e5ebeeee2273a0fc6fe/issue_count.svg)](https://codeclimate.com/repos/57c042a426b4261722001b78/feed)
 
 
 #### Real-Time OSINT Cyber Threat Monitoring System
