@@ -223,7 +223,7 @@ class listener(StreamListener):
         blacklist = ['Trump', 'TRUMP', 'Obama', 'Hillary', 'OpAfrica', 'OpTibet', 'OpJAT', 'Tibet', 'Yemen',
                      'FreeTibet', 'Suspended', 'GhostOfNoNation', 'Germany', 'VTFlintWater', 'Google',
                      'Android', 'Zoophile', 'OpIceISIS', 'DemDebate', 'LibCrib', 'Bernie',
-                     'OpIcarus', 'OpIsrael2016', 'OpGuerilla', 'OpWhales', 'OpTrump', 'OpPS', 'OpJAT',
+                     'OpIcarus', 'OpIsrael2016', 'OpIsrael', 'OpGuerilla', 'OpWhales', 'OpTrump', 'OpPS', 'OpJAT',
                      'HillaryClinton', 'SeaWorld', 'OpSeaWorld', 'Orcas', 'RT @', 'RT ', 'statistics', 'abortion',
                      'InnovateNAU', '866-561-2500', 'RNA', 'DNA', 'ApplevsFBI', 'WeAreNotThis'
                      'woofwoofwednesday', 'job', 'DBaileyAppeals', 'Administrator', 'Engineer', 'OpOlympicHacking',
@@ -231,7 +231,16 @@ class listener(StreamListener):
                      '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon', 'wikipedia',
                      'thinblueline', 'OfficeAdmJobsUT', 'AllJobsUT', 'FoodPrepJobsUT', 'Cyb3rdude', 'BlueLivesMatter',
                      'TransportJobsUT', 'PersonCareJobUT', 'EducTrngJobsUT', 'HealthTecJobsUT', 'ConstructJobsUT',
-                     'OpISIS', 'HillaryRottenClinton', 'ArtMediaJobs', ]
+                     'OpISIS', 'HillaryRottenClinton', 'ArtMediaJobs', 'OpHungary', 'scientology', 'Dota', 'Samsung',
+                     'FoxNews', 'London', 'NSA', 'Occupy', 'Germans', 'fb', '1TermPat', 'Gaza', 'repealhb2',
+                     'OpShutDownAnonHQ', 'OpTurkey', 'Operdogan', 'PJNET', 'Hillary2016', 'tcot', 'tlot', 'rio2016',
+                     'OpDownISIS', 'Oligarchy', 'snooperscharter', 'Israel', 'ProfessorMonaco', 'MrStinkFingers',
+                     'newnormsurvivor', 'DRandall', 'moxie_raw', '_steve3_', 'brian4NY', 'EMtranquility27',
+                     'Mercedesmyrealt', 'OpArgentina', 'clinton' 'drpatfarrell', 'EleanorChavez7', 'brunosan',
+                     'EEPublishing', 'redspireusnc', 'delbrander3', 'Vegito523', 'Wiwas1', 'FrauleinFresh',
+                     'OldLadyMitch', 'CameronLMitchel', 'MarieDugo', 'NinaBGonzales', 'Texas_Stella', 'Smokey',
+                     'JoeHilton04', 'mckl2015', 'Cannabis', 'PTSD', 'anonzeus3', 'pastebin', 'FloridaBearHunt',
+                     'OpPedoHunt', 'StopChildAbuse', 'LegionIsComing']
 
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist

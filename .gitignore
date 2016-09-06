@@ -2,15 +2,14 @@
 bin/
 bin-debug/
 bin-release/
+venv/
+.idea/
 
 # Other files and folders
 .settings/
 Records/
 test.log
-Hits.csv
-.idea/
-venv/
-*pyc
+*.pyc
 *.xlsx
 data/Twitter Streamer Accounts.csv
-credential/*.json
+data/Actor_Profiles.csv

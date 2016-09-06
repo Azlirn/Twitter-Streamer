@@ -47,14 +47,14 @@ def notify(data, url, hit):
 ##### NOTIFICATION #####
 
 System Time: %s
-Hit Type: %s
-Screen Name: %s
-Tweeter ID: %s
-Tweet Text: %s
-\nCreated At: %s
-\nCreated Using: %s
-Expanded Urls: %s
-Tweet Link: https://twitter.com/%s/status/%s\n
+\rHit Type: %s
+\rScreen Name: %s
+\rTweeter ID: %s
+\rTweet Text: %s
+\rCreated At: %s
+\rCreated Using: %s
+\rExpanded Urls: %s
+\rTweet Link: https://twitter.com/%s/status/%s\n
 
 - StreamerBot
 
