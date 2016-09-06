@@ -1,0 +1,13 @@
+Development Notes
+
+Streamer Notifications
+	Web front (similar to pbscraope)
+	Add Button for "False Positive"
+	For SLTT Mentions - Add Button for "Blacklist User"
+
+
+    user maintainer
+        when checking for IDs, if error is Failed to send request: ("bad handshake: SysCallError(54, 'Connection reset by peer')",)
+        find a way to handle this so the checker will wait x amount of time and try again.
+
+
