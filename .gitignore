@@ -2,15 +2,13 @@
 bin/
 bin-debug/
 bin-release/
+venv/
+.idea/
+.DS_Store/
 
 # Other files and folders
 .settings/
 Records/
 test.log
-Hits.csv
-.idea/
-venv/
-*pyc
+*.pyc
 *.xlsx
-data/Twitter Streamer Accounts.csv
-credential/*.json

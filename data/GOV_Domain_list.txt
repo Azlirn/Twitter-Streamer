@@ -38542,7 +38542,6 @@ k1.csdar.org
 k111.k12.il.us
 k12.al.us
 k12.ca.us
-k12.com
 k12.ct.us
 k12.de.us
 k12.fl.us

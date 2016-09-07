@@ -227,6 +227,23 @@ def stringify_url(data):
     return string_url
 
 
+# def stringify_media(data):
+#     """
+#     converts the multiple url referenced into a single string
+#     """
+#     if 'media' in data:
+#         return "FOUND"
+#     else:
+#         return  "NOT FOUND"
+#         # media_url = []
+#         # urls = []
+#         # for x in data["entities"]["media"]:
+#         #     print x
+#         #     urls.append(x["media_url_https"])
+#         #     media_url = ', '.join(urls)
+#         # return media_url
+
+
 def display_tweet(data, hit):
     # This presents a view of hits to the analyst
     print '\n'
@@ -239,6 +256,7 @@ def display_tweet(data, hit):
     print grn, "Created At: %s" % pur, data['created_at'], off
     print grn, "Tweet Link:", blu, "https://twitter.com/%s/status/%s" % (
         str(data['user']['screen_name']), str(data['id'])), off
+    # print grn, "Tweet Image Link %s: " % blu, (str(stringify_media(data))), off
     print grn, "Tweet Mentions: %s" % pur, (stringify_mentions(data)), off
     print grn, "Tweet Hashtags: %s" % pur, (stringify_hashtags_reg(data)), off
     print grn, "Expanded Url/s: %s" % blu, (str(stringify_url(data))), off
@@ -248,7 +266,7 @@ def display_tweet(data, hit):
 
 
 def write_to_json( data, hit):
-    todayDate = time.strftime("%d-%m-%y")
+    todayDate = time.strftime("%m-%d-%y")
     directory = os.getcwd() + '/Records/JSON/%s/%s' % (todayDate, hit)
 
     if not os.path.exists(directory):
