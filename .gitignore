@@ -4,6 +4,7 @@ bin-debug/
 bin-release/
 venv/
 .idea/
+.DS_Store/
 
 # Other files and folders
 .settings/
@@ -11,5 +12,3 @@ Records/
 test.log
 *.pyc
 *.xlsx
-data/Twitter Streamer Accounts.csv
-data/Actor_Profiles.csv

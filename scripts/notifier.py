@@ -65,8 +65,8 @@ WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR
 INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
 ***************************************************************************
 
-            """ % (systime, hit, data["user"]["screen_name"], data['user']['id'], data["text"], data["created_at"],
-                   data["source"], url, str(data['user']['screen_name']), str(data['id']))
+            """ % (systime, hit, data["user"]["screen_name"], data['user']['id'], data["text"],
+                   data["created_at"], data["source"], url, str(data['user']['screen_name']), str(data['id']))
 
         # pass the text to the gmail-mailer script + encode to UTF to deal with none ascii chars
         gmail_mailer.main(data_text.encode('utf8'), hit, data['user']['screen_name'])

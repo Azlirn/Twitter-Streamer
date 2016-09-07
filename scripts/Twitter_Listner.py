@@ -25,6 +25,7 @@ off = '\033[0m'  # Text Reset
 
 
 class listener(StreamListener):
+
     def __init__(self, api=None):
 
         # Variables used throughout the script
@@ -41,6 +42,7 @@ class listener(StreamListener):
         self.counter_exception = 0
         self.blacklistcounter = 0
         self.lasttime = datetime.datetime.now()
+
 
     def on_data(self, data):
         """
@@ -76,15 +78,15 @@ class listener(StreamListener):
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
 
-                        # Display
-                        starter.display_tweet(all_data, hit)
+                        # Write to JSON
+                        starter.write_to_json(all_data, hit)
 
                         # Notify
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
 
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
+                        # Display
+                        starter.display_tweet(all_data, hit)
 
                 # Test to see if user_mentions contains partner Twitter Accounts
                 elif self.SLTT_mention(all_data):
@@ -99,15 +101,15 @@ class listener(StreamListener):
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
 
-                        # Display
-                        starter.display_tweet(all_data, hit)
+                        # Write to JSON
+                        starter.write_to_json(all_data, hit)
 
                         # Notify
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
 
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
+                        # Display
+                        starter.display_tweet(all_data, hit)
 
                 # Test to see if the tweet userid is in your list
                 elif str(all_data["user"]["id"]) in self.user_names:
@@ -122,15 +124,15 @@ class listener(StreamListener):
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
 
-                        # Display tweet
-                        starter.display_tweet(all_data, hit)
+                        # Write to JSON
+                        starter.write_to_json(all_data, hit)
 
                         # Notify
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
 
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
+                        # Display tweet
+                        starter.display_tweet(all_data, hit)
 
                 # If no logical statement evaluates to True, then count the tweet as a false positive and move on.
                 else:
@@ -187,6 +189,7 @@ class listener(StreamListener):
                     from notifier import error_notify
                     error_notify(e, all_data)
 
+
     def health_notify(self):
         systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
         health_data = """
@@ -218,7 +221,6 @@ class listener(StreamListener):
         twitText = str(all_data['text'].lower().encode('utf8'))
         twitHash = starter.stringify_hashtags_lower(all_data)
         screenName = str(all_data['user']['screen_name'].lower().encode('utf8'))
-        # twitMention = self.SLTT_mention(all_data)
 
         blacklist = ['Trump', 'TRUMP', 'Obama', 'Hillary', 'OpAfrica', 'OpTibet', 'OpJAT', 'Tibet', 'Yemen',
                      'FreeTibet', 'Suspended', 'GhostOfNoNation', 'Germany', 'VTFlintWater', 'Google',
@@ -229,7 +231,7 @@ class listener(StreamListener):
                      'woofwoofwednesday', 'job', 'DBaileyAppeals', 'Administrator', 'Engineer', 'OpOlympicHacking',
                      'OpNimr', 'OpSweden', 'FreeAnons', 'OpWhales', 'OpKillingBay', 'pinterest', 'OpNo2Fur',
                      '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'job', 'jobs', 'Amazon', 'wikipedia',
-                     'thinblueline', 'OfficeAdmJobsUT', 'AllJobsUT', 'FoodPrepJobsUT', 'Cyb3rdude', 'BlueLivesMatter',
+                     'thinblueline', 'OfficeAdmJobsUT', 'AllJobsUT', 'FoodPrepJobsUT', 'BlueLivesMatter',
                      'TransportJobsUT', 'PersonCareJobUT', 'EducTrngJobsUT', 'HealthTecJobsUT', 'ConstructJobsUT',
                      'OpISIS', 'HillaryRottenClinton', 'ArtMediaJobs', 'OpHungary', 'scientology', 'Dota', 'Samsung',
                      'FoxNews', 'London', 'NSA', 'Occupy', 'Germans', 'fb', '1TermPat', 'Gaza', 'repealhb2',
@@ -240,7 +242,7 @@ class listener(StreamListener):
                      'EEPublishing', 'redspireusnc', 'delbrander3', 'Vegito523', 'Wiwas1', 'FrauleinFresh',
                      'OldLadyMitch', 'CameronLMitchel', 'MarieDugo', 'NinaBGonzales', 'Texas_Stella', 'Smokey',
                      'JoeHilton04', 'mckl2015', 'Cannabis', 'PTSD', 'anonzeus3', 'pastebin', 'FloridaBearHunt',
-                     'OpPedoHunt', 'StopChildAbuse', 'LegionIsComing']
+                     'OpPedoHunt', 'StopChildAbuse', 'LegionIsComing', 'Harambe', 'OpRodeo']
 
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist
@@ -273,8 +275,6 @@ class listener(StreamListener):
                 return True
 
 
-
-
     def domain_test(self, data):
         '''
         Will test to see if the Urls mentioned are part of the loaded domains.
@@ -287,7 +287,6 @@ class listener(StreamListener):
             print str(e)
             return False
         return any(result)
-
 
 
     def SLTT_mention(self, data):
