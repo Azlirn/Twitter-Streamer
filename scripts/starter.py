@@ -111,7 +111,7 @@ def username_loader():
     unames = []
     file = open('data/Actor_Profiles.csv', 'rU')
     reader = csv.reader(file)
-    next(reader, None)  # ignore the csv headers
+    # next(reader, None)  # ignore the csv headers
     data = list(reader)
 
     for row in data:
