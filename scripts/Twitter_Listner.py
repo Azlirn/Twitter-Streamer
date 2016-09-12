@@ -242,7 +242,7 @@ class listener(StreamListener):
                      'EEPublishing', 'redspireusnc', 'delbrander3', 'Vegito523', 'Wiwas1', 'FrauleinFresh',
                      'OldLadyMitch', 'CameronLMitchel', 'MarieDugo', 'NinaBGonzales', 'Texas_Stella', 'Smokey',
                      'JoeHilton04', 'mckl2015', 'Cannabis', 'PTSD', 'anonzeus3', 'pastebin', 'FloridaBearHunt',
-                     'OpPedoHunt', 'StopChildAbuse', 'LegionIsComing', 'Harambe', 'OpRodeo']
+                     'OpPedoHunt', 'StopChildAbuse', 'LegionIsComing', 'Harambe', 'OpRodeo', 'AB2998']
 
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist
