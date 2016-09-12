@@ -3,20 +3,20 @@ import Twitter_Listner
 
 
 def authenticate_to_twitter():
-    ckey = "Km42d2CwKsof2SVHybeCQJIl0"
-    csecret = "yAVfwoO9cezIDYMw8kvxqKqE4pdb6v5il0nylISKhYsmCiXQ8d"
-    atoken = "2871242755-DpeU6UXMMXFDjl27nDmsWbV9XB1IP2TJViKxluH"
-    asecret = "qOdzs0V72QkFuhBS1yMFyV3CtKh3nuakSGepOOdxrJbuK"
+    ckey = "SpIn89OEDYiX2Jkmu8rhmf6v7"
+    csecret = "MdsjIzfAdb3M2fqUV311sr8uQv3H1jSQfQGfd3NbUSUjsqxydB"
+    atoken = "86768703-0T6rFyAIoKJdLjRD6mTD9V2nvZvah1wPBZ0bru9J8"
+    asecret = "B9au0cyO0EM2L01UewFFNyhEdg4S8V2XaNfnEaIxx0r3m"
 
     auth = tweepy.OAuthHandler(ckey, csecret)
     auth.set_access_token(atoken, asecret)
     return tweepy.API(auth)
 
 def set_up_listener():
-    ckey = "Km42d2CwKsof2SVHybeCQJIl0"
-    csecret = "yAVfwoO9cezIDYMw8kvxqKqE4pdb6v5il0nylISKhYsmCiXQ8d"
-    atoken = "2871242755-DpeU6UXMMXFDjl27nDmsWbV9XB1IP2TJViKxluH"
-    asecret = "qOdzs0V72QkFuhBS1yMFyV3CtKh3nuakSGepOOdxrJbuK"
+    ckey = "SpIn89OEDYiX2Jkmu8rhmf6v7"
+    csecret = "MdsjIzfAdb3M2fqUV311sr8uQv3H1jSQfQGfd3NbUSUjsqxydB"
+    atoken = "86768703-0T6rFyAIoKJdLjRD6mTD9V2nvZvah1wPBZ0bru9J8"
+    asecret = "B9au0cyO0EM2L01UewFFNyhEdg4S8V2XaNfnEaIxx0r3m"
 
     auth = tweepy.OAuthHandler(ckey, csecret)
     auth.set_access_token(atoken, asecret)
