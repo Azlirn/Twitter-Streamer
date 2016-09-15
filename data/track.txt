@@ -36,7 +36,7 @@ CaliphateCyberArmy,
 CalvinCross,
 CCA,
 CCA_,
-ccot,
+CCA_,
 CentOS,
 CoalitionProgress,
 CounterTerrorism,
@@ -278,3 +278,6 @@ Army_spam_campaign_Aldoaash
 Pirates_succession
 Mandate_of_fallujah
 DanielHarris
+MoonKlan
+MoonKlann
+Data Breach

@@ -4278,7 +4278,6 @@ bagley.murray.k12.ga.us
 bagleymn.us
 bahs.rsu71.org
 bai.fauquiercounty.gov
-baidu.com
 bailey.fldusd.org
 bailey.jpsms.org
 bailey.mysdhc.org
@@ -70703,7 +70702,6 @@ tces.turner.k12.ga.us
 tceweb.stanwood.wednet.edu
 tcf.ua.edu
 tcfbank.com
-tcfile.baidu.com
 tcgearup.web.arizona.edu
 tcgis.org
 tch.leusd.k12.ca.us
