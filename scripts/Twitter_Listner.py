@@ -69,6 +69,16 @@ class listener(StreamListener):
                 if self.domain_test(all_data):
                     if self.blacklist(all_data):
                         pass
+                    elif all_data['user']['screen_name'] == "hacked_emails":
+                        if "pastebin" in all_data['text']:
+                            self.counter_false = self.counter_false + 1
+                            self.counter_all = self.counter_all + 1
+                            pass
+                        elif all_data['user']['screen_name'] == 'orca_waves':
+                            if 'woofwoofwednesday' or 'WoofWoofWednesday' or 'Woofwoofwednesday' in all_data:
+                                self.counter_false = self.counter_false + 1
+                                self.counter_all = self.counter_all + 1
+                                pass
                     else:
                         # Hit Type
                         hit = 'SLTT DOMAIN MENTION'
@@ -92,6 +102,16 @@ class listener(StreamListener):
                 elif self.SLTT_mention(all_data):
                     if self.blacklist(all_data):
                         pass
+                    elif all_data['user']['screen_name'] == "hacked_emails":
+                        if "pastebin" in all_data['text']:
+                            self.counter_false = self.counter_false + 1
+                            self.counter_all = self.counter_all + 1
+                            pass
+                    elif all_data['user']['screen_name'] == 'orca_waves':
+                        if 'woofwoofwednesday' or 'WoofWoofWednesday' or 'Woofwoofwednesday' in all_data:
+                            self.counter_false = self.counter_false + 1
+                            self.counter_all = self.counter_all + 1
+                            pass
                     else:
                         # Hit type
                         hit = 'SLTT TWITTER MENTION'
@@ -115,6 +135,16 @@ class listener(StreamListener):
                 elif str(all_data["user"]["id"]) in self.user_names:
                     if self.blacklist(all_data):
                         pass
+                    elif all_data['user']['screen_name'] == "hacked_emails":
+                        if "pastebin" in all_data['text']:
+                            self.counter_false = self.counter_false + 1
+                            self.counter_all = self.counter_all + 1
+                            pass
+                        elif all_data['user']['screen_name'] == 'orca_waves':
+                            if 'woofwoofwednesday' or 'WoofWoofWednesday' or 'Woofwoofwednesday' in all_data:
+                                self.counter_false = self.counter_false + 1
+                                self.counter_all = self.counter_all + 1
+                                pass
                     else:
                         # Hit type
                         hit = "KNOWN THREAT ACTOR ACTIVITY"

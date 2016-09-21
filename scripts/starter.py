@@ -38,8 +38,8 @@ def print_headers():
     print red, "This version of the Twitter Streamer is authorized only for use by the MS-ISAC", off
     print ''
     print cyn, "Developed by Philippe Langlois & Chris Cooley", off
-    print cyn, "Copyright 2015 - 2016"
     print blu, "#" * 60, off
+    print ''
 
     time.sleep(5)
 
@@ -88,14 +88,17 @@ def domain_loader():
         Plus the domains from the file "GOV_Domain_list.csv" from which the
         first row contains the actual domains
         """
-        domains = []
-        print blu, "[*] Loading Domains...", off
-        with open('data/GOV_Domain_list.txt') as f:
-            for domain in f.readlines():
-                dom = domain.strip('\n').strip('\r').lower()
-                domains.append(str(dom))
-        print grn, "[*] Finished loading %s domains!\n" % len(domains), off
-        return domains
+        try:
+            domains = []
+            print blu, "[*] Loading Domains...", off
+            with open('data/GOV_Domain_list.txt') as f:
+                for domain in f.readlines():
+                    dom = domain.strip('\n').strip('\r').lower()
+                    domains.append(str(dom))
+            print grn, "[*] Finished loading %s domains!\n" % len(domains), off
+            return domains
+        except:
+            print " [!] Error occured while loading domains..."
 
 
 def username_loader():
@@ -263,6 +266,7 @@ def display_tweet(data, hit):
     print wht, "System Time: %s" % (datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y% %H:%M:%S')), off
     print '\n', off
     print red, '#' * 40, yel, ' %s' % blu, hit, red, '#' * 40, off
+    print ''
 
 
 def write_to_json( data, hit):
@@ -285,6 +289,7 @@ def displayBlacklist( all_data, termfound):
 
     twitHash = stringify_hashtags_lower(all_data)
 
+    print ''
     print yel, '#' * 20, red, "Blacklisted Term Found", yel, '#' * 20, off
     print cyn, 'Term Found: ', grn, termfound, off
     print wht, "Tweet Posted By %s" % red, str(all_data['user']['screen_name']), off
@@ -295,7 +300,6 @@ def displayBlacklist( all_data, termfound):
     print blu, "Tweet Hashtags: ", twitHash, off
     print grn, "Tweet Mentions: %s" % pur, (stringify_mentions(all_data)), off
     print grn, "Expanded Url: %s" % blu, (str(stringify_url(all_data))), off
-    print ''
     print ''
 
 def disabling_ssl_warning():
