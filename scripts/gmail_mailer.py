@@ -68,7 +68,6 @@ def main(text_data, hittype, username):
     try:
         message = (gmail_service.users().messages().send(userId="me", body=body).execute())
         print " [*] Notification Email Sent - Message ID: %s" % message['id']
-        print '\n'
     except Exception as error:
         print ' [!] An error occurred while attempting to send a notification email: %s' % error
 
