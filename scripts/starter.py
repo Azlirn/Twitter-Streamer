@@ -224,11 +224,14 @@ def stringify_url(data):
 
     string_url = []
     urls = []
-    for x in data["entities"]["urls"]:
-        urls.append(x["expanded_url"])
-        string_url = ', '.join(urls)
-    return string_url
-
+    try:
+        for x in data["entities"]["urls"]:
+            if x['expanded_url'] is not None:
+                urls.append(x["expanded_url"])
+                string_url = ', '.join(urls)
+        return string_url
+    except Exception as e:
+        print "\nERROR - stringify_url Function\n"
 
 # def stringify_media(data):
 #     """
@@ -269,7 +272,7 @@ def display_tweet(data, hit):
     print ''
 
 
-def write_to_json( data, hit):
+def write_to_json(data, hit):
     todayDate = time.strftime("%m-%d-%y")
     directory = os.getcwd() + '/Records/JSON/%s/%s' % (todayDate, hit)
 
@@ -285,7 +288,7 @@ def write_to_json( data, hit):
         json.dump(data, outfile)
 
 
-def displayBlacklist( all_data, termfound):
+def displayBlacklist(all_data, termfound):
 
     twitHash = stringify_hashtags_lower(all_data)
 

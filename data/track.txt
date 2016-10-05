@@ -4,6 +4,7 @@
 1337day,
 1StateAtATime,
 4Darrien,
+Admin,
 AGiftFromPolice,
 AKIELDENKINS,
 AliMohammedAlNimr,
@@ -81,6 +82,7 @@ FreeNimr,
 FreePalestine,
 FreeSyria,
 FU2Sec,
+FTP,
 g00dby3,
 GatorLazerBeam,
 GatorLeague,
@@ -271,13 +273,22 @@ welcometoPWNage,
 WeTheBold,
 Xss,
 XssEdByJM511,
-Khilfah_hackers
-Islamic_country
-Caliphate_state
-Army_spam_campaign_Aldoaash
-Pirates_succession
-Mandate_of_fallujah
-DanielHarris
-MoonKlan
-MoonKlann
-Data Breach
+Khilfah_hackers,
+Islamic_country,
+Caliphate_state,
+Army_spam_campaign_Aldoaash,
+Pirates_succession,
+Mandate_of_fallujah,
+DanielHarris,
+MoonKlan,
+MoonKlann,
+Data Breach,
+OpBlackOct,
+Crutcher,
+BettyShelby,
+KeithScott,
+KeithLamontScott,
+Kerr Putney,
+KerrPutney,
+TerenceCrutcher,
+Ghostbin,

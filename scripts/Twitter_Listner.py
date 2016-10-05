@@ -188,7 +188,7 @@ class listener(StreamListener):
             if self.counter_all % 50000 == 0:
                 self.health_notify()
 
-        except:
+        except Exception as e:
 
             try:
                 if all_data['limit']['track'] >= 10000:
@@ -211,13 +211,19 @@ class listener(StreamListener):
             except Exception as e:
                 self.counter_exception = self.counter_exception + 1
                 if 'text' or 'limit' in e:
+                    print yel, '\nException --> Message: %s\n' % e
+                    hit = "EXCEPTIONS - LIMIT"
+                    starter.write_to_json(all_data, hit)
                     pass
                 else:
                     print red, "#" * 40, off
-                    print yel, 'Exception --> Message: %s' % e
+                    print yel, '\nException --> Message: %s\n' % e
                     print ''
+                    hit = "EXCEPTIONS"
+                    starter.write_to_json(all_data, hit)
                     from notifier import error_notify
                     error_notify(e, all_data)
+
 
 
     def health_notify(self):
@@ -270,7 +276,7 @@ class listener(StreamListener):
                      'OpDownISIS', 'Oligarchy', 'Israel', 'OpArgentina', 'clinton', 'EEPublishing', 'Smokey',
                      'Cannabis', 'OpPedoHunt', 'StopChildAbuse', 'LegionIsComing', 'Harambe', 'OpRodeo',
                      'AB2998', 'AB2298', 'OpGabon', 'NCAA', 'OpJesusChristSuperStar', 'SaveTheWhales', 'CaliBreachBot',
-                     'GovPdfs', 'HB2']
+                     'GovPdfs', 'HB2', 'krebs']
 
         bl = [item.lower() for item in blacklist]
         # Check to see if the tweet contains a word in our blacklist
@@ -310,9 +316,12 @@ class listener(StreamListener):
         result = []
         try:
             for x in data['entities']['urls']:
-                result.append(str(urlparse(x["expanded_url"]).netloc).lower() in self.domains)
+                if x['expanded_url'] is not None:
+                    result.append(str(urlparse(x["expanded_url"]).netloc).lower() in self.domains)
+                else:
+                    pass
         except Exception, e:
-            print str(e)
+            print "Domain Test Error: ", str(e)
             return False
         return any(result)
 
@@ -327,7 +336,7 @@ class listener(StreamListener):
             for x in data['entities']['user_mentions']:
                 result.append(x["screen_name"] in self.TwitSLTT)
         except Exception, e:
-            print str(e)
+            print "SLTT Mention Error: ", str(e)
             return False
         return any(result)
 
