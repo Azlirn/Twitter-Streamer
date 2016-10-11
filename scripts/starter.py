@@ -27,7 +27,6 @@ off = '\033[0m'  # Text Reset
 def print_headers():
     '''
     This function simply asks the OS to clear the existing window
-
     '''
     os.system('cls' if os.name == 'nt' else 'clear')
     print "#" * 80

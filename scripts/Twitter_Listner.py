@@ -65,23 +65,37 @@ class listener(StreamListener):
             if all_data['retweeted']:
                 pass
 
+
             else:
+
+                ###                     ###
+                ###     DOMAIN TEST     ###
+                ###                     ###
+
                 if self.domain_test(all_data):
-                    # If a domain is found, check to see if a blacklisted term is in the tweet. If a blacklisted term
+
+                    # If a tweet is found, check to see if a blacklisted term is in the tweet. If a blacklisted term
                     # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
-                    # If the tweet passes the blacklist check, check the screen name. If the screen name == 'hacked_emails'
-                    # and the tweet contains the term 'pastebin', ignore the tweet.
+
+                    # # # #  MS-ISAC  Unique  # # # #
+
+                    # Check to see if a particular known user account contains the keyword "pastebin"
+                    # If the account posts a tweet containing this term, ignore the tweet.
+
 
                     elif all_data['user']['screen_name'] == "hacked_emails":
                         if "pastebin" in all_data['text']:
                             self.counter_false = self.counter_false + 1
                             self.counter_all = self.counter_all + 1
                             pass
+
+                    # # # #  MS-ISAC  Unique  # # # #
+
                     else:
                         # Hit Type
-                        hit = 'SLTT DOMAIN MENTION'
+                        hit = 'DOMAIN MENTION'
 
                         # Counter increase
                         self.counter_hit_Domain = self.counter_hit_Domain + 1
@@ -98,20 +112,32 @@ class listener(StreamListener):
                         # Display
                         starter.display_tweet(all_data, hit)
 
-                # Test to see if user_mentions contains partner Twitter Accounts
+
+                ###                     ###
+                ###  SLTT Mention Test  ###
+                ###                     ###
+
                 elif self.SLTT_mention(all_data):
+
+                    # If a tweet is found, check to see if a blacklisted term is in the tweet. If a blacklisted term
+                    # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
+
+                    # # # #  MS-ISAC  Unique  # # # #
+
+                    # Check to see if a particular known user account contains the keyword "pastebin"
+                    # If the account posts a tweet containing this term, ignore the tweet.
+
+
                     elif all_data['user']['screen_name'] == "hacked_emails":
                         if "pastebin" in all_data['text']:
                             self.counter_false = self.counter_false + 1
                             self.counter_all = self.counter_all + 1
                             pass
-                    elif all_data['user']['screen_name'] == 'orca_waves':
-                        if 'woofwoofwednesday' or 'WoofWoofWednesday' or 'Woofwoofwednesday' in all_data:
-                            self.counter_false = self.counter_false + 1
-                            self.counter_all = self.counter_all + 1
-                            pass
+
+                    # # # #  MS-ISAC  Unique  # # # #
+
                     else:
                         # Hit type
                         hit = 'SLTT TWITTER MENTION'
@@ -131,11 +157,17 @@ class listener(StreamListener):
                         # Display
                         starter.display_tweet(all_data, hit)
 
-                # Test to see if the tweet userid is in your list
+
+                ###                     ###
+                ###  CTA Mention Test   ###
+                ###                     ###
+
                 elif str(all_data["user"]["id"]) in self.user_names:
+
+                    # If a tweet is found, check to see if a blacklisted term is in the tweet. If a blacklisted term
+                    # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
-
 
                     # # # #  MS-ISAC  Unique  # # # #
 
@@ -151,10 +183,9 @@ class listener(StreamListener):
 
                     # # # #  MS-ISAC  Unique  # # # #
 
-
                     else:
                         # Hit type
-                        hit = "KNOWN THREAT ACTOR ACTIVITY"
+                        hit = "KNOWN CTA ACTIVITY"
 
                         # Counter increase
                         self.counter_hit_Keyword = self.counter_hit_Keyword + 1
@@ -171,22 +202,28 @@ class listener(StreamListener):
                         # Display tweet
                         starter.display_tweet(all_data, hit)
 
+
                 # If no logical statement evaluates to True, then count the tweet as a false positive and move on.
                 else:
                     self.counter_false = self.counter_false + 1
                     self.counter_all = self.counter_all + 1
 
+            # Every 50,000 Tweets processed, send a health check email to the specified recipients.
+            # WISH LIST: Have the emails used for health checks, configured during set up.
             if self.counter_all % 50000 == 0:
                 self.health_notify()
+
 
         except Exception as e:
 
             try:
+                # Exception to handle messages that indicate Tweets are becoming backlogged.
                 if all_data['limit']['track'] >= 10000:
                     print '\n'
                     print yel, "#" * 60, off
                     print red, "SYSTEM HAS FALLEN TOO FAR BEHIND AND RISKS CRASHING - AUTO REFRESHING CONNECTION", off
                     print yel, "#" * 60, off
+                    print '\n'
                     time.sleep(2)
                     from TwitterStreamer import main
                     print yel, "Restarting Streamer Now...", off
@@ -196,17 +233,20 @@ class listener(StreamListener):
                     print '\n'
                     print yel, "#" * 60, off
                     print red, "WARNING - SYSTEM IS FALLING BEHIND", off
-                    # print red, "YOU ARE %s TWEETS BEHIND" % all_data['limit']['track'], off
                     print yel, "#" * 60, off
+                    print '\n'
 
             except Exception as e:
                 self.counter_exception = self.counter_exception + 1
+                # Exception to handle 'limit' errors.
                 if 'text' or 'limit' in e:
                     print yel, '\nException --> Message: %s\n' % e
                     hit = "EXCEPTIONS - LIMIT"
                     starter.write_to_json(all_data, hit)
                     pass
+
                 else:
+                    # Exception to handle any other errors.
                     print red, "#" * 40, off
                     print yel, '\nException --> Message: %s\n' % e
                     print ''
@@ -237,7 +277,7 @@ class listener(StreamListener):
                 Exceptions raised: %s
 
     Thanks!
-        - Cyb3rdude""" % (systime, self.counter_all, self.blacklistcounter, self.counter_false, self.counter_hit,
+        - StreamerBot""" % (systime, self.counter_all, self.blacklistcounter, self.counter_false, self.counter_hit,
                              self.counter_hit_SLTT, self.counter_hit_Domain, self.counter_hit_Keyword,
                              self.counter_exception)
         gmail_mailer.error_message(health_data.encode('utf8'), 'health_check')
@@ -249,27 +289,9 @@ class listener(StreamListener):
         twitHash = starter.stringify_hashtags_lower(all_data)
         screenName = str(all_data['user']['screen_name'].lower().encode('utf8'))
 
-        blacklist = ['Trump', 'TRUMP', 'Obama', 'Hillary', 'OpAfrica', 'OpTibet', 'OpJAT', 'Tibet', 'Yemen',
-                     'FreeTibet', 'Suspended', 'GhostOfNoNation', 'Germany', 'VTFlintWater', 'Google',
-                     'Android', 'Zoophile', 'OpIceISIS', 'DemDebate', 'LibCrib', 'Bernie',
-                     'OpIcarus', 'OpIsrael2016', 'OpIsrael', 'OpGuerilla', 'OpWhales', 'OpTrump', 'OpPS', 'OpJAT',
-                     'HillaryClinton', 'SeaWorld', 'OpSeaWorld', 'Orcas', 'RT @', 'RT ', 'statistics', 'abortion',
-                     'InnovateNAU', '866-561-2500', 'RNA', 'DNA', 'ApplevsFBI', 'WeAreNotThis'
-                     'woofwoofwednesday', 'job', 'DBaileyAppeals', 'OpOlympicHacking',
-                     'OpNimr', 'OpSweden', 'OpWhales', 'OpKillingBay', 'pinterest', 'OpNo2Fur',
-                     'OpNimr', 'OpSweden', 'OpWhales', 'OpKillingBay', 'pinterest', 'OpNo2Fur',
-                     '0daytoday', 'elpasotimes', 'GresCosette', 'HelenaJobs', 'thinblueline', 'OfficeAdmJobsUT',
-                     'AllJobsUT', 'FoodPrepJobsUT', 'BlueLivesMatter', 'TransportJobsUT', 'PersonCareJobUT',
-                     'EducTrngJobsUT', 'HealthTecJobsUT', 'ConstructJobsUT',
-                     'OpISIS', 'HillaryRottenClinton', 'ArtMediaJobs', 'OpHungary', 'scientology', 'Dota', 'Samsung',
-                     'FoxNews', 'London', 'NSA', 'Occupy', 'Germans', 'fb', '1TermPat', 'Gaza', 'repealhb2',
-                     'OpShutDownAnonHQ', 'OpTurkey', 'Operdogan', 'PJNET', 'Hillary2016', 'tcot', 'tlot', 'rio2016',
-                     'OpDownISIS', 'Oligarchy', 'Israel', 'OpArgentina', 'clinton', 'EEPublishing', 'Smokey',
-                     'Cannabis', 'OpPedoHunt', 'StopChildAbuse', 'LegionIsComing', 'Harambe', 'OpRodeo',
-                     'AB2998', 'AB2298', 'OpGabon', 'NCAA', 'OpJesusChristSuperStar', 'SaveTheWhales', 'CaliBreachBot',
-                     'GovPdfs', 'HB2', 'krebs']
-
+        blacklist = [lines.replace('\n','').replace(',','') for lines in open('data/blacklist.txt')]
         bl = [item.lower() for item in blacklist]
+
         # Check to see if the tweet contains a word in our blacklist
         # Checks hashtags, text, and screen names.
 
