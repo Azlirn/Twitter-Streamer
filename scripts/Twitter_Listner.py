@@ -67,18 +67,18 @@ class listener(StreamListener):
 
             else:
                 if self.domain_test(all_data):
+                    # If a domain is found, check to see if a blacklisted term is in the tweet. If a blacklisted term
+                    # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
+                    # If the tweet passes the blacklist check, check the screen name. If the screen name == 'hacked_emails'
+                    # and the tweet contains the term 'pastebin', ignore the tweet.
+
                     elif all_data['user']['screen_name'] == "hacked_emails":
                         if "pastebin" in all_data['text']:
                             self.counter_false = self.counter_false + 1
                             self.counter_all = self.counter_all + 1
                             pass
-                        elif all_data['user']['screen_name'] == 'orca_waves':
-                            if 'woofwoofwednesday' or 'WoofWoofWednesday' or 'Woofwoofwednesday' in all_data:
-                                self.counter_false = self.counter_false + 1
-                                self.counter_all = self.counter_all + 1
-                                pass
                     else:
                         # Hit Type
                         hit = 'SLTT DOMAIN MENTION'
@@ -116,7 +116,7 @@ class listener(StreamListener):
                         # Hit type
                         hit = 'SLTT TWITTER MENTION'
 
-                        # Counter Increase
+                            # Counter Increase
                         self.counter_hit_SLTT = self.counter_hit_SLTT + 1
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
@@ -135,16 +135,23 @@ class listener(StreamListener):
                 elif str(all_data["user"]["id"]) in self.user_names:
                     if self.blacklist(all_data):
                         pass
+
+
+                    # # # #  MS-ISAC  Unique  # # # #
+
+                    # Check to see if a particular known user account contains the keyword "pastebin"
+                    # If the account posts a tweet containing this term, ignore the tweet.
+
+
                     elif all_data['user']['screen_name'] == "hacked_emails":
                         if "pastebin" in all_data['text']:
                             self.counter_false = self.counter_false + 1
                             self.counter_all = self.counter_all + 1
                             pass
-                        elif all_data['user']['screen_name'] == 'orca_waves':
-                            if 'woofwoofwednesday' or 'WoofWoofWednesday' or 'Woofwoofwednesday' in all_data:
-                                self.counter_false = self.counter_false + 1
-                                self.counter_all = self.counter_all + 1
-                                pass
+
+                    # # # #  MS-ISAC  Unique  # # # #
+
+
                     else:
                         # Hit type
                         hit = "KNOWN THREAT ACTOR ACTIVITY"
@@ -168,22 +175,6 @@ class listener(StreamListener):
                 else:
                     self.counter_false = self.counter_false + 1
                     self.counter_all = self.counter_all + 1
-
-            if self.counter_all % 500 == 0:
-
-                print '\n'
-                print blu, '#' * 20, grn, "Health Check", blu, '#' * 20, off
-                print grn, "Total Tweets Processed:", blu, self.counter_all, off
-                print grn, "Total Tweets Ignored (Blacklist):", blu, self.blacklistcounter, off
-                print grn, "Total Tweets Ignored (False Positives):", blu, self.counter_false, off
-                print wht, "Total Tweets HIT:", cyn, self.counter_hit, off
-                print yel, "SLTT Mentions:", pur, self.counter_hit_SLTT, off
-                print yel, "Domain Hits:", pur, self.counter_hit_Domain, off
-                print yel, "Keyword Mentions:", pur, self.counter_hit_Keyword, off
-                print red, "Exceptions Raised:", yel, self.counter_exception, off
-                print blu, "System time is:", datetime.datetime.strftime(datetime.datetime.now(),
-                                                                         '%m-%d-%Y %H:%M:%S'), off
-                print '\n'
 
             if self.counter_all % 50000 == 0:
                 self.health_notify()
