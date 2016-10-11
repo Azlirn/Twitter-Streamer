@@ -1,9 +1,6 @@
 Twitter Streamer
 ================
-_Version 2.1_
-
-[![Code Climate](https://codeclimate.com/repos/57c042a426b4261722001b78/badges/6e5ebeeee2273a0fc6fe/gpa.svg)](https://codeclimate.com/repos/57c042a426b4261722001b78/feed) 
-[![Issue Count](https://codeclimate.com/repos/57c042a426b4261722001b78/badges/6e5ebeeee2273a0fc6fe/issue_count.svg)](https://codeclimate.com/repos/57c042a426b4261722001b78/feed)
+_Version 2.0_
 
 #### Real-Time OSINT Cyber Threat Monitoring System
 The Twitter Streamer is a Python application intended to notify cyber intelligence analysts or a specified audience of cyber threats found on Twitter, that target U.S. state, local, tribal, and territorial (SLTT) governments.
@@ -38,6 +35,7 @@ You must have the following to operate this application:
 
 * OSX or Debian (other linux kernals have not been tested - use at your own risk)
      * Windows compatibility is not available at this time.
+     * _NOTE: Operating with OSX may be buggy at times. If you find an issue, please let us know! We will get it resolved as soon as possible._     
 * [Internet Connection](http://www.speedtest.net/)
 * [Intermediate Python Skills](https://www.codecademy.com/learn/python)
 * [Twitter Development Account](https://dev.twitter.com/)
