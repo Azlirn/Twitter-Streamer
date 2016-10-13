@@ -265,7 +265,7 @@ def display_tweet(data, hit):
     print grn, "Tweet Mentions: %s" % pur, (stringify_mentions(data)), off
     print grn, "Tweet Hashtags: %s" % pur, (stringify_hashtags_reg(data)), off
     print grn, "Expanded Url/s: %s" % blu, (str(stringify_url(data))), off
-    print wht, "System Time: %s" % (datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y% %H:%M:%S')), off
+    print wht, "System Time: %s" % (datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')), off
     print '\n', off
     print red, '#' * 40, yel, ' %s' % blu, hit, red, '#' * 40, off
     print ''

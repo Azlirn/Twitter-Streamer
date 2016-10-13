@@ -1,9 +1,18 @@
 Twitter Streamer
 ================
-_Version 2.0_
+_Version 2.2_
+
+### Version 2.2 Released!
+
+Screenshots are now taken of all hits and saved in the Records folder under Screenshots. 
+This functionality is only available on Linux platforms at this time and has not been tested on other platforms. 
+This new feature may break functionality with OSX platforms. 
+
+
 
 #### Real-Time OSINT Cyber Threat Monitoring System
 The Twitter Streamer is a Python application intended to notify cyber intelligence analysts or a specified audience of cyber threats found on Twitter, that target U.S. state, local, tribal, and territorial (SLTT) governments.
+
 
 **History**
 
@@ -33,9 +42,8 @@ While the number of potential threats discovered is minuscule compared to the nu
 Currently the operation of the Twitter Streamer must be done from the command line.
 You must have the following to operate this application:
 
-* OSX or Debian (other linux kernals have not been tested - use at your own risk)
-     * Windows compatibility is not available at this time.
-     * _NOTE: Operating with OSX may be buggy at times. If you find an issue, please let us know! We will get it resolved as soon as possible._     
+* Debian Linux (other linux kernals have not been tested - use at your own risk)
+     * Windows compatibility is not available at this time. 
 * [Internet Connection](http://www.speedtest.net/)
 * [Intermediate Python Skills](https://www.codecademy.com/learn/python)
 * [Twitter Development Account](https://dev.twitter.com/)
@@ -50,7 +58,8 @@ _Keep in mind that basic user accounts will likely need `sudo` access to install
 * [Gmail API](https://developers.google.com/gmail/api/quickstart/python) ( _to be removed in a later version_ )
      * To install the Gmail Python API Library:
      `pip install --upgrade google-api-python-client`
-     * Check out other installation options [here](https://developers.google.com/api-client-library/python/start/installation)
+     * Check out other installation options [here](https://developers.google.com/api-client-library/python/start/installation)\
+* Mozilla Firefox
 
 (This section to be updated)
 

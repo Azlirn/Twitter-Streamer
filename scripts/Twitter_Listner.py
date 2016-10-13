@@ -5,6 +5,8 @@ from tweepy.streaming import StreamListener
 import gmail_mailer, notifier, starter
 import time, datetime, json
 from urlparse import urlparse
+import platform
+import streamerShot
 
 reload(gmail_mailer)
 reload(notifier)
@@ -42,6 +44,7 @@ class listener(StreamListener):
         self.counter_exception = 0
         self.blacklistcounter = 0
         self.lasttime = datetime.datetime.now()
+        self.os = platform.system()
 
 
     def on_data(self, data):
@@ -109,6 +112,9 @@ class listener(StreamListener):
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
 
+                        # Take Screenshot
+                        streamerShot.main(all_data, self.os)
+
                         # Display
                         starter.display_tweet(all_data, hit)
 
@@ -154,6 +160,9 @@ class listener(StreamListener):
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
 
+                        # Take Screenshot
+                        streamerShot.main(all_data, self.os)
+
                         # Display
                         starter.display_tweet(all_data, hit)
 
@@ -198,6 +207,9 @@ class listener(StreamListener):
                         # Notify
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
+
+                        # Take Screenshot
+                        streamerShot.main(all_data, self.os)
 
                         # Display tweet
                         starter.display_tweet(all_data, hit)
