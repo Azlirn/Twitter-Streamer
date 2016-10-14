@@ -302,6 +302,7 @@ class listener(StreamListener):
         screenName = str(all_data['user']['screen_name'].lower().encode('utf8'))
 
         blacklist = [lines.replace('\n','').replace(',','') for lines in open('data/blacklist.txt')]
+
         bl = [item.lower() for item in blacklist]
 
         # Check to see if the tweet contains a word in our blacklist
