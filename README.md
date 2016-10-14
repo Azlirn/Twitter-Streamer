@@ -49,22 +49,38 @@ You must have the following to operate this application:
 * [Twitter Development Account](https://dev.twitter.com/)
 	* You will need to create a Twitter application in order to obtain API keys to use this program. 
 	* https://apps.twitter.com/
+* pip is required for the installation of the packages used for this platform. 
+    * Install pip: `apt-get install python-pip python-dev build-essential`
 
 **Dependencies**
 
 _Keep in mind that basic user accounts will likely need `sudo` access to install dependencies._
 
 * Tweepy
+    * To install Tweepy:
+    `pip install tweepy`
 * [Gmail API](https://developers.google.com/gmail/api/quickstart/python) ( _to be removed in a later version_ )
      * To install the Gmail Python API Library:
      `pip install --upgrade google-api-python-client`
      * Check out other installation options [here](https://developers.google.com/api-client-library/python/start/installation)\
 * Mozilla Firefox
 
+* Selenium
+    * To install selenium:
+    `pip install selenium`
+
+
 (This section to be updated)
 
 ## How to operate
-(This section to come)
+
+The streamer is streamlined to operate on an Ubuntu AWS instance.
+
+We operate the streamer via an SSH connection with our AWS instance. 
+
+We use `screen` to run our script without an active SSH connection. 
+
+* Screen Basic Tutorial: http://thingsilearned.com/2009/05/26/gnu-screen-super-basic-tutorial/
 
 ## Contributors
 
