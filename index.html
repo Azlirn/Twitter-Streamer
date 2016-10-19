@@ -1,36 +1,25 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Twitter-streamer by Azlirn</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">Twitter-streamer</h1>
-        <p class="header">A Twitter application intended to detect cyber threats targeting a given entity</p>
+    <section class="page-header">
+      <h1 class="project-name">Twitter-streamer</h1>
+      <h2 class="project-tagline">A Twitter application intended to detect cyber threats targeting a given entity</h2>
+      <a href="https://github.com/Azlirn/Twitter-Streamer" class="btn">View on GitHub</a>
+      <a href="https://github.com/Azlirn/Twitter-Streamer/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Azlirn/Twitter-Streamer/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/Azlirn/Twitter-Streamer/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/Azlirn/Twitter-Streamer/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/Azlirn/Twitter-Streamer">View On GitHub</a></li>
-        </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/Azlirn">Azlirn</a></p>
-
-
-      </header>
-      <section>
-        <h1>
+    <section class="main-content">
+      <h1>
 <a id="twitter-streamer" class="anchor" href="#twitter-streamer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Twitter Streamer</h1>
 
 <p><em>Version 2.2</em></p>
@@ -38,7 +27,7 @@
 <h4>
 <a id="real-time-osint-cyber-threat-monitoring-system" class="anchor" href="#real-time-osint-cyber-threat-monitoring-system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Real-Time OSINT Cyber Threat Monitoring System</h4>
 
-<p>The Twitter Streamer is a Python application intended to notify cyber intelligence analysts or a specified audience of cyber threats found on Twitter, that target U.S. state, local, tribal, and territorial (SLTT) governments.</p>
+<p>The Twitter Streamer is a Python application intended to notify cyber intelligence analysts or a specified audience of cyber threats found on Twitter, that target provided entities.</p>
 
 <blockquote>
 <p>If you are interested in the Twitter Streamer for your personal or professional use, please fill out our application here: <a href="https://goo.gl/forms/erQtYNulUbNTmOop1">https://goo.gl/forms/erQtYNulUbNTmOop1</a></p>
@@ -48,21 +37,21 @@
 
 <p><strong>History</strong></p>
 
-<p>Research indicates cyber threat actors utilize social media platforms as well as personal blogs and websites to issue threats, claims of activity, or to communicate with other threat actors. Chris Cooley and Philippe Langlois determined through extensive research that Twitter is an incredibly popular platform used by cyber threat actors (other than Nation State/APTs) to share claims of activity targeting SLTT entities.</p>
+<p>Research indicates cyber threat actors utilize social media platforms as well as personal blogs and websites to issue threats, claims of activity, or to communicate with other threat actors. Chris Cooley and Philippe Langlois determined through extensive research that Twitter is an incredibly popular platform used by cyber threat actors (other than Nation State/APTs) to share claims of activity targeting a variety of entities.</p>
 
-<p>In early 2015, Chris began leading the development of a cyber focused toolkit that enables cyber intelligence analysts to find, search for, and quickly identify cyber threats to SLTT partners sourced from open source information. In mid-2015, Philippe joined the initiative dubbed "SpydrSec" and created a foundation for a tool built with the programming language Python, and the integration of the Twitter API, which focused on obtaining information from Twitter, what is currently believed to be the most popular social media platform cyber threat actors use. This tool, now known simply as the Twitter Streamer, autonomously searches for new threats to SLTT governments posted on Twitter on a 24/7 basis. </p>
+<p>In early 2015, Chris began leading the development of a cyber-focused toolkit that enables cyber intelligence analysts to find, search for, and quickly identify cyber threats to partners sourced from open source information. In mid-2015, Philippe joined the initiative dubbed "SpydrSec" and created a foundation for a tool built with the programming language Python, and the integration of the Twitter API. The program currently focuses on filtering through publically available information from Twitter to find threats, what is currently believed to be the most popular social media platform cyber threat actors use. This tool, now known simply as the Twitter Streamer, autonomously searches for new threats posted on Twitter on a 24/7 basis. </p>
 
-<p>Currently, Chris and Phil are collectively developing a front end for this application and have many more awesome ideas in store for future projects.</p>
+<hr>
 
 <p><strong>How It Works</strong></p>
 
-<p>Threats are detected through keyword, domain, and SLTT Twitter account monitoring via the Twitter API. Within seconds of a threat being posted to Twitter, an automated email notification containing intricate details of the post and the affiliated cyber threat actor is delivered to a specified recipient. These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet if available, and much more. The data is also stored in a .json file for analysts to reference at a later date.</p>
+<p>Threats are detected through keyword, domain, and Twitter account monitoring via the Twitter API. Within seconds of a public threat being posted to Twitter, an automated email notification containing intricate details of the post and the affiliated cyber threat actor is delivered to a specified recipient. These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet if available, and much more. Further analytics may be available depending on the configuration of the application.</p>
 
 <p><strong>Why is this important?</strong></p>
 
-<p>Before the release of the Twitter Streamer, cyber intelligence analysts needed to monitor individual Twitter accounts manually to find new threats to SLTT entities. In 2015, Chris manually monitored over 120 Twitter accounts daily, searching for cyber threat activity targeting SLTT entities. As of July 2016, the Twitter Streamer autonomously monitors for threat activity originating from nearly 200 Twitter accounts and this number grows weekly.</p>
+<p>Before the release of the Twitter Streamer, cyber intelligence analysts needed to monitor individual Twitter accounts manually to find new threats. In 2015, Chris manually monitored over 120 Twitter accounts daily, searching for cyber threat activity targeting entities related to his day job. The process is incredibly inefficient, taking a considerable amount of time and energy. </p>
 
-<p>The implementation of the Twitter Streamer in any open source cyber threat intelligence program allows analysts to reduce the amount of time focused on conducting manual research on Twitter while the Twitter Streamer simultaneously increases the number of new threats discovered. The Twitter Streamer, based on the current configuration, on average analyzes 250,000 tweets, detecting over 200 potential threats, in a 24 hour time period. This is a significant achievement that previously would have been unattainable without the use of automation.</p>
+<p>The implementation of the Twitter Streamer in any open source cyber threat intelligence program allows analysts to reduce the amount of time focused on conducting manual research on Twitter while the Twitter Streamer simultaneously increases the number of new threats discovered. The Twitter Streamer, based on the current configuration, analyzes 300,000+ tweets, detecting over 200 potential threats, in a 24 hour time period. This is a significant achievement that previously would have been unattainable without the use of automation.</p>
 
 <p>While the number of potential threats discovered is minuscule compared to the number of tweets analyzed, this figure drives home the point that the amount of manual analysis that would have previously been required to find a potential threat is not an efficient or effective use of resources.</p>
 
@@ -71,11 +60,11 @@
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>Currently the operation of the Twitter Streamer must be done from the command line.
+<p>Currently, the operation of the Twitter Streamer must be done from the command line.
 You must have the following to operate this application:</p>
 
 <ul>
-<li>Debian Linux (other linux kernels have not been tested - use at your own risk)
+<li>Debian Linux (other Linux kernels have not been tested - use at your own risk)
 
 <ul>
 <li>Windows compatibility is not available at this time. </li>
@@ -224,12 +213,15 @@ You must have the following to operate this application:</p>
 <a id="the-above-copyright-notice-and-this-permission-notice-shall-be-included-in-all-copies-or-substantial-portions-of-the-software" class="anchor" href="#the-above-copyright-notice-and-this-permission-notice-shall-be-included-in-all-copies-or-substantial-portions-of-the-software" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</h2>
 
 <p><strong>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</strong></p>
-      </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Azlirn/Twitter-Streamer">Twitter-streamer</a> is maintained by <a href="https://github.com/Azlirn">Azlirn</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+
+    </section>
+
+  
   </body>
 </html>
