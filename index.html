@@ -48,21 +48,24 @@
 
 <p><strong>History</strong></p>
 
-<p>Research indicates cyber threat actors utilize social media platforms as well as personal blogs and websites to issue threats, claims of activity, or to communicate with other threat actors. Chris Cooley and Philippe Langlois determined through extensive research that Twitter is an incredibly popular platform used by cyber threat actors (other than Nation State/APTs) to share claims of activity targeting a variety of entities.</p>
+<blockquote>
+<p>Research indicates cyber threat actors utilize social media platforms as well as personal blogs and websites to issue threats, claims of activity, or to communicate with other threat actors. </p>
+</blockquote>
 
-<p>In early 2015, Chris began leading the development of a cyber-focused toolkit that enables cyber intelligence analysts to find, search for, and quickly identify cyber threats to partners sourced from open source information. In mid-2015, Philippe joined the initiative dubbed "SpydrSec" and created a foundation for a tool built with the programming language Python, and the integration of the Twitter API. The program currently focuses on filtering through publically available information from Twitter to find threats, what is currently believed to be the most popular social media platform cyber threat actors use. This tool, now known simply as the Twitter Streamer, autonomously searches for new threats posted on Twitter on a 24/7 basis. </p>
+<p>In early 2015, Chris and Phil began working on the development of a cyber-focused toolkit that enables cyber intelligence analysts to find, search for, and quickly identify cyber threats to partners sourced from open source information. In mid-2015 it was decided that Twitter would be the first social media platform to tackle. Phil then began creating a foundation for a tool built with the programming language Python and the integration of the Twitter API. The application now simply known as the Twitter Streamer, filters through publically available information from Twitter to find cyber threats on a 24/7 basis. </p>
 
 <hr>
 
 <p><strong>How It Works</strong></p>
 
-<p>Threats are detected through keyword, domain, and Twitter account monitoring via the Twitter API. Within seconds of a public threat being posted to Twitter, an automated email notification containing intricate details of the post and the affiliated cyber threat actor is delivered to a specified recipient. These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet if available, and much more. Further analytics may be available depending on the configuration of the application.</p>
+<p>Threats are detected through keyword, domain, and Twitter accounts monitoring via the Twitter API. After a public threat is posted to Twitter, an automated email notification containing details of the post and the affiliated cyber threat actor is delivered to a specified recipient. These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet if available, and much more. Further analytics may be available depending on the configuration of the application.</p>
 
 <p><strong>Why is this important?</strong></p>
 
-<p>Before the release of the Twitter Streamer, cyber intelligence analysts needed to monitor individual Twitter accounts manually to find new threats. In 2015, Chris manually monitored over 120 Twitter accounts daily, searching for cyber threat activity targeting entities related to his day job. The process is incredibly inefficient, taking a considerable amount of time and energy. </p>
+<p>Before the release of the Twitter Streamer, cyber intelligence analysts needed to monitor individual Twitter accounts manually to find new threats. Applications do exist in the public market that could automate this process however due to tight budgets, this was not a practical solution, as is the case for many organizations. 
+Throughout 2015, Chris manually monitored over 120 Twitter accounts daily, searching for cyber threat activity targeting entities related to his day job. The process was incredibly inefficient, taking a considerable amount of time and energy. </p>
 
-<p>The implementation of the Twitter Streamer in any open source cyber threat intelligence program allows analysts to reduce the amount of time focused on conducting manual research on Twitter while the Twitter Streamer simultaneously increases the number of new threats discovered. The Twitter Streamer, based on the current configuration, analyzes 300,000+ tweets, detecting over 200 potential threats, in a 24 hour time period. This is a significant achievement that previously would have been unattainable without the use of automation.</p>
+<p>The implementation of the Twitter Streamer in any open source cyber threat intelligence program allows analysts to reduce the volume of time focused on conducting manual research on Twitter while the Twitter Streamer simultaneously increases the number of new threats discovered. The Twitter Streamer, based on the current configuration, analyzes 300,000+ tweets, detecting over 200 potential threats, in a 24 hour period. This is a significant achievement that previously would have been unattainable without the use of automation.</p>
 
 <p>While the number of potential threats discovered is minuscule compared to the number of tweets analyzed, this figure drives home the point that the amount of manual analysis that would have previously been required to find a potential threat is not an efficient or effective use of resources.</p>
 
@@ -87,7 +90,7 @@ You must have the following to operate this application:</p>
 <a href="https://dev.twitter.com/">Twitter Development Account</a>
 
 <ul>
-<li>You will need to create a Twitter application in order to obtain API keys to use this program. </li>
+<li>You will need to create a Twitter application to obtain API keys to use this program. </li>
 <li><a href="https://apps.twitter.com/">https://apps.twitter.com/</a></li>
 </ul>
 </li>
@@ -140,11 +143,9 @@ You must have the following to operate this application:</p>
 <h2>
 <a id="how-to-operate" class="anchor" href="#how-to-operate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to operate</h2>
 
-<p>The streamer is streamlined to operate on an Ubuntu AWS instance.</p>
-
-<p>We operate the streamer via an SSH connection with our AWS instance. </p>
-
-<p>We use <code>screen</code> to run our script without an active SSH connection. </p>
+<blockquote>
+<p>The streamer is streamlined to run on an Ubuntu AWS instance. We run the streamer via an SSH connection with our AWS instance.  We use <code>screen</code> to run our script without an active SSH connection. </p>
+</blockquote>
 
 <ul>
 <li>Screen Basic Tutorial: <a href="http://thingsilearned.com/2009/05/26/gnu-screen-super-basic-tutorial/">http://thingsilearned.com/2009/05/26/gnu-screen-super-basic-tutorial/</a>
