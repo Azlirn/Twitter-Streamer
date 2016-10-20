@@ -7,7 +7,12 @@ _Version 2.2_
 #### Real-Time OSINT Cyber Threat Monitoring System
 The Twitter Streamer is a Python application intended to notify cyber intelligence analysts or a specified audience of cyber threats found on Twitter, that target provided entities.
 
->If you are interested in the Twitter Streamer for your personal or professional use, please fill out our application here: https://goo.gl/forms/zt9dvbOxulB2bvfs2
+>
+> **Due to restrictions with Twitters terms of use, the Twitter Streamer is restricted to public and private non-law enforcement use only.**
+> At this time, we are only releasing the Twitter Streamer to vetted and trusted individuals and organizations in an effort to limit potential abuse issues. 
+> If you are interested in the Twitter Streamer for your personal or professional use, please fill out our application here: https://goo.gl/forms/zt9dvbOxulB2bvfs2
+> We will be in contact with you soon!
+>
 
 ---
 
