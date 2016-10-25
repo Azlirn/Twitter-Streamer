@@ -7,12 +7,10 @@ _Version 2.2_
 #### Real-Time OSINT Cyber Threat Monitoring System
 The Twitter Streamer is a Python application intended to notify cyber intelligence analysts or a specified audience of cyber threats found on Twitter, that target provided entities.
 
->
-> **Due to restrictions with Twitters terms of use, the Twitter Streamer is restricted to public and private non-law enforcement use only.**
-> At this time, we are only releasing the Twitter Streamer to vetted and trusted individuals and organizations in an effort to limit potential abuse issues. 
+
+>In an effort to create a solution that will assist our friends across the cyber landscape, and in support of the open source initiative, we are releasing our Twitter Streamer to whoever feels like filling out an application. However, due to restrictions with Twitters terms of use, the Twitter Streamer is restricted to public and private non-law enforcement use only.
 > If you are interested in the Twitter Streamer for your personal or professional use, please fill out our application here: https://goo.gl/forms/zt9dvbOxulB2bvfs2
 > We will be in contact with you soon!
->
 
 ---
 
@@ -20,21 +18,22 @@ The Twitter Streamer is a Python application intended to notify cyber intelligen
 
 >Research indicates cyber threat actors utilize social media platforms as well as personal blogs and websites to issue threats, claims of activity, or to communicate with other threat actors. 
 
-In early 2015, Chris and Phil began working on the development of a cyber-focused toolkit that enables cyber intelligence analysts to find, search for, and quickly identify cyber threats to partners sourced from open source information. In mid-2015 it was decided that Twitter would be the first social media platform to tackle. Phil then began creating a foundation for a tool built with the programming language Python and the integration of the Twitter API. The application now simply known as the Twitter Streamer, filters through publically available information from Twitter to find cyber threats on a 24/7 basis. 
+In early 2015, Chris and Phil began working on the development of a cyber-focused toolkit that enables cyber intelligence analysts to find, search for, and quickly identify cyber threats to partners sourced from open source information. In mid-2015 it was decided that Twitter would be the first social media platform to tackle.
+
+We began creating a foundation for a tool built with the programming language Python and the integration of the Twitter API. Long story short, and a LOT of Starbucks coffee later, the application is live and is now simply known as the Twitter Streamer. This application filters through publically available information from Twitter to find cyber threats on a 24/7 basis. 
 
 ---
 
 **How It Works**
 
-Threats are detected through keyword, domain, and Twitter accounts monitoring via the Twitter API. After a public threat is posted to Twitter, an automated email notification containing details of the post and the affiliated cyber threat actor is delivered to a specified recipient. These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet if available, and much more. Further analytics may be available depending on the configuration of the application.
+We devised a way to detect threats through keyword, domain, and Twitter accounts monitoring via the Twitter API. After a public threat is posted to Twitter, an automated email notification containing details of the post and the affiliated cyber threat actor is delivered to a specified recipient. These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet if available, and much more. Further analytics may be available depending on the configuration of the application.
 
 
 **Why is this important?**
 
-Before the release of the Twitter Streamer, cyber intelligence analysts needed to monitor individual Twitter accounts manually to find new threats. Applications do exist in the public market that could automate this process however due to tight budgets, this was not a practical solution, as is the case for many organizations. 
-Throughout 2015, Chris manually monitored over 120 Twitter accounts daily, searching for cyber threat activity targeting entities related to his day job. The process was incredibly inefficient, taking a considerable amount of time and energy. 
- 
-The implementation of the Twitter Streamer in any open source cyber threat intelligence program allows analysts to reduce the volume of time focused on conducting manual research on Twitter while the Twitter Streamer simultaneously increases the number of new threats discovered. The Twitter Streamer, based on the current configuration, analyzes 300,000+ tweets, detecting over 200 potential threats, in a 24 hour period. This is a significant achievement that previously would have been unattainable without the use of automation.
+Before the release of the Twitter Streamer, most cyber intelligence analysts (including myself) needed to monitor individual Twitter accounts manually to find new threats. During development, we acknowledged that applications do exist in the public market that could automate this process however due to tight budgets this is often not a practical solution for many organizations. As an example, throughout 2015, I manually monitored over 120 Twitter accounts daily, searching for cyber threat activity targeting entities related to my day job. The process was incredibly inefficient, taking a considerable amount of time and energy.
+
+The implementation of the Twitter Streamer in any open source cyber threat intelligence program allows analysts to reduce the volume of time focused on conducting manual research on Twitter while the Twitter Streamer simultaneously increases the number of new threats discovered. The Twitter Streamer, based on my current configuration, analyzes 300,000+ tweets, detecting over 200 potential threats, in a 24 hour period. This is a significant achievement that previously would have been unattainable without the use of automation.
  
 While the number of potential threats discovered is minuscule compared to the number of tweets analyzed, this figure drives home the point that the amount of manual analysis that would have previously been required to find a potential threat is not an efficient or effective use of resources.
     
