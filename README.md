@@ -16,17 +16,17 @@ The Twitter Streamer is a Python application intended to notify cyber intelligen
 
 **History**
 
->Research indicates cyber threat actors utilize social media platforms as well as personal blogs and websites to issue threats, claims of activity, or to communicate with other threat actors. 
+My research indicates (and for most cyber intelligence pros out there, it should come as no surprise) cyber threat actors utilize social media platforms as well as personal blogs and websites to issue threats, claims of activity, or to communicate with other threat actors.
 
-In early 2015, Chris and Phil began working on the development of a cyber-focused toolkit that enables cyber intelligence analysts to find, search for, and quickly identify cyber threats to partners sourced from open source information. In mid-2015 it was decided that Twitter would be the first social media platform to tackle.
+In early 2015, we began working on the development of a cyber-focused toolkit that enables cyber intelligence analysts to find, search for, and quickly identify cyber threats to partners sourced from open source information. In mid-2015 it was decided that Twitter would be the first social media platform to tackle.
 
-We began creating a foundation for a tool built with the programming language Python and the integration of the Twitter API. Long story short, and a LOT of Starbucks coffee later, the application is live and is now simply known as the Twitter Streamer. This application filters through publically available information from Twitter to find cyber threats on a 24/7 basis. 
+We began creating a foundation for a tool built with the programming language Python and the integration of the Twitter API. Long story short, and a LOT of Starbucks coffee later, the application is live and is now simply known as the Twitter Streamer. 
 
 ---
 
 **How It Works**
 
-We devised a way to detect threats through keyword, domain, and Twitter accounts monitoring via the Twitter API. After a public threat is posted to Twitter, an automated email notification containing details of the post and the affiliated cyber threat actor is delivered to a specified recipient. These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet if available, and much more. Further analytics may be available depending on the configuration of the application.
+The application detects threats through keyword, domain, and Twitter accounts monitoring via the Twitter API. After a public threat is posted to Twitter, an automated email notification containing details of the post and the affiliated cyber threat actor is delivered to a specified recipient. These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet if available, and much more. Further analytics may be available depending on the configuration of the application.
 
 
 **Why is this important?**
@@ -48,8 +48,8 @@ You must have the following to operate this application:
 * [Internet Connection](http://www.speedtest.net/)
 * [Intermediate Python Skills](https://www.codecademy.com/learn/python)
 * [Twitter Development Account](https://dev.twitter.com/)
-	* You will need to create a Twitter application to obtain API keys to use this program. 
-	* https://apps.twitter.com/
+    * You will need to create a Twitter application to obtain API keys to use this program. 
+    * https://apps.twitter.com/
 * pip is required for the installation of the packages used for this platform. 
     * Install pip: `apt-get install python-pip python-dev build-essential`
 
