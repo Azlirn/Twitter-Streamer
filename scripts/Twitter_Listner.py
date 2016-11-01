@@ -5,7 +5,6 @@ from tweepy.streaming import StreamListener
 import gmail_mailer, notifier, starter
 import time, datetime, json
 from urlparse import urlparse
-import platform
 
 reload(gmail_mailer)
 reload(notifier)
@@ -356,10 +355,3 @@ class listener(StreamListener):
             print "SLTT Mention Error: ", str(e)
             return False
         return any(result)
-
-
-
-##### WISH LIST #####
-
-# Natural Language Processing
-# Machine learning
