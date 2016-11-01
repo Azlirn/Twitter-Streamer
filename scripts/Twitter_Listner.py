@@ -6,7 +6,6 @@ import gmail_mailer, notifier, starter
 import time, datetime, json
 from urlparse import urlparse
 import platform
-import streamerShot
 
 reload(gmail_mailer)
 reload(notifier)
@@ -44,7 +43,6 @@ class listener(StreamListener):
         self.counter_exception = 0
         self.blacklistcounter = 0
         self.lasttime = datetime.datetime.now()
-        self.os = platform.system()
 
 
     def on_data(self, data):
@@ -68,7 +66,6 @@ class listener(StreamListener):
             if all_data['retweeted']:
                 pass
 
-
             else:
 
                 ###                     ###
@@ -81,6 +78,7 @@ class listener(StreamListener):
                     # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
+
 
                     # # # #  MS-ISAC  Unique  # # # #
 
@@ -96,7 +94,9 @@ class listener(StreamListener):
 
                     # # # #  MS-ISAC  Unique  # # # #
 
+
                     else:
+
                         # Hit Type
                         hit = 'DOMAIN MENTION'
 
@@ -111,9 +111,6 @@ class listener(StreamListener):
                         # Notify
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
-
-                        # Take Screenshot
-                        streamerShot.main(all_data, self.os)
 
                         # Display
                         starter.display_tweet(all_data, hit)
@@ -160,9 +157,6 @@ class listener(StreamListener):
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
 
-                        # Take Screenshot
-                        streamerShot.main(all_data, self.os)
-
                         # Display
                         starter.display_tweet(all_data, hit)
 
@@ -207,9 +201,6 @@ class listener(StreamListener):
                         # Notify
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit)
-
-                        # Take Screenshot
-                        streamerShot.main(all_data, self.os)
 
                         # Display tweet
                         starter.display_tweet(all_data, hit)
