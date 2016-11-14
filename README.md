@@ -38,10 +38,15 @@ _Keep in mind that basic user accounts will likely need `sudo` access to install
      `pip install --upgrade google-api-python-client`
      * Check out other installation options [here](https://developers.google.com/api-client-library/python/start/installation)\
 
-* tqdm
+* tqdm: _Python smart progress meter_
      * To install tqdm
      `pip install tqdm`
-    
+     
+* SQLAlchemy: _The SQLAlchemy SQL Toolkit is a comprehensive set of tools for working with databases and Python._
+     * To install SQLAlchemy
+     `pip install SQLAlchemy`
+     * Docs: http://docs.sqlalchemy.org/en/latest/index.html
+   
 (This section to be updated)
 
 ## How to operate
@@ -50,6 +55,14 @@ _Keep in mind that basic user accounts will likely need `sudo` access to install
 
 * Screen Basic Tutorial: http://thingsilearned.com/2009/05/26/gnu-screen-super-basic-tutorial/
 
+Chris currently uses DB Browser for SQLite as a GUI for the current database structure.
+This is not a permanent solution. 
+
+* Download DB Browser for SQLite here: http://sqlitebrowser.org/
+    * Compatible on:
+        * Windows 32 & 64 bit
+        * MAC
+        * Linux
 
 ## Contributors
 
