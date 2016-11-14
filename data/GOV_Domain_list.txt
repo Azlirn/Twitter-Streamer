@@ -25037,7 +25037,6 @@ ene.rdale.org
 eneida.dadeschools.net
 energy.ca.gov
 energy.ehawaii.gov
-ENERGY.GOV
 energy.hawaii.gov
 energy.ok.gov
 energy.sanjoseca.gov
@@ -25045,7 +25044,6 @@ energy.tamu.edu
 energy.ucsb.edu
 energy.wsu.edu
 energyassistance.nj.gov
-ENERGYCODES.GOV
 energyeducation.tx.gov
 energyhigh.org
 energync.net
@@ -25054,7 +25052,6 @@ ENERGYPLUS.GOV
 ENERGYSAVER.GOV
 ENERGYSAVERS.GOV
 energysmartschool.org
-ENERGYSTAR.GOV
 energytechschool.org
 energyupgradeca.net
 energyupgradeca.org
