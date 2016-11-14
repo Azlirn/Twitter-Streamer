@@ -12,3 +12,4 @@ Records/
 test.log
 *.pyc
 *.xlsx
+*.db
