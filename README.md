@@ -38,6 +38,10 @@ _Keep in mind that basic user accounts will likely need `sudo` access to install
      `pip install --upgrade google-api-python-client`
      * Check out other installation options [here](https://developers.google.com/api-client-library/python/start/installation)\
 
+* tqdm
+     * To install tqdm
+     `pip install tqdm`
+    
 (This section to be updated)
 
 ## How to operate
