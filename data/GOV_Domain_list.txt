@@ -1316,8 +1316,6 @@ ainahaina.k12.hi.us
 ainsworthschools.org
 aioic.org
 airbasek8.net
-airdefenseartillery.com
-airforce.com
 airline.bossierschools.org
 airlinepark.jppss.k12.la.us
 airlineschool.org
@@ -20664,8 +20662,6 @@ defcomp.nv.gov
 defeatedelementaryschool.com
 defendagainstdiabetes.ne.gov
 defendingchildhood.cuyahogacounty.us
-DEFENSE.GOV
-defensetv.tv
 defgen.state.vt.us
 defiance-county.com
 defiancecityschools.org
@@ -75265,12 +75261,7 @@ usd509.org
 USDA.GOV
 USDAPII.GOV
 usdb.org
-USDEBITCARD.GOV
-USDOJ.GOV
 usedcarcommission.ok.gov
-usembassy-china.org.cn
-USEMBASSY-MEXICO.GOV
-USEMBASSY.GOV
 useonlyasdirected.utah.gov
 USERRA.GOV
 users.alerts.rochestermn.gov
