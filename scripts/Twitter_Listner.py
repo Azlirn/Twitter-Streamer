@@ -58,7 +58,16 @@ class listener(StreamListener):
         be changed.
         """
 
-        all_data = json.loads(data)
+
+        try:
+            all_data = json.loads(data)
+        except Exception as e:
+            systime = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
+            print '\n[!] Exception at %s --> Message: %s\n' % (systime, e)
+            print ''
+            from notifier import error_notify
+            error_notify(e, 'Error Loading JSON')
+            pass
 
         try:
             # Remove re-tweets from the feed.
@@ -243,8 +252,8 @@ class listener(StreamListener):
                 # Exception to handle 'limit' errors.
                 if 'text' or 'limit' in e:
                     print yel, '\nException --> Message: %s\n' % e
-                    hit = "EXCEPTIONS - LIMIT"
-                    starter.write_to_json(all_data, hit)
+                    # hit = "EXCEPTIONS - LIMIT"
+                    # starter.write_to_json(all_data, hit)
                     pass
 
                 else:
@@ -252,10 +261,10 @@ class listener(StreamListener):
                     print red, "#" * 40, off
                     print yel, '\nException --> Message: %s\n' % e
                     print ''
-                    hit = "EXCEPTIONS"
-                    starter.write_to_json(all_data, hit)
+                    # hit = "EXCEPTIONS"
+                    # starter.write_to_json(all_data, hit)
                     from notifier import error_notify
-                    error_notify(e, all_data)
+                    error_notify('Unknown Listener Error', '--No Data Available--')
 
 
 
