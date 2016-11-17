@@ -3875,7 +3875,6 @@ aviation.vermont.gov
 aviation.wv.gov
 aviationhs.net
 aviationhs.org
-aviationweather.gov
 avicalculator.phila.gov
 avillapanthers.org
 avingerisd.net
@@ -67664,7 +67663,6 @@ spaceappschallenge.org
 SPACEFLORIDA.GOV
 spacegrant.colorado.edu
 spacegrant.montana.edu
-spaceweather.gov
 spacharter.org
 spackenkillschools.org
 spacompany.org
@@ -77957,7 +77955,6 @@ wearemiddleschool.net
 wearenorwood.org
 WEAREORALHEALTH.ORG
 wearesynergy.org
-weather.gov
 weather.maurycounty-tn.gov
 weather.ok.gov
 weather.wyomingmi.gov
