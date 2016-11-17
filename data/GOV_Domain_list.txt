@@ -34849,16 +34849,6 @@ house.mn.gov
 house.mo.gov
 house.state.oh.us
 house.state.tx.us
-HOUSECALENDAR.GOV
-HOUSECOMMUNICATIONS.GOV
-HOUSEDEMOCRATS.GOV
-HOUSEDEMS.GOV
-HOUSELIVE.GOV
-houseloan.com
-HOUSENEWSLETTERS.GOV
-housenewsletters.gov
-houser.conroeisd.net
-houseschools.net
 housing.az.gov
 housing.longviewtexas.gov
 housing.mt.gov
@@ -46356,7 +46346,6 @@ medicapresource.com
 medicaprx.com
 medicaprx.net
 medicaprx.org
-MEDICARE.GOV
 medicine-shoppe.com
 medicine-shoppe.net
 medicine-shoppe.org
