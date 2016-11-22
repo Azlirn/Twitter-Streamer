@@ -26520,10 +26520,6 @@ fbes.mcps.org
 fbes.spsk12.net
 fbfl.us
 fbhs.hallco.org
-fbi.gov
-fbiacademy.edu
-FBIIC.GOV
-fbijobs.gov
 fbla.dsu.edu
 fbla.k12.sd.us     
 FBO.GOV
@@ -53298,7 +53294,6 @@ ns3.bcbsnc.com
 ns6.bcbsnc.com
 ns7.bcbsnc.com
 ns8.bcbsnc.com
-NSA.GOV
 nsacd.com
 nsacharter.org
 nsanpete.org
@@ -68432,7 +68427,6 @@ state.ct.us
 state.de.us
 state.fl.us
 state.ga.us
-STATE.GOV
 state.hi.us
 state.ia.us
 state.id.us
@@ -74914,7 +74908,6 @@ usagbank.com
 USAGOV.GOV
 USAID.GOV
 USAIDALLNET.GOV
-usajobs.gov
 usajobsassess.gov
 USALEARNING.GOV
 USANDC.GOV
@@ -75152,12 +75145,8 @@ usd506.org
 usd507.org
 usd508.org
 usd509.org
-USDA.GOV
-USDAPII.GOV
-usdb.org
 usedcarcommission.ok.gov
 useonlyasdirected.utah.gov
-USERRA.GOV
 users.alerts.rochestermn.gov
 users.nyalert.gov
 users.polisci.wisc.edu
@@ -79217,7 +79206,6 @@ wgschools.org
 wgsd.edlioschool.com
 wgsd.org
 wgtownri.org
-wh.gov
 wh.liberty.k12.mo.us
 wh.rutgers.edu
 wh.schoolloop.com
@@ -79357,16 +79345,6 @@ whitehallschools.net
 whitehallsd.k12.wi.us
 whitehallsd.org
 whitehead-wjusd-ca.schoolloop.com
-whitehouse.gov
-WHITEHOUSE.GOV
-WHITEHOUSECONFERENCEONAGING.GOV
-whitehouseconferenceonaging.gov
-WHITEHOUSEDRUGPOLICY.GOV
-whitehousedrugpolicy.gov
-whitehouseisd.org
-WHITEHOUSEOH.GOV
-whitehouseoh.gov
-whitelake.k12.sd.us
 whitelake.k12.sd.us     
 whitelake.k12.wi.us
 whitelakenc.org
