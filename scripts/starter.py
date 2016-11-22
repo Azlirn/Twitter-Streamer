@@ -78,9 +78,12 @@ def restart_program():
 
 
 def get_track():
-    track = [lines.replace('\n','').replace(',','') for lines in open('data/track.txt')]
+    track = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/track.txt')]
     return track
 
+def get_blacklist():
+    blacklist = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/blacklist.txt')]
+    return blacklist
 
 def domain_loader():
         """
@@ -249,7 +252,7 @@ def stringify_url(data):
 #         # return media_url
 
 
-def display_tweet(data, hit):
+def display_tweet(data, hit, trackFound):
     # This presents a view of hits to the analyst
     print '\n'
     print red, '#' * 40, yel, ' %s' % blu, hit, red, '#' * 40
@@ -258,6 +261,7 @@ def display_tweet(data, hit):
             data['user']['id']), off
     print grn, "Tweet Text: %s" % wht, data['text'], off
     print grn, "Retweeted? %s" % wht, data['retweeted'], off
+    print grn, "Terms Found: %s" % wht, trackFound, off
     print grn, "Created At: %s" % pur, data['created_at'], off
     print grn, "Tweet Link:", blu, "https://twitter.com/%s/status/%s" % (
         str(data['user']['screen_name']), str(data['id'])), off
@@ -317,7 +321,3 @@ def disabling_ssl_warning():
         print yel, '#' * 40, off
         print ''
         pass
-
-
-
-
