@@ -81,6 +81,9 @@ def get_track():
     track = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/track.txt')]
     return track
 
+def get_blacklist():
+    blacklist = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/blacklist.txt')]
+    return blacklist
 
 def domain_loader():
         """

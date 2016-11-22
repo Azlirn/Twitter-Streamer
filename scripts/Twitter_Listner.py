@@ -42,7 +42,7 @@ class listener(StreamListener):
         self.counter_exception = 0
         self.blacklistcounter = 0
         self.lasttime = datetime.datetime.now()
-        self.blacklistLoader = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/blacklist.txt')]
+        self.blacklistLoader = starter.get_blacklist()
         self.trackLoader = starter.get_track()
 
     def on_data(self, data):
