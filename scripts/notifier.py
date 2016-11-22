@@ -59,6 +59,10 @@ System Time: %s
 
 - StreamerBot
 
+P.S.
+"ICA" will appear in every hit, regardless of if exists in the tweet or not. This is a known bug.
+We are working on a fix.
+
 ***************************************************************************
 This is an automated message from the Twitter Streamer.
 

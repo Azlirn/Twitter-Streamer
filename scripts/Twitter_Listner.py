@@ -45,6 +45,7 @@ class listener(StreamListener):
         self.blacklistLoader = starter.get_blacklist()
         self.trackLoader = starter.get_track()
 
+
     def on_data(self, data):
         """
         This part of the script takes in the data sent from Twitter and applies
@@ -66,8 +67,7 @@ class listener(StreamListener):
             systime = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
             print '\n[!] Exception at %s --> Message: %s\n' % (systime, e)
             print ''
-            from notifier import error_notify
-            error_notify(e, 'Error Loading JSON')
+            notifier.error_notify(e, 'Error Loading JSON')
             pass
 
         try:
@@ -118,12 +118,13 @@ class listener(StreamListener):
                         starter.write_to_json(all_data, hit)
 
                         # Notify
+                        trackFound = self.termHits(all_data)
                         string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit)
+                        notifier.notify(all_data, string_url, hit, trackFound)
 
                         # Display
-                        starter.display_tweet(all_data, hit)
-
+                        # starter.display_tweet(all_data, hit)
+                        starter.display_tweet(all_data, hit, trackFound)
 
                 ###                     ###
                 ###  SLTT Mention Test  ###
@@ -163,11 +164,13 @@ class listener(StreamListener):
                         starter.write_to_json(all_data, hit)
 
                         # Notify
+                        trackFound = self.termHits(all_data)
                         string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit)
+                        notifier.notify(all_data, string_url, hit, trackFound)
 
                         # Display
-                        starter.display_tweet(all_data, hit)
+                        # starter.display_tweet(all_data, hit)
+                        starter.display_tweet(all_data, hit, trackFound)
 
 
                 ###                     ###
@@ -212,8 +215,9 @@ class listener(StreamListener):
                         string_url = starter.stringify_url(all_data)
                         notifier.notify(all_data, string_url, hit, trackFound)
 
-                        # Display tweet
-                        starter.display_tweet(all_data, hit)
+                        # Display
+                        # starter.display_tweet(all_data, hit)
+                        starter.display_tweet(all_data, hit, trackFound)
 
 
                 # If no logical statement evaluates to True, then count the tweet as a false positive and move on.
@@ -312,7 +316,7 @@ class listener(StreamListener):
                 termfound = word
                 self.blacklistcounter = self.blacklistcounter + 1
                 self.counter_all = self.counter_all + 1
-                starter.displayBlacklist(all_data, termfound)
+                # starter.displayBlacklist(all_data, termfound)
                 starter.writeToText(all_data, word)
                 return True
 
@@ -320,7 +324,7 @@ class listener(StreamListener):
                 termfound = word
                 self.blacklistcounter = self.blacklistcounter + 1
                 self.counter_all = self.counter_all + 1
-                starter.displayBlacklist(all_data, termfound)
+                # starter.displayBlacklist(all_data, termfound)
                 starter.writeToText(all_data, word)
                 return True
 
@@ -328,7 +332,7 @@ class listener(StreamListener):
                 termfound = word
                 self.blacklistcounter = self.blacklistcounter + 1
                 self.counter_all = self.counter_all + 1
-                starter.displayBlacklist(all_data, termfound)
+                # starter.displayBlacklist(all_data, termfound)
                 starter.writeToText(all_data, word)
                 return True
 
@@ -366,13 +370,13 @@ class listener(StreamListener):
 
     def termHits(self, data):
         track = self.trackLoader
+        twitData = str(data).lower()
 
         terms = []
 
         for term in track:
-            if term in data:
+            if term in twitData:
                 terms.append(term)
             else:
                 pass
-
         return terms
