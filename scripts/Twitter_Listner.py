@@ -42,7 +42,8 @@ class listener(StreamListener):
         self.counter_exception = 0
         self.blacklistcounter = 0
         self.lasttime = datetime.datetime.now()
-
+        self.blacklistLoader = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/blacklist.txt')]
+        self.trackLoader = starter.get_track()
 
     def on_data(self, data):
         """
@@ -207,8 +208,9 @@ class listener(StreamListener):
                         starter.write_to_json(all_data, hit)
 
                         # Notify
+                        trackFound = self.termHits(all_data)
                         string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit)
+                        notifier.notify(all_data, string_url, hit, trackFound)
 
                         # Display tweet
                         starter.display_tweet(all_data, hit)
@@ -299,10 +301,7 @@ class listener(StreamListener):
         twitText = str(all_data['text'].lower().encode('utf8'))
         twitHash = starter.stringify_hashtags_lower(all_data)
         screenName = str(all_data['user']['screen_name'].lower().encode('utf8'))
-
-        blacklist = [lines.replace('\n','').replace(',','') for lines in open('data/blacklist.txt')]
-
-        bl = [item.lower() for item in blacklist]
+        bl = self.blacklistLoader
 
         # Check to see if the tweet contains a word in our blacklist
         # Checks hashtags, text, and screen names.
@@ -364,3 +363,16 @@ class listener(StreamListener):
             print "SLTT Mention Error: ", str(e)
             return False
         return any(result)
+
+    def termHits(self, data):
+        track = self.trackLoader
+
+        terms = []
+
+        for term in track:
+            if term in data:
+                terms.append(term)
+            else:
+                pass
+
+        return terms

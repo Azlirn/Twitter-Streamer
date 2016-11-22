@@ -78,7 +78,7 @@ def restart_program():
 
 
 def get_track():
-    track = [lines.replace('\n','').replace(',','') for lines in open('data/track.txt')]
+    track = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/track.txt')]
     return track
 
 
@@ -317,7 +317,3 @@ def disabling_ssl_warning():
         print yel, '#' * 40, off
         print ''
         pass
-
-
-
-
