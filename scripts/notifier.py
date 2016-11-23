@@ -1,6 +1,5 @@
 import gmail_mailer
 import datetime
-import TwitterStreamer
 
 
 def scriptstart_notify():
@@ -13,33 +12,31 @@ System Time: %s
 - StreamerBot
 
 ***************************************************************************
-This is an automated message from the MS-ISAC Twitter Streamer.
+This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % systime
     gmail_mailer.error_message(start_email.encode('utf8'), 'start')
     return
 
-def error_notify(location, e, all_data):
+def error_notify(e, all_data):
     systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
     error_email = """
 ##### ERROR OCCURRED #####
 
 Script error occurred at: %s
 
-Error Occurred At: %s
-
 Exception occurred: %s
 
-Available Data: %s
+Data: %s
 
-Please report this error to the application admin.
+Please report this error to the application admin!
 
 - StreamerBot
 
 ***************************************************************************
-This is an automated message from the MS-ISAC Twitter Streamer.
+This is an automated message from the Twitter Streamer.
 ***************************************************************************
-""" % (systime, location, e, all_data)
+""" % (systime, e, all_data)
 
     gmail_mailer.error_message(error_email.encode('utf8'), 'system_error')
     return
@@ -62,13 +59,12 @@ System Time: %s
 
 - StreamerBot
 
-NOTE:
-"ICA" is a term in the track that is used to track activity allegedly from the ISLAMIC CYBER ARMY.
-ICA exists in the track however it will not appear in the 'Term/s Found' section if it exists within the Tweet.
-This is a known bug and we are working on a fix.
+P.S.
+"ICA" will appear in every hit, regardless of if exists in the tweet or not. This is a known bug.
+We are working on a fix.
 
 ***************************************************************************
-This is an automated message from the MS-ISAC Twitter Streamer.
+This is an automated message from the Twitter Streamer.
 
 WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR
 INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
@@ -101,9 +97,10 @@ The tweets in the stream that are backlogged will be lost in this process.
 - StreamerBot
 
 ***************************************************************************
-This is an automated message from the MS-ISAC Twitter Streamer.
+This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % (systime, all_data['limit']['track'])
         gmail_mailer.error_message(refresh_email.encode('utf8'), 'backlog_refresh')
-        reload(TwitterStreamer.main())
+        from TwitterStreamer import main
+        main()
         return
