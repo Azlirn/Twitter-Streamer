@@ -375,8 +375,11 @@ class listener(StreamListener):
         terms = []
 
         for term in track:
-            if term in twitData:
-                terms.append(term)
-            else:
+            if term == 'ica':
                 pass
+            else:
+                if term in twitData:
+                    terms.append(term)
+                else:
+                    pass
         return terms
