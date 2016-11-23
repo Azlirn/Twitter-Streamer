@@ -53,7 +53,7 @@ def main():
         traceback.print_exc()
         twitterStream.disconnect()
         logging.warning("WARNING - System disconnect")
-        notifier.error_notify(str(e), 'Streamer Error -- NO DATA AVAILABLE -- ')
+        notifier.error_notify("Twitter Streamer: Unknown Error", str(e), ' -- NO DATA AVAILABLE -- ')
         starter.restart_program()
         reload(main())
 
