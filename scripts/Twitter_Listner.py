@@ -88,7 +88,6 @@ class listener(StreamListener):
                     if self.blacklist(all_data):
                         pass
 
-
                     # # # #  MS-ISAC  Unique  # # # #
 
                     # Check to see if a particular known user account contains the keyword "pastebin"
@@ -183,6 +182,7 @@ class listener(StreamListener):
                     # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
+
 
                     # # # #  MS-ISAC  Unique  # # # #
 
@@ -383,3 +383,11 @@ class listener(StreamListener):
                 else:
                     pass
         return terms
+
+
+    def termInTweetText(self, all_data):
+        track = self.trackLoader
+
+        for term in track:
+            if term not in all_data['text']:
+                return True
