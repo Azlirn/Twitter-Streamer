@@ -41,13 +41,14 @@ This is an automated message from the Twitter Streamer.
     gmail_mailer.error_message(error_email.encode('utf8'), 'system_error')
     return
 
-def notify(data, url, hit):
+def notify(data, url, hit, termFound):
         systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
         data_text = """
 ##### NOTIFICATION #####
 
 System Time: %s
 \rHit Type: %s
+\rTerms/s Found: %s
 \rScreen Name: %s
 \rTweeter ID: %s
 \rTweet Text: %s
@@ -58,6 +59,10 @@ System Time: %s
 
 - StreamerBot
 
+P.S.
+"ICA" will appear in every hit, regardless of if exists in the tweet or not. This is a known bug.
+We are working on a fix.
+
 ***************************************************************************
 This is an automated message from the Twitter Streamer.
 
@@ -65,7 +70,7 @@ WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR
 INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
 ***************************************************************************
 
-            """ % (systime, hit, data["user"]["screen_name"], data['user']['id'], data["text"],
+            """ % (systime, hit, termFound, data["user"]["screen_name"], data['user']['id'], data["text"],
                    data["created_at"], data["source"], url, str(data['user']['screen_name']), str(data['id']))
 
         # pass the text to the gmail-mailer script + encode to UTF to deal with none ascii chars

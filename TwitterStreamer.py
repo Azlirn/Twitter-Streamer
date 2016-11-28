@@ -55,7 +55,7 @@ def main():
         logging.warning("WARNING - System disconnect")
         notifier.error_notify(str(e), 'Streamer Error -- NO DATA AVAILABLE -- ')
         starter.restart_program()
-        main()
+        reload(main())
 
 
 if __name__ == '__main__':

@@ -140,9 +140,6 @@
 53.com
 5th.txcourts.gov
 6.cityofcrisfield-md.gov
-62aw.af.mil
-64.25.210.135
-64.4.113.12
 6jc.alacourt.gov
 6thcoa.courts.state.tx.us
 7.cityofcrisfield-md.gov
@@ -987,7 +984,6 @@ aeweb.lakeland272.org
 aewrightmiddleschool.net
 af-cbt.org
 af.cityofcrisfield-md.gov
-af.mil
 af.ok.gov
 afa.tc
 AFADVANTAGE.GOV
@@ -1011,7 +1007,6 @@ affordablecareact.hawaii.gov
 affordablehousing.chandleraz.gov
 affton.k12.mo.us
 afftonschools.net
-afg.usmc.mil
 afghan.library.arizona.edu
 afgov.com
 afhs.alpineschools.org
@@ -1024,7 +1019,6 @@ afnpacific.net
 afognak.org
 afpcs.org
 afpmb.org
-afrc.af.mil
 afreportcards.ok.gov
 afreserve.com
 AFRH.GOV
@@ -1316,8 +1310,6 @@ ainahaina.k12.hi.us
 ainsworthschools.org
 aioic.org
 airbasek8.net
-airdefenseartillery.com
-airforce.com
 airline.bossierschools.org
 airlinepark.jppss.k12.la.us
 airlineschool.org
@@ -1998,7 +1990,6 @@ altoonaschool.org
 altsites.brevard.k12.fl.us
 altura.aurorak12.org
 altus-mirus.net
-altus.af.mil
 ALTUSANDC.GOV
 ALTUSOK.GOV
 altusschools.k12.ok.us
@@ -2116,7 +2107,6 @@ ame-vallecito-ca.schoolloop.com
 ame.americansamoa.gov
 ame.spartanburg6.k12.sc.us
 ame4.hc.asu.edu
-amedd.usarmy.mil
 amelia.k12.va.us
 amelia.provo.edu
 ameliacova.com
@@ -3069,7 +3059,6 @@ armstrongelm.com
 armstrongtwp.org
 armvc.com
 armwood.mysdhc.org
-army.mil
 armyrotc.uga.edu
 arnatural.org
 arnaudvilleelem.slp.k12.la.us
@@ -3886,7 +3875,6 @@ aviation.vermont.gov
 aviation.wv.gov
 aviationhs.net
 aviationhs.org
-aviationweather.gov
 avicalculator.phila.gov
 avillapanthers.org
 avingerisd.net
@@ -11361,12 +11349,7 @@ cgbroncos.org
 cgbsd.com
 cgcc.ca.gov
 cgcc.edu
-cgcdallas.uscg.mil
-cgcescanaba.uscg.mil
-cgchollyhock.uscg.mil
-cgcibis.uscg.mil
 cgcsaz.com
-cgcspencer.uscg.mil
 cge.concursolutions.com
 cge.livingstonisd.com
 cge.martinschools.org
@@ -12041,7 +12024,6 @@ chiefes.levyschools.org
 chiefland.govoffice.com
 chieflandchamber.com
 chiefsealthhs.seattleschools.org
-chievres.usafe.af.mil
 chikamingtownship.org
 childcare.unm.edu
 childcareaware.org
@@ -15873,14 +15855,6 @@ climateland.org
 climax.k12.mn.us
 clinch.hck12.net
 clinchcounty.com
-clinic1source.com
-clinicaldatamatrix.com
-clinicaltechnologiesandservices.com
-clinicaltechnologyandservices.com
-clinicaltechnologyandservices.net
-CLINICALTRIAL.GOV
-CLINICALTRIALS.GOV
-cliniconesource.com
 clinicsearch.azbnp.gov
 clinicserver.psych.washington.edu
 clinkscale.burlesonisd.net
@@ -16188,7 +16162,6 @@ cnec.cusd.com
 cneschools.org
 cnh.chesterfieldschools.org
 cnhms.coventrypublicschools.org
-cnic.navy.mil
 cnl.leeschools.net
 cnm.edu
 cnps.us
@@ -18541,7 +18514,6 @@ cps.mcps.org
 cps18.org
 cpsb.org
 cpsbla.us
-CPSC.GOV
 cpscardinals.org
 cpschool.org
 cpschools.com
@@ -19725,7 +19697,6 @@ cyberbuzz.gatech.edu
 cybercardinal.com
 cybercardinal.net
 cybercemetery.unt.edu
-cybercom.mil
 CYBERCRIME.GOV
 cybercrime.ok.gov
 cyberdocs.sd.gov
@@ -20118,7 +20089,6 @@ data.cityofboston.gov
 data.cityofcrisfield-md.gov
 data.colorado.gov
 data.cookcountyil.gov
-DATA.GOV
 data.honolulu.gov
 data.howardcountymd.gov
 data.iowa.gov
@@ -20664,8 +20634,6 @@ defcomp.nv.gov
 defeatedelementaryschool.com
 defendagainstdiabetes.ne.gov
 defendingchildhood.cuyahogacounty.us
-DEFENSE.GOV
-defensetv.tv
 defgen.state.vt.us
 defiance-county.com
 defiancecityschools.org
@@ -21186,7 +21154,6 @@ development.longviewtexas.gov
 development.montgomerycountyga.gov
 development.ohio.gov
 developmentacademy.ccsdschools.com
-devens.army.mil
 deverelementary.org
 devereux.org
 deversisd.net
@@ -21740,7 +21707,6 @@ dkcoks.org
 dkschools.org
 dl.noacsc.org
 dl.odu.edu
-dla.mil
 dlachampion.org
 dlacps.org
 dlams.martinschools.org
@@ -24345,7 +24311,6 @@ elcap.us
 elcapitan.guhsd.net
 elcarmelo.pausd.org
 elcat.eastlongmeadowma.gov
-elcbalt.ucsg.mil
 elcentinelaleaguecity.com
 elcentromexicanrestaurant.com
 elcerritogauchos.net
@@ -25037,7 +25002,6 @@ ene.rdale.org
 eneida.dadeschools.net
 energy.ca.gov
 energy.ehawaii.gov
-ENERGY.GOV
 energy.hawaii.gov
 energy.ok.gov
 energy.sanjoseca.gov
@@ -25045,7 +25009,6 @@ energy.tamu.edu
 energy.ucsb.edu
 energy.wsu.edu
 energyassistance.nj.gov
-ENERGYCODES.GOV
 energyeducation.tx.gov
 energyhigh.org
 energync.net
@@ -25054,7 +25017,6 @@ ENERGYPLUS.GOV
 ENERGYSAVER.GOV
 ENERGYSAVERS.GOV
 energysmartschool.org
-ENERGYSTAR.GOV
 energytechschool.org
 energyupgradeca.net
 energyupgradeca.org
@@ -25358,7 +25320,6 @@ erclc.org
 erd.dli.mt.gov
 ERDC.GOV
 erdc.k12.mn.us
-erdc.usace.army.mil
 erdcdata.wa.gov
 erdickson.com
 ere.hcde.org
@@ -25708,7 +25669,6 @@ etsu.edu
 etudegroup.org
 etweb.sandovalcountynm.gov
 eu.dodea.edu
-eu.navy.mil
 euacademycs.org
 eub.lakevillemn.gov
 eub.maplegrovemn.gov
@@ -26560,10 +26520,6 @@ fbes.mcps.org
 fbes.spsk12.net
 fbfl.us
 fbhs.hallco.org
-fbi.gov
-fbiacademy.edu
-FBIIC.GOV
-fbijobs.gov
 fbla.dsu.edu
 fbla.k12.sd.us     
 FBO.GOV
@@ -29298,7 +29254,6 @@ garrettjhs.com
 GARRETTPARK-MD.GOV
 garrettsville.org
 garrison-es.pinellas.k12.fl.us
-garrison.hawaii.army.mil
 garrison.k12.nd.us
 garrison.oside.us
 garrisonarts.sccpss.com
@@ -29565,7 +29520,6 @@ geese230.com
 gefa.org
 gehs.greenbriercountyschools.org
 geiger.fairfield.k12.sc.us
-geilenkirchen.af.mil
 geistownborough.com
 gel.ahabs.wisc.edu
 gelds.decal.ga.gov
@@ -32400,7 +32354,6 @@ hanoverschools.org
 hanovertownship.com
 hanovertwpschools.com
 HANOVERVA.GOV
-hanscom.af.mil
 hansen.k12.id.us
 hansen.osd.wednet.edu
 hansen.stoughtonschools.org
@@ -33116,7 +33069,6 @@ health.bridgewaternj.gov
 health.co.union.oh.us
 health.erie.gov
 health.fiu.edu
-HEALTH.GOV
 health.hamiltontn.gov
 health.hawaii.gov
 health.lakecountyca.gov
@@ -33158,7 +33110,6 @@ healthcenterrx.com
 healthchoice.ok.gov
 healthconnect.vermont.gov
 healthdata.ar.gov
-HEALTHDATA.GOV
 healthdisasteroc.com
 healthdisasteroc.info
 healthdisasteroc.net
@@ -34894,16 +34845,6 @@ house.mn.gov
 house.mo.gov
 house.state.oh.us
 house.state.tx.us
-HOUSECALENDAR.GOV
-HOUSECOMMUNICATIONS.GOV
-HOUSEDEMOCRATS.GOV
-HOUSEDEMS.GOV
-HOUSELIVE.GOV
-houseloan.com
-HOUSENEWSLETTERS.GOV
-housenewsletters.gov
-houser.conroeisd.net
-houseschools.net
 housing.az.gov
 housing.longviewtexas.gov
 housing.mt.gov
@@ -36141,7 +36082,6 @@ il-fa.com
 il-vernonhills.civicplus.com
 il.cityofcrisfield-md.gov
 IL.GOV
-il.ngb.army.mil
 ilac.commons.gc.cuny.edu
 ilchs.org
 ilcsd.org
@@ -36187,7 +36127,6 @@ ilopd.iowa.gov
 ilovehistory.utah.gov
 iloveny.com
 ilp.ops.org
-ilpeor.ang.af.mil
 ils.unc.edu
 ILSOS.GOV
 ilstu.edu
@@ -36865,7 +36804,6 @@ ira.esc14.net
 iracema.icsl.ucla.edu
 irahayes.org
 iramurphy.peoriaud.k12.az.us
-iraq.centcom.mil
 irasburgschool.org
 irb.health.ok.gov
 irby.sbac.edu
@@ -37484,7 +37422,6 @@ jardincoronarestaurant.com
 jardine.usd259.org
 jarrellisd.org
 jarrett.k12.hi.us
-jarvis.uscg.mil
 jas.jcsb.org
 jasms.gcps.k12.fl.us
 jasonleebobcats.org
@@ -43279,7 +43216,6 @@ lres.ccs.k12.nc.us
 lres.sowashco.org
 lrgadjudication.nmcourts.gov
 lrgreen.eusd.org
-lrh01.usace.army.mil
 lrhsd.org
 lri.ucsf.edu
 lrl.state.tx.us
@@ -43470,7 +43406,6 @@ lugonia.redlandsusd.net
 luhs.k12.wi.us
 luhsvt.org
 luigi-gusd-ca.schoolloop.com
-luke.af.mil
 luke.cityofcrisfield-md.gov
 lukees.seattleschools.org
 lukfata.org
@@ -44354,7 +44289,6 @@ mail.mcdonough-ga.gov
 mail.mdac.ms.gov
 mail.micmac-nsn.gov
 mail.middleborough.com
-mail.mil
 mail.milan-ny.gov
 mail.missouri.edu
 mail.mnzoo.state.mn.us
@@ -44959,7 +44893,6 @@ marengosheriff.com
 mares.ocsd5.net
 marfacc.com
 marfaisd.com
-marforlant.usmc.mil
 margaretallenms.mnps.org
 margaretelementaryschool.com
 margaretta.k12.oh.us
@@ -45038,9 +44971,6 @@ marinemilitary.org
 marineops.mlml.calstate.edu
 mariner.aa.washington.edu
 mariners.nmusd.us
-marines.com
-marines.mil
-marines.usmc.mil
 marinesciencemagnet.org
 marinesciences.uconn.edu
 marinette.k12.wi.us
@@ -45714,7 +45644,6 @@ mcbay.mexia.schoolfusion.us
 mcbe.dadeschools.net
 mcbean.rcboe.org
 mcbennett.gcsnc.com
-mcbhawaii.marines.mil
 mcbride-lbusd-ca.schoolloop.com
 mcc.co.mercer.pa.us
 mcc.edu
@@ -45758,7 +45687,6 @@ mccomblocalschools.org
 mccombs.dmschools.org
 mccombstoday.org
 mcconecountymt.com
-mcconnell.af.mil
 mcconnellms.org
 mccook.k12.sd.us     
 mccookbison.org
@@ -45877,7 +45805,6 @@ mcgregor.k12.mn.us
 mcgtcc-j.gcsnc.com
 mcgtn.org
 mcguffey.k12.pa.us
-mcguire.af.mil
 mcguire.edzone.net
 mcguire.njwg.cap.gov
 mch.org
@@ -46137,7 +46064,6 @@ mcwhorter.lubbockisd.org
 mcwillie.jpsms.org
 md.cityofcrisfield-md.gov
 MD.GOV
-md.ngb.army.mil
 md.reel-scout.com
 md511.org
 MDA.GOV
@@ -46218,7 +46144,6 @@ me.horrycountyschools.net
 me.isd77.org
 me.milfordschooldistrict.org
 me.montana.edu
-me.ngb.army.mil
 me.nj.gov
 me.stier.org
 me.stma.k12.mn.us
@@ -46325,7 +46250,6 @@ med-rxpharmacy.com
 med-training.org
 med.gov
 med.miami.edu
-med.navy.mil
 med.umich.edu
 med.unc.edu
 med.uscourts.gov
@@ -46418,7 +46342,6 @@ medicapresource.com
 medicaprx.com
 medicaprx.net
 medicaprx.org
-MEDICARE.GOV
 medicine-shoppe.com
 medicine-shoppe.net
 medicine-shoppe.org
@@ -47453,7 +47376,6 @@ milbankschooldistrict.com
 milbanksd.com
 milburn.k12.ok.us
 milby.org
-mildenhall.af.mil
 mildredharris.jpschools.org
 mildredisd.org
 mileageplus.ca
@@ -49251,7 +49173,6 @@ ms.lorenaisd.net
 ms.lynden.wednet.edu
 ms.nazarethasd.k12.pa.us
 ms.needvilleisd.com
-ms.ng.mil
 ms.npusc.k12.in.us
 ms.nyackschools.org
 ms.pccsd.net
@@ -50425,7 +50346,6 @@ nacs1.org
 nadaburgsd.org
 nadams.k12.in.us
 nadeem.commons.gc.cuny.edu
-nadn.navy.mil
 naelectric.com
 naelementary.com
 naes.srvusd.k12.ca.us
@@ -50643,8 +50563,6 @@ navelencia.kcusd.com
 navigator.pinckneyschools.org
 navigatorpointeacademy.org
 navitschool.org
-navy.com
-navy.mil
 NAVYCASH.GOV
 navyfederal.org
 navyjobs.com
@@ -51170,7 +51088,6 @@ ne-hamilton.k12.ia.us
 ne.cityofcrisfield-md.gov
 NE.GOV
 ne.hartlake.org
-ne.ng.mil
 ne.rock-hill.k12.sc.us
 ne.usda.gov
 NEA.GOV
@@ -52248,8 +52165,6 @@ NISQUALLY-NSN.GOV
 nisqually-nsn.gov
 nissequogueny.gov
 nisswa.isd181.org
-nist.gov
-NITRD.GOV
 nitro.kana.k12.wv.us
 niu.edu
 niuvalleymiddle.org
@@ -53379,7 +53294,6 @@ ns3.bcbsnc.com
 ns6.bcbsnc.com
 ns7.bcbsnc.com
 ns8.bcbsnc.com
-NSA.GOV
 nsacd.com
 nsacharter.org
 nsanpete.org
@@ -54483,7 +54397,6 @@ ojses-ecsd-fl.schoolloop.com
 ojus.dadeschools.net
 ok-schools.com
 OK.GOV
-ok.ngb.army.mil
 ok.usd259.org
 ok.usda.gov
 ok2share.health.ok.gov
@@ -56337,7 +56250,6 @@ patientscribe.org
 patobaccoprevention.org
 paton-churdan.k12.ia.us
 PATREASURY.GOV
-patrick.af.mil
 patrick.k12.va.us
 patrickelementary.org
 patrickhenry.tulsa.schooldesk.net
@@ -63251,7 +63163,6 @@ SAINTPETERMN.GOV
 saisd.net
 saisd.org
 saisd.us
-saj02.usace.army.mil
 sajhs.nebo.edu
 sajohnson.stratfordk12.org
 sakamoto.ogsd.net
@@ -63736,7 +63647,6 @@ sartellmn.com
 sartorius-ccr.ag.ok.gov
 sartraining.dem.azdema.gov
 sarweb.stanwood.wednet.edu
-sas02.usace.army.mil
 sasakwaschools.org
 sasave.com
 sascs.org
@@ -64302,7 +64212,6 @@ schoolwithinschool.org
 schor.piscatawayschools.org
 SCHOUSE.GOV
 schreiber.ccsdistrict.org
-schriever.af.mil
 schroeder.troy.k12.mi.us
 schroederpta.com
 schroon.net
@@ -65858,7 +65767,6 @@ shepherdisd.net
 shepherdschools.net
 shepherdstown.us
 shepherdstownvisitorscenter.com
-sheppard.af.mil
 sheppard.mansfieldisd.org
 sheptonptsa.org
 sherbornma.org
@@ -67739,7 +67647,6 @@ spaceappschallenge.org
 SPACEFLORIDA.GOV
 spacegrant.colorado.edu
 spacegrant.montana.edu
-spaceweather.gov
 spacharter.org
 spackenkillschools.org
 spacompany.org
@@ -68505,7 +68412,6 @@ START2FARM.GOV
 starthere4loans.com
 starthere4loans.org
 startsquad.org
-stasanjuan.uscg.mil
 stat-ecol.evsc.virginia.edu
 stat.iastate.edu
 stat.oregonstate.edu
@@ -68521,7 +68427,6 @@ state.ct.us
 state.de.us
 state.fl.us
 state.ga.us
-STATE.GOV
 state.hi.us
 state.ia.us
 state.id.us
@@ -68595,7 +68500,6 @@ statepatrol.nebraska.gov
 statepatrol.ohio.gov
 statepolice.wv.gov
 stateroomrestaurant.com
-states.ng.mil
 STATESBOROGA.GOV
 statesboroga.net
 stateschedules.ncdcr.gov
@@ -69134,7 +69038,6 @@ strasburg.k12.oh.us
 strasburg31j.com
 strasburgnd.com
 strasburgva.com
-stratcom.mil
 strategicplan.dconc.gov
 STRATEGICSOURCING.GOV
 stratford.central.k12.ca.us
@@ -70270,7 +70173,6 @@ tabrown.austinschools.org
 tabs.fwisd.org
 tabs.gerg.tamu.edu
 tabschools.org
-tac01.usace.army.mil
 TACHI-YOKUT-NSN.GOV
 tacobell.com
 tacoma-cable.com
@@ -73840,7 +73742,6 @@ tsd1.org
 tsd401.org
 tsdeaf.org
 tsdll.panynj.gov
-tseadfast.ucsg.mil
 tseaonline.org
 tses.hcpss.org
 tses.pcschools.us
@@ -74997,34 +74898,21 @@ US-CERT.GOV
 us-china-cerc.org
 us-mission.ch
 us-sd41-id.schoolloop.com
-us.af.mil
-us.army.mil
-US.GOV
 us.hsbc.com
-us.med.navy.mil
 US41WISCONSIN.GOV
 us41wisconsin.gov
 usa-spaceops.ksc.nasa.gov
 usa.bnpparibas.com
-USA.GOV
 USABILITY.GOV
-usacc.army.mil
-usace.army.mil
-USADF.GOV
-usafa.af.mil
-usafa.edu
-usafservices.com
 usagbank.com
 USAGOV.GOV
 USAID.GOV
 USAIDALLNET.GOV
-usajobs.gov
 usajobsassess.gov
 USALEARNING.GOV
 USANDC.GOV
 USAP.GOV
 USAPERFORMANCE.GOV
-usarmy.mil
 USASPENDING.GOV
 USASTAFFING.GOV
 usavephcy.com
@@ -75038,15 +74926,7 @@ USC.GOV
 usc.k12.in.us
 usc.k12.mn.us
 usca.edu
-USCAPITAL.GOV
-USCAPITOL.GOV
-USCAPITOLPOLICE.GOV
-USCAPITOLVISITORCENTER.GOV
 USCAVC.GOV
-USCC.GOV
-USCCR.GOV
-USCG.GOV
-uscg.mil
 uscgaux.info
 USCHINACERC.GOV
 uschool.nova.edu
@@ -75265,17 +75145,8 @@ usd506.org
 usd507.org
 usd508.org
 usd509.org
-USDA.GOV
-USDAPII.GOV
-usdb.org
-USDEBITCARD.GOV
-USDOJ.GOV
 usedcarcommission.ok.gov
-usembassy-china.org.cn
-USEMBASSY-MEXICO.GOV
-USEMBASSY.GOV
 useonlyasdirected.utah.gov
-USERRA.GOV
 users.alerts.rochestermn.gov
 users.nyalert.gov
 users.polisci.wisc.edu
@@ -75307,7 +75178,6 @@ usm.edu
 usm.maine.edu
 usma.edu
 USMARSHALS.GOV
-usmc.mil
 USMINT.GOV
 usmint.treas.gov
 USMISSION.GOV
@@ -75339,12 +75209,10 @@ ustr.eop.gov
 USTR.GOV
 USTREAS.GOV
 usu.edu
-usuhs.mil
 usv.k12.oh.us
 USVPP.GOV
 uswiggins.org
 ut.blm.gov
-ut.ngb.army.mil
 ut.utm.edu
 ut1.union.k12.in.us
 uta.edu
@@ -77074,7 +76942,6 @@ waimeaelementary.org
 waimeahighschool.org
 waimeamiddleschool.org
 wainscottschool.org
-wainwright.army.mil
 waipahue.k12.hi.us
 waipahuhigh.org
 waipahuintermediate.org
@@ -78066,7 +77933,6 @@ wearemiddleschool.net
 wearenorwood.org
 WEAREORALHEALTH.ORG
 wearesynergy.org
-weather.gov
 weather.maurycounty-tn.gov
 weather.ok.gov
 weather.wyomingmi.gov
@@ -79340,7 +79206,6 @@ wgschools.org
 wgsd.edlioschool.com
 wgsd.org
 wgtownri.org
-wh.gov
 wh.liberty.k12.mo.us
 wh.rutgers.edu
 wh.schoolloop.com
@@ -79480,16 +79345,6 @@ whitehallschools.net
 whitehallsd.k12.wi.us
 whitehallsd.org
 whitehead-wjusd-ca.schoolloop.com
-whitehouse.gov
-WHITEHOUSE.GOV
-WHITEHOUSECONFERENCEONAGING.GOV
-whitehouseconferenceonaging.gov
-WHITEHOUSEDRUGPOLICY.GOV
-whitehousedrugpolicy.gov
-whitehouseisd.org
-WHITEHOUSEOH.GOV
-whitehouseoh.gov
-whitelake.k12.sd.us
 whitelake.k12.sd.us     
 whitelake.k12.wi.us
 whitelakenc.org
@@ -79614,7 +79469,6 @@ whs.iwcs.k12.va.us
 whs.juhsd.net
 whs.k12.in.us
 whs.k12wocsd.net
-whs.mil
 whs.mtplcsd.org
 whs.nwcomplex.org
 whs.randolph.k12.nc.us
