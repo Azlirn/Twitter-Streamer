@@ -60,8 +60,9 @@ System Time: %s
 - StreamerBot
 
 P.S.
-"ICA" will appear in every hit, regardless of if exists in the tweet or not. This is a known bug.
-We are working on a fix.
+"ICA" is a term used to track activity from the Islamic Cyber Army.
+Currently, this term, if found, will not appear in the above "Term/s Found" section.
+This is a known issue and we are working on a fix.
 
 ***************************************************************************
 This is an automated message from the Twitter Streamer.
