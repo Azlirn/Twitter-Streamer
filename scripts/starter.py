@@ -5,6 +5,7 @@ import re
 import json
 import requests
 import twitter_setup
+from pymongo import MongoClient
 
 
 
@@ -321,3 +322,11 @@ def disabling_ssl_warning():
         print yel, '#' * 40, off
         print ''
         pass
+
+
+def store_to_mongo(data, hit):
+    client = MongoClient()
+    db = client.twitter.authenticate('{username}', '{password}')
+
+    tweet = db.tweets
+    tweet.insert_one(data).inserted_id

@@ -37,7 +37,9 @@ _Keep in mind that basic user accounts will likely need `sudo` access to install
      * To install the Gmail Python API Library:
      `pip install --upgrade google-api-python-client`
      * Check out other installation options [here](https://developers.google.com/api-client-library/python/start/installation)\
-
+* MongoDB
+     * To install MongoDB on Ubuntu see: https://docs.mongodb.com/v3.0/tutorial/install-mongodb-on-ubuntu/
+     
 (This section to be updated)
 
 ## How to operate

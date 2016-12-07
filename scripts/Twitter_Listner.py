@@ -113,8 +113,11 @@ class listener(StreamListener):
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
 
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
+                        # Write to Mongo
+                        starter.store_to_mongo(all_data, hit)
+
+                        # # Write to JSON
+                        # starter.write_to_json(all_data, hit)
 
                         # Notify
                         trackFound = self.termHits(all_data)
@@ -159,8 +162,11 @@ class listener(StreamListener):
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
 
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
+                        # Write to Mongo
+                        starter.store_to_mongo(all_data, hit)
+
+                        # # Write to JSON
+                        # starter.write_to_json(all_data, hit)
 
                         # Notify
                         trackFound = self.termHits(all_data)
@@ -207,8 +213,11 @@ class listener(StreamListener):
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
 
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
+                        # Write to Mongo
+                        starter.store_to_mongo(all_data, hit)
+
+                        # # Write to JSON
+                        # starter.write_to_json(all_data, hit)
 
                         # Notify
                         trackFound = self.termHits(all_data)
