@@ -36851,7 +36851,6 @@ iroquoissd.com
 iroquoissd.org
 irp.idaho.gov
 irp.utep.edu
-IRS.GOV
 IRSAUCTIONS.GOV
 IRSCOUNSEL.TREAS.GOV
 irsd.k12.de.us
@@ -64844,7 +64843,6 @@ sebring.k12.oh.us
 sebringohio.net
 sebringohio.net.dnnmax.com
 sebrsd.org
-SEC.GOV
 sec.state.ma.us
 sec.state.vt.us
 seca-susd-ca.schoolloop.com
