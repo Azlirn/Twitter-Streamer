@@ -63005,13 +63005,8 @@ SAFERFLORIDAHIGHWAYS.GOV
 SAFERFLORIDAROADS.GOV
 saferoom.ok.gov
 saferooms.ok.gov
-SAFERPRODUCT.GOV
-SAFERPRODUCTS.GOV
-SAFERTRUCK.GOV
 safeschools.alacop.gov
 safeschools101.ok.gov
-SAFESD.GOV
-safesd.gov       
 safesleep.tn.gov
 safessu.org
 safesurrender.net
