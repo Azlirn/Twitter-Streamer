@@ -131,3 +131,7 @@ jihadi,
 jihadis,
 helenajobs,
 wantedwednesday,
+Thai,
+Thailand,
+OpSudan
+OpSingleGateway
