@@ -20780,7 +20780,6 @@ delsearegional.us
 delsestomiddleschool.org
 DELTA-CO.GOV
 delta.cityofcrisfield-md.gov
-delta.com
 delta.edu
 delta.ucdavis.edu
 delta1.cityofcrisfield-md.gov
@@ -34032,7 +34031,6 @@ hinds.k12.ms.us
 hindscareercenter.org
 hindscc.edu
 hindscountyms.com
-hindustantimes.com
 hinellaboro.com
 hines.nn.k12.va.us
 hinesburg.org
@@ -35763,7 +35761,6 @@ IC.GOV
 ic.nc.gov
 ic.sc.gov
 ic.sunysb.edu
-IC3.GOV
 ica.state.az.us
 icademyglobal.org
 icahncharterschool1.org
@@ -45698,7 +45695,6 @@ mcdonaldco.k12.mo.us
 MCDONALDCOUNTYMO.GOV
 mcdonaldpta.org
 mcdonaldr1.net
-mcdonalds.com
 mcdonogh.la.opc.schoolinsites.com
 mcdonogh26.jpschools.org
 mcdonogh32.net
@@ -75123,15 +75119,7 @@ usr2.com
 usrschoolsk8.com
 usrtoday.org
 uss.springfield.k12.vt.us
-USSC.GOV
-usss.dhs.gov
-USSS.GOV
 ustachms.sylvan.k12.ca.us
-USTAXCOURT.GOV
-USTDA.GOV
-ustr.eop.gov
-USTR.GOV
-USTREAS.GOV
 usu.edu
 usv.k12.oh.us
 USVPP.GOV
