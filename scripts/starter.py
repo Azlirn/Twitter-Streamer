@@ -5,8 +5,12 @@ import re
 import json
 import requests
 import twitter_setup
+from sqlalchemy import *
+from sqlalchemy import create_engine
 
-
+db = create_engine('sqlite:///streamerDB.db')
+connection = db.connect()
+metadata = MetaData(db)
 
 
 #TODO: Change restart countdown to a loop
@@ -77,9 +81,25 @@ def restart_program():
     subprocess.call(['bash', '-c', 'source ~/.bashrc'])
 
 
+# This method loads blacklist terms for the Twitter Streamer
+def loadBlacklist():
+    blacklist = Table('blacklist', metadata, autoload=True)
+    s = select([blacklist])
+    rp = connection.execute(s)
+    blacklistTerms = []
+    for record in rp:
+        blacklist.append(str(record.bl_term))
+    return blacklistTerms
+
+# This method loads track terms for the Twitter Streamer
 def get_track():
-    track = [lines.replace('\n','').replace(',','') for lines in open('data/track.txt')]
-    return track
+    track = Table('track', metadata, autoload=True)
+    s = select([track])
+    rp = connection.execute(s)
+    trackTerms = []
+    for record in rp:
+        track.append(str(record.track_term))
+    return trackTerms
 
 
 def domain_loader():
@@ -100,44 +120,18 @@ def domain_loader():
             print " [!] Error occured while loading domains..."
 
 
-def username_loader():
-    """
-        Pulls the malicious actor twitter actors from the actor_profile csv,
-        strips the url from the profile name to get access to just the user name
-        and tries to search for that screen names User_id
-    """
-    api = twitter_setup.authenticate_to_twitter()
+def loadTwitterAccounts():
+    mediaAccounts = Table('media_accounts', metadata, autoload=True)
+    s = select([mediaAccounts])
+    rp = connection.execute(s)
 
-    print blu, "[*] Loading Twitter Accounts to Monitor...", off
+    twitterAccountIDs = []
 
-    unames = []
-    file = open('data/Actor_Profiles.csv', 'rU')
-    reader = csv.reader(file)
-    # next(reader, None)  # ignore the csv headers
-    data = list(reader)
-
-    for row in data:
-        parsed = urlparse(row[3])
-        unames.append(re.sub('[/]', '', parsed.path))
-
-    print grn, "[**] Finished loading %s accounts!" % len(unames), off
-    print blu, "\n [*] Converting the account names to their native ID's for persistence...", off
-    print yel, "[!] NOTE: This will take a while depending on the size of your list...", off
-
-    time.sleep(1)
-    follower = []
-
-    for u in unames:
-        try:
-            u_id = str(api.get_user(u, wait_on_rate_limit=True, wait_on_rate_limit_notify=True).id)
-            print grn, "     [ + ]", u, pur, "=>", cyn, u_id, off
-            follower.append(u_id)
-        except Exception, e:
-            print "\n"
-            print yel, u, blu, "--->", red, str(e), off
-            print "\n"
-            pass
-    return follower
+    for record in rp:
+        if record.media_type == 'Twitter':
+            if record.send_to_streamer == True and record.media_status == 'Active':
+                twitterAccountIDs.append(str(record.media_id))
+    return twitterAccountIDs
 
 
 def TwitSLTT_loader():
