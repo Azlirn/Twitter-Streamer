@@ -31,7 +31,7 @@ class listener(StreamListener):
         # Variables used throughout the script
         self.api = api or API()
         self.domains = starter.domain_loader()
-        self.user_names = starter.username_loader()
+        self.user_IDs = starter.loadTwitterAccounts()
         self.TwitSLTT = starter.TwitSLTT_loader()
         self.counter_hit_SLTT = 0
         self.counter_hit_Domain = 0
@@ -164,7 +164,7 @@ class listener(StreamListener):
                 ###  CTA Mention Test   ###
                 ###                     ###
 
-                elif str(all_data["user"]["id"]) in self.user_names:
+                elif str(all_data["user"]["id"]) in self.user_IDs:
 
                     # If a tweet is found, check to see if a blacklisted term is in the tweet. If a blacklisted term
                     # is found, ignore the tweet.
@@ -286,12 +286,13 @@ class listener(StreamListener):
         return
 
 
+
     def blacklist(self, all_data):
         twitText = str(all_data['text'].lower().encode('utf8'))
         twitHash = starter.stringify_hashtags_lower(all_data)
         screenName = str(all_data['user']['screen_name'].lower().encode('utf8'))
 
-        blacklist = [lines.replace('\n','').replace(',','') for lines in open('data/blacklist.txt')]
+        blacklist = starter.loadBlacklist()
 
         bl = [item.lower() for item in blacklist]
 
