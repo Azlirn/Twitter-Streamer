@@ -11628,7 +11628,6 @@ charterschool.org
 charterschoolatwaterstone.com
 charterschoolofeducationalexcellence.org
 chartertech.org
-chase.com
 chase.cps.k12.il.us
 chasedrug.com
 chasek5.com
@@ -17669,7 +17668,6 @@ confidential.cityofcrisfield-md.gov
 confluenceacademy.com
 confreg.state.tn.us
 congdon-elementary.isd709.org
-CONGRESS.GOV
 congressdistrict.org
 CONGRESSIONALDIRECTORY.GOV
 CONGRESSIONALRECORD.GOV
@@ -21840,7 +21838,6 @@ dnews.cityofcrisfield-md.gov
 DNFSB.GOV
 dnhcsd.org
 dnhs.donna.schooldesk.net
-DNI.GOV
 dnl.ucsf.edu
 dnms.derbyschools.com
 dnn.berwyn-il.gov
@@ -22051,10 +22048,7 @@ doj.state.nh.us
 doj.state.or.us
 doj.state.wi.us
 doj.vi.gov
-DOJMT.GOV
 dokimospharmacy.com
-DOL-ESA.GOV
-DOL.GOV
 dol.ks.gov
 dol.kusd.edu
 dol.nebraska.gov
@@ -35371,7 +35365,6 @@ hubbardisd.net
 hubbardstonma.us
 hubbardteed.kunaschools.org
 hubbertville.al.fcs.schoolinsites.com
-hubblesite.org
 huberheights.k12.oh.us
 huberheightscityschools.org
 huberthumphrey.aps.edu
@@ -42626,7 +42619,6 @@ loara.auhsd.k12.ca.us
 lobbyist.davie-fl.gov
 lobbyistregistration.mt.gov
 lobelvilletn.org
-LOC.GOV
 local.ar.gov
 local.cityofcrisfield-md.gov
 local.tdecu.org
@@ -50377,7 +50369,6 @@ NARRAGANSETTRI.GOV
 narsal.ecology.uga.edu
 narvieharrises.dekalb.k12.ga.us
 nas.cityofcrisfield-md.gov
-NASA.GOV
 nasa.orau.org
 nasa.tamu.edu
 nasaimages.org
@@ -74814,7 +74805,6 @@ uri.edu
 urie.uinta6.k12.wy.us
 urs86.k12.il.us
 ursuline.com
-US-CERT.GOV
 us-china-cerc.org
 us-mission.ch
 us-sd41-id.schoolloop.com
