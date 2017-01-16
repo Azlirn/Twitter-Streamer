@@ -291,4 +291,5 @@ OpMorton,
 Shad0wS3C,
 data_leak,
 Shad0wSecurity,
-Gh0s7
+Gh0s7,
+Cellebrite,
