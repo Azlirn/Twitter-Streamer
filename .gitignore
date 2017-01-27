@@ -12,3 +12,5 @@ Records/
 test.log
 *.pyc
 *.xlsx
+.DS_Store
+TwitterStreamer.pem
