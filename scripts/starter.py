@@ -1,4 +1,4 @@
-import os, time, subprocess, datetime
+import os, time, datetime
 import csv
 from urlparse import urlparse
 import re
@@ -7,23 +7,9 @@ import requests
 import twitter_setup
 
 
+# TODO: Change restart countdown to a loop
 
-
-#TODO: Change restart countdown to a loop
-##### Color Options #####
-
-blk = '\033[0;30m'  # Black - Regular
-red = '\033[0;31m'  # Red - Regular
-grn = '\033[0;32m'  # Green - Regular
-yel = '\033[0;33m'  # Yellow - Regular
-blu = '\033[0;34m'  # Blue - Regular
-pur = '\033[0;35m'  # Purple - Regular
-cyn = '\033[0;36m'  # Cyan - Regular
-wht = '\033[0;37m'  # White - Regular
-off = '\033[0m'  # Text Reset
-
-
-#Fuction used to at the startup of the program
+# Fuction used to at the startup of the program
 def print_headers():
     '''
     This function simply asks the OS to clear the existing window
@@ -33,11 +19,11 @@ def print_headers():
     print "#" + " " * 32 + "Time to Hunt on Twitter!" + " " * 22 + "#"
     print "#" * 80
     time.sleep(1)
-    print blu, "Twitter Streamer ver. 2.1", off
-    print red, "This version of the Twitter Streamer is authorized only for use by the MS-ISAC", off
+    print "Twitter Streamer ver. 2.0"
+    print "This version of the Twitter Streamer has been optimized for use by the MS-ISAC"
     print ''
-    print cyn, "Developed by Philippe Langlois & Chris Cooley", off
-    print blu, "#" * 60, off
+    print "Developed by Philippe Langlois & Christopher Cooley"
+    print "#" * 60
     print ''
 
     time.sleep(5)
@@ -49,32 +35,26 @@ def restart_program():
     This function will restart the application if disconnected after waiting
     a specific amount of time
     '''
-    print red, "*" * 30, off
-    print red, "[!] Fatal Error - Disconnected at: %s" % systime, off
-    print red, "*" * 30, off
+    print "*" * 30
+    print "[!] Fatal Error - Disconnected at: %s" % systime
+    print "*" * 30
     time.sleep(1)
 
-    print yel, "     [!] Attempting to restart script in 60 seconds...", off
+    print "     [!] Attempting to restart script in 60 seconds..."
     time.sleep(10)
-    print yel, "     [!] Attempting to restart script in 50 seconds...", off
+    print "     [!] Attempting to restart script in 50 seconds..."
     time.sleep(10)
-    print yel, "     [!] Attempting to restart script in 40 seconds...", off
+    print "     [!] Attempting to restart script in 40 seconds..."
     time.sleep(10)
-    print yel, "     [!] Attempting to restart script in 30 seconds...", off
+    print "     [!] Attempting to restart script in 30 seconds..."
     time.sleep(10)
-    print yel, "     [!] Attempting to restart script in 20 seconds...", off
+    print "     [!] Attempting to restart script in 20 seconds..."
     time.sleep(10)
-    print yel, "     [!] Attempting to restart script in 10 seconds...", off
+    print "     [!] Attempting to restart script in 10 seconds..."
     time.sleep(10)
     print "[!] Attempting to restart now..."
     print '\n'
     time.sleep(5)
-
-    #PhilEDIT:
-    #to fix the problem regarding reloading the the wrong python library
-    #uses the python subprocess
-
-    subprocess.call(['bash', '-c', 'source ~/.bashrc'])
 
 
 def get_track():
@@ -92,12 +72,12 @@ def domain_loader():
         """
         try:
             domains = []
-            print blu, "[*] Loading Domains...", off
+            print " [*] Loading Domains..."
             with open('data/GOV_Domain_list.txt') as f:
                 for domain in f.readlines():
                     dom = domain.strip('\n').strip('\r').lower()
                     domains.append(str(dom))
-            print grn, "[*] Finished loading %s domains!\n" % len(domains), off
+            print " [*] Finished loading %s domains!\n" % len(domains)
             return domains
         except:
             print " [!] Error occured while loading domains..."
@@ -111,7 +91,7 @@ def username_loader():
     """
     api = twitter_setup.authenticate_to_twitter()
 
-    print blu, "[*] Loading Twitter Accounts to Monitor...", off
+    print " [*] Loading Twitter Accounts to Monitor..."
 
     unames = []
     file = open('data/Actor_Profiles.csv', 'rU')
@@ -123,9 +103,9 @@ def username_loader():
         parsed = urlparse(row[3])
         unames.append(re.sub('[/]', '', parsed.path))
 
-    print grn, "[**] Finished loading %s accounts!" % len(unames), off
-    print blu, "\n [*] Converting the account names to their native ID's for persistence...", off
-    print yel, "[!] NOTE: This will take a while depending on the size of your list...", off
+    print " [**] Finished loading %s accounts!" % len(unames)
+    print "\n [*] Converting the account names to their native ID's for persistence..."
+    print " [!] NOTE: This will take a while depending on the size of your list..."
 
     time.sleep(1)
     follower = []
@@ -133,11 +113,11 @@ def username_loader():
     for u in unames:
         try:
             u_id = str(api.get_user(u, wait_on_rate_limit=True, wait_on_rate_limit_notify=True).id)
-            print grn, "     [ + ]", u, pur, "=>", cyn, u_id, off
+            print "     [ + ]", u, "=>", u_id
             follower.append(u_id)
         except Exception, e:
             print "\n"
-            print yel, u, blu, "--->", red, str(e), off
+            print u, "--->", str(e)
             print "\n"
             pass
     return follower
@@ -147,7 +127,7 @@ def TwitSLTT_loader():
     """
     Pulls the twitter accounts from the SLTT_TwitterAccounts.csv
     """
-    print blu, "\n [*] Loading Twitter accounts for checking against mentions...", off
+    print "\n [*] Loading Twitter accounts for checking against mentions..."
     time.sleep(1)
     TwitSLTT = []
     file = open('data/SLTT_TwitterAccounts.csv', 'rU')
@@ -160,31 +140,14 @@ def TwitSLTT_loader():
             parsed = urlparse(row[3])
             TwitSLTT.append(re.sub('[/]', '', parsed.path))
             uname = re.sub('[/]', '', parsed.path)
-            print grn, "     [ + ] Loaded Account:", cyn, uname, off
-    print grn, "\n [**] Finished loading %s Twitter accounts!" % len(TwitSLTT), off
+            print "     [ + ] Loaded Account:", uname
+    print "\n [**] Finished loading %s Twitter accounts!" % len(TwitSLTT)
     return TwitSLTT
 
 
-def writeToText(all_data, term):
-    todayDate = time.strftime("%d-%m-%y")
-    directory = os.getcwd() + '/Records/BlackListTerms/%s' % todayDate
-
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-    systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y% %H-%M-%S')
-
-    writefile = "%s/BlackListTerms_%s.txt" % (directory, todayDate)
-    f = open(writefile, "a")
-    text = ("Term Found: %s - Time: %s"
-            "\n"
-            ) % (term, systime)
-    f.write(text.encode('utf8'))
-    f.close()
-
 def stringify_hashtags_lower(data):
     """
-    converts the multiple url referenced into a single string
+    converts the multiple hashtags referenced into a single string
     """
 
     string_hashtags = []
@@ -221,7 +184,7 @@ def stringify_mentions(data):
 
 def stringify_url(data):
     """
-    converts the multiple url referenced into a single string
+    converts multiple urls in Tweets into a single string
     """
 
     string_url = []
@@ -235,43 +198,24 @@ def stringify_url(data):
     except Exception as e:
         print "\nERROR - stringify_url Function\n"
 
-# def stringify_media(data):
-#     """
-#     converts the multiple url referenced into a single string
-#     """
-#     if 'media' in data:
-#         return "FOUND"
-#     else:
-#         return  "NOT FOUND"
-#         # media_url = []
-#         # urls = []
-#         # for x in data["entities"]["media"]:
-#         #     print x
-#         #     urls.append(x["media_url_https"])
-#         #     media_url = ', '.join(urls)
-#         # return media_url
-
 
 def display_tweet(data, hit, trackFound):
     # This presents a view of hits to the analyst
     print '\n'
-    print red, '#' * 40, yel, ' %s' % blu, hit, red, '#' * 40
+    print '#' * 40, ' %s' % hit, '#' * 40
     print '\n'
-    print cyn, "Tweeted By: %s" % pur, str(data['user']['screen_name']), cyn, "Tweeter Account ID: %s" % pur, str(
-            data['user']['id']), off
-    print grn, "Tweet Text: %s" % wht, data['text'], off
-    print grn, "Retweeted? %s" % wht, data['retweeted'], off
-    print grn, "Terms Found: %s" % wht, trackFound, off
-    print grn, "Created At: %s" % pur, data['created_at'], off
-    print grn, "Tweet Link:", blu, "https://twitter.com/%s/status/%s" % (
-        str(data['user']['screen_name']), str(data['id'])), off
-    # print grn, "Tweet Image Link %s: " % blu, (str(stringify_media(data))), off
-    print grn, "Tweet Mentions: %s" % pur, (stringify_mentions(data)), off
-    print grn, "Tweet Hashtags: %s" % pur, (stringify_hashtags_reg(data)), off
-    print grn, "Expanded Url/s: %s" % blu, (str(stringify_url(data))), off
-    print wht, "System Time: %s" % (datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')), off
-    print '\n', off
-    print red, '#' * 40, yel, ' %s' % blu, hit, red, '#' * 40, off
+    print "Tweeted By: %s" % str(data['user']['screen_name']), "Tweeter Account ID: %s" % str(data['user']['id'])
+    print "Tweet Text: %s" % data['text']
+    print "Retweeted? %s" % data['retweeted']
+    print "Terms Found: %s" % trackFound
+    print "Created At: %s" % data['created_at']
+    print "Tweet Link:", "https://twitter.com/%s/status/%s" % (str(data['user']['screen_name']), str(data['id']))
+    print "Tweet Mentions: %s" % (stringify_mentions(data))
+    print "Tweet Hashtags: %s" % (stringify_hashtags_reg(data))
+    print "Expanded Url/s: %s" % (str(stringify_url(data)))
+    print "System Time: %s" % (datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S'))
+    print '\n'
+    print '#' * 40, ' %s' % hit, '#' * 40
     print ''
 
 
@@ -296,28 +240,28 @@ def displayBlacklist(all_data, termfound):
     twitHash = stringify_hashtags_lower(all_data)
 
     print ''
-    print yel, '#' * 20, red, "Blacklisted Term Found", yel, '#' * 20, off
-    print cyn, 'Term Found: ', grn, termfound, off
-    print wht, "Tweet Posted By %s" % red, str(all_data['user']['screen_name']), off
-    print cyn, "Tweeter Account ID: %s" % pur, str(all_data['user']['id']), off
-    print wht, "Re-Tweeted? ", all_data['retweeted'], off
-    print grn, "Tweet Text: %s" % wht, all_data['text'], off
-    print grn, "Tweet Link:", blu, "https://twitter.com/%s/status/%s" % (str(all_data['user']['screen_name']), str(all_data['id'])), off
-    print blu, "Tweet Hashtags: ", twitHash, off
-    print grn, "Tweet Mentions: %s" % pur, (stringify_mentions(all_data)), off
-    print grn, "Expanded Url: %s" % blu, (str(stringify_url(all_data))), off
+    print '#' * 20, "Blacklisted Term Found", '#' * 20
+    print 'Term Found: ', termfound
+    print "Tweet Posted By %s" % str(all_data['user']['screen_name'])
+    print "Tweeter Account ID: %s" % str(all_data['user']['id'])
+    print "Re-Tweeted? ", all_data['retweeted']
+    print "Tweet Text: %s" % all_data['text']
+    print "Tweet Link:", "https://twitter.com/%s/status/%s" % (str(all_data['user']['screen_name']), str(all_data['id']))
+    print "Tweet Hashtags: ", twitHash
+    print "Tweet Mentions: %s" % (stringify_mentions(all_data))
+    print "Expanded Url: %s" % (str(stringify_url(all_data)))
     print ''
+
 
 def disabling_ssl_warning():
     try:
-        print grn, "[*] Attempting to disable SSL Warnings...", off
-        time.sleep(2)
+        print "[*] Attempting to disable SSL Warnings..."
         requests.packages.urllib3.disable_warnings()
-        print grn, "[**] Complete...\n", off
+        print "[**] Complete...\n"
     except:
         print ''
-        print yel, '#' * 40, off
-        print red, "[!] Unable to disable SSL Warnings", off
-        print yel, '#' * 40, off
+        print '#' * 40
+        print "[!] Unable to disable SSL Warnings"
+        print '#' * 40
         print ''
         pass
