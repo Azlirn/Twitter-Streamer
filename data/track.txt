@@ -298,4 +298,5 @@ OpChangeTheWorld,
 EtherSec,
 DefundDAPL,
 StopTheWall,
-OpSleepIn
+OpSleepIn,
+OpNoDAPL
