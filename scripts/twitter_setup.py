@@ -21,7 +21,7 @@ def set_up_listener():
     auth = tweepy.OAuthHandler(ckey, csecret)
     auth.set_access_token(atoken, asecret)
 
-    print  " [*]  Authenticating with Twitter"
+    print " [*]  Authenticating with Twitter"
     api = authenticate_to_twitter()
 
     # set up listener
