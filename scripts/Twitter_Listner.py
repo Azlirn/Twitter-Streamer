@@ -9,20 +9,6 @@ from urlparse import urlparse
 reload(gmail_mailer)
 reload(notifier)
 
-##### Color Options #####
-
-blk = '\033[0;30m'  # Black - Regular
-red = '\033[0;31m'  # Red - Regular
-grn = '\033[0;32m'  # Green - Regular
-yel = '\033[0;33m'  # Yellow - Regular
-blu = '\033[0;34m'  # Blue - Regular
-pur = '\033[0;35m'  # Purple - Regular
-cyn = '\033[0;36m'  # Cyan - Regular
-wht = '\033[0;37m'  # White - Regular
-off = '\033[0m'  # Text Reset
-
-###########################
-
 
 class listener(StreamListener):
 
@@ -122,7 +108,6 @@ class listener(StreamListener):
                         notifier.notify(all_data, string_url, hit, trackFound)
 
                         # Display
-                        # starter.display_tweet(all_data, hit)
                         starter.display_tweet(all_data, hit, trackFound)
 
                 ###                     ###
@@ -154,7 +139,7 @@ class listener(StreamListener):
                         # Hit type
                         hit = 'SLTT TWITTER MENTION'
 
-                            # Counter Increase
+                        # Counter Increase
                         self.counter_hit_SLTT = self.counter_hit_SLTT + 1
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
@@ -168,7 +153,6 @@ class listener(StreamListener):
                         notifier.notify(all_data, string_url, hit, trackFound)
 
                         # Display
-                        # starter.display_tweet(all_data, hit)
                         starter.display_tweet(all_data, hit, trackFound)
 
 
@@ -216,7 +200,6 @@ class listener(StreamListener):
                         notifier.notify(all_data, string_url, hit, trackFound)
 
                         # Display
-                        # starter.display_tweet(all_data, hit)
                         starter.display_tweet(all_data, hit, trackFound)
 
 
@@ -226,7 +209,7 @@ class listener(StreamListener):
                     self.counter_all = self.counter_all + 1
 
             # Every 50,000 Tweets processed, send a health check email to the specified recipients.
-            # WISH LIST: Have the emails used for health checks, configured during set up.
+            #TODO: Have the emails used for health checks, configured during set up.
             if self.counter_all % 50000 == 0:
                 self.health_notify()
 
@@ -237,38 +220,34 @@ class listener(StreamListener):
                 # Exception to handle messages that indicate Tweets are becoming backlogged.
                 if all_data['limit']['track'] >= 10000:
                     print '\n'
-                    print yel, "#" * 60, off
-                    print red, "SYSTEM HAS FALLEN TOO FAR BEHIND AND RISKS CRASHING - AUTO REFRESHING CONNECTION", off
-                    print yel, "#" * 60, off
+                    print "#" * 60
+                    print "SYSTEM HAS FALLEN TOO FAR BEHIND AND RISKS CRASHING - AUTO REFRESHING CONNECTION"
+                    print "#" * 60
                     print '\n'
                     time.sleep(2)
                     from TwitterStreamer import main
-                    print yel, "Restarting Streamer Now...", off
+                    print "Restarting Streamer Now..."
                     notifier.refresh(all_data)
 
                 elif all_data['limit']['track'] % 5000 == 0:
                     print '\n'
-                    print yel, "#" * 60, off
-                    print red, "WARNING - SYSTEM IS FALLING BEHIND", off
-                    print yel, "#" * 60, off
+                    print "#" * 60
+                    print "WARNING - SYSTEM IS FALLING BEHIND"
+                    print "#" * 60
                     print '\n'
 
             except Exception as e:
                 self.counter_exception = self.counter_exception + 1
                 # Exception to handle 'limit' errors.
                 if 'text' or 'limit' in e:
-                    print yel, '\nException --> Message: %s\n' % e
-                    # hit = "EXCEPTIONS - LIMIT"
-                    # starter.write_to_json(all_data, hit)
+                    print '\nException --> Message: %s\n' % e
                     pass
 
                 else:
                     # Exception to handle any other errors.
-                    print red, "#" * 40, off
-                    print yel, '\nException --> Message: %s\n' % e
+                    print "#" * 40
+                    print '\nException --> Message: %s\n' % e
                     print ''
-                    # hit = "EXCEPTIONS"
-                    # starter.write_to_json(all_data, hit)
                     from notifier import error_notify
                     error_notify('Unknown Listener Error', '--No Data Available--')
 
@@ -313,27 +292,18 @@ class listener(StreamListener):
         for word in bl:
 
             if word in twitHash:
-                termfound = word
                 self.blacklistcounter = self.blacklistcounter + 1
                 self.counter_all = self.counter_all + 1
-                # starter.displayBlacklist(all_data, termfound)
-                starter.writeToText(all_data, word)
                 return True
 
             elif word in twitText:
-                termfound = word
                 self.blacklistcounter = self.blacklistcounter + 1
                 self.counter_all = self.counter_all + 1
-                # starter.displayBlacklist(all_data, termfound)
-                starter.writeToText(all_data, word)
                 return True
 
             elif word in screenName:
-                termfound = word
                 self.blacklistcounter = self.blacklistcounter + 1
                 self.counter_all = self.counter_all + 1
-                # starter.displayBlacklist(all_data, termfound)
-                starter.writeToText(all_data, word)
                 return True
 
 
