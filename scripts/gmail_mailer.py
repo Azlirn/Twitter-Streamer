@@ -15,9 +15,9 @@ try:
 except ImportError:
     flags = None
 
-SCOPES = 'https://www.googleapis.com/auth/gmail.send'
+SCOPES = 'https://mail.google.com/'
 CLIENT_SECRET_FILE = 'client_secret.json'
-APPLICATION_NAME = 'Twit Notifier'
+APPLICATION_NAME = 'Twitter Streamer'
 to_address = 'christopher.cooley@cisecurity.org, matthew.grieco@cisecurity.org'
 from_address = 'spider.sec070@gmail.com'
 
