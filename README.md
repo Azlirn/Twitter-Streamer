@@ -2,7 +2,7 @@ Twitter Streamer
 ================
 _Version 2.0_
 
-
+(last updated 11/07/2018)
 
 #### Real-Time Twitter Cyber Threat Monitoring System
 The Twitter Streamer MS-ISAC Edition is a Python application intended to notify cyber intelligence analysts with the MS-ISAC of cyber threats found on Twitter, that target SLTT entities.
@@ -30,19 +30,24 @@ You must have the following to operate this application:
 
 _Keep in mind that basic user accounts will likely need `sudo` access to install dependencies._
 
-* Tweepy
+* [Tweepy](http://docs.tweepy.org/en/v3.6.0)
     * To install Tweepy:
     `pip install tweepy`
 * [Gmail API](https://developers.google.com/gmail/api/quickstart/python) ( _to be removed in a later version_ )
      * To install the Gmail Python API Library:
      `pip install --upgrade google-api-python-client`
      * Check out other installation options [here](https://developers.google.com/api-client-library/python/start/installation)\
+* httplib2
+    * To install httplib2:
+    `pip install httplib2`
+* oauth2client 4.1.3
+    * To install oauth2client 4.1.3:
+    `pip install oauth2client`
 
-(This section to be updated)
 
 ## How to operate
 
->The streamer is currently running on a Ubuntu 16.x AWS instance. The MS-ISAC runs the streamer via an SSH connection with an AWS instance.  We use `screen` to run our script without an active SSH connection. 
+>As of April 2017, The streamer is currently running on a Ubuntu 16.x AWS instance. The MS-ISAC runs the streamer via an SSH connection with an AWS instance.  We use `screen` to run our script without an active SSH connection. 
 
 * Screen Basic Tutorial: http://thingsilearned.com/2009/05/26/gnu-screen-super-basic-tutorial/
 
@@ -58,4 +63,3 @@ _Keep in mind that basic user accounts will likely need `sudo` access to install
 
 * Email: christopher.a.cooley@gmail.com
 * Github: [Azlirn](https://github.com/Azlirn)
-* Twitter: [@Cyb3rdude](https://twitter.com/cyb3rdude)
