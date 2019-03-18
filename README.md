@@ -2,7 +2,7 @@ Twitter Streamer
 ================
 _Version 2.1_
 
-**We are overhauling this script - please be patient as bugs may be present - open an issue needed**
+**We are overhauling this script - please be patient as bugs may be present - open an issue if needed**
 
 
 ## Real-Time Twitter Cyber Threat Monitoring Script
