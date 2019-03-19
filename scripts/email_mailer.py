@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-
 import smtplib
-
-from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def sendEmail(text_data, emailType):
@@ -15,12 +11,24 @@ def sendEmail(text_data, emailType):
     message = MIMEText(text_data)
 
     if emailType == 'script_start':
-        subject = "[CCI-TS] - Twitter Streamer Started"
+        subject = "[CCI-TS] - The Twitter Streamer Has Started"
         displayType = "Twitter Streamer Started"
 
-    if emailType == 'ALERT':
+    elif emailType == 'ALERT':
         subject = "[CCI-TS] - ALERT: Possible Malicious Content Discovered"
         displayType = "ALERT Email"
+
+    elif emailType == 'system_error':
+        subject = "[CCI-TS] - ERROR: Twitter Streamer Encountered an Error"
+        displayType = "Error Email"
+
+    elif emailType == 'health_check':
+        subject = "[CCI-TS] - HEALTH CHECK: Twitter Streamer is Running"
+        displayType = "Health Check"
+
+    elif emailType == 'backlog_refresh':
+        subject = "[CCI-TS] - REFRESH: Twitter Streamer is Restarting"
+        displayType = "REFRESH"
 
     message['Subject'] = subject
     message['From'] = myEmail
