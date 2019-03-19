@@ -21,14 +21,15 @@ def set_up_listener():
     auth = tweepy.OAuthHandler(ckey, csecret)
     auth.set_access_token(atoken, asecret)
 
-    print " [*]  Authenticating with Twitter"
+    print "[*] Authenticating with Twitter..."
     api = authenticate_to_twitter()
+    print "[+] Authenticated...\n"
 
     # set up listener
-    print " [*]  Setting up the API..."
+    print "[*] Setting the tweet \"listener\" up on the stream..."
     listen = Twitter_Listner.listener(api)
+    print "[+] Listener is good to go...\n"
 
     # set up the stream
-    print "\n [*]  Starting the live stream..."
+    print "[*] Turning on the twitter stream...\n"
     return tweepy.Stream(auth, listen)
-

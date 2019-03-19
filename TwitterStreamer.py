@@ -1,9 +1,6 @@
-#!usr/bin/env python
-
 import traceback
 import logging
 from scripts import Twitter_Listner, starter, notifier, twitter_setup
-import subprocess
 
 reload(Twitter_Listner)
 reload(starter)
@@ -13,7 +10,7 @@ reload(notifier)
 def main():
 
     #Set up debug logging
-    logging.basicConfig(filename="test.log", level=logging.DEBUG, format='%(asctime)s %(message)s ')
+    logging.basicConfig(filename="TwitterStreamer.log", level=logging.DEBUG, format='%(asctime)s %(message)s ')
 
     track = starter.get_track()
 
@@ -27,7 +24,7 @@ def main():
 
     # Connect to the streamer with track
     try:
-        print " [*] Filtering live Twitter stream by %s key terms..." % len(track)
+        print "[*] Filtering live Twitter stream by %s key terms..." % len(track)
         twitterStream.filter(track=track)
 
     except Exception, e:

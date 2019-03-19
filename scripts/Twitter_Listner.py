@@ -1,12 +1,16 @@
 # coding=utf-8
 
+import time
+import datetime
+import json
+import email_mailer
+import notifier
+import starter
+from urlparse import urlparse
 from tweepy import API
 from tweepy.streaming import StreamListener
-import gmail_mailer, notifier, starter
-import time, datetime, json
-from urlparse import urlparse
 
-reload(gmail_mailer)
+reload(email_mailer)
 reload(notifier)
 
 
@@ -18,8 +22,8 @@ class listener(StreamListener):
         self.api = api or API()
         self.domains = starter.domain_loader()
         self.user_names = starter.username_loader()
-        self.TwitSLTT = starter.TwitSLTT_loader()
-        self.counter_hit_SLTT = 0
+        self.accountLoader = starter.account_Loader()
+        self.counter_hit_Account = 0
         self.counter_hit_Domain = 0
         self.counter_hit_Keyword = 0
         self.counter_hit = 0
@@ -40,32 +44,21 @@ class listener(StreamListener):
         Current configuration:
             - Ignores retweets and other terms that have been deemed of no value
             - Checks if URLs mentioned are in the list of domains OR
-            - Checks if User mentions are in our list of SLTT twitter accounts OR
+            - Checks if User mentions are in our list of MentionTwitterAccounts OR
             - Looks to see user id of tweet is from our list of known user names.
         This logical configuration has been optimized to reduce the amount of overall false positives and should not
         be changed.
         """
 
-
-        try:
-            all_data = json.loads(data)
-        except Exception as e:
-            systime = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
-            print '\n[!] Exception at %s --> Message: %s\n' % (systime, e)
-            print ''
-            notifier.error_notify(e, 'Error Loading JSON')
-            pass
+        all_data = json.loads(data)
 
         try:
             # Remove re-tweets from the feed.
             if all_data['retweeted']:
                 pass
-
             else:
 
-                ###                     ###
-                ###     DOMAIN TEST     ###
-                ###                     ###
+                ### DOMAIN TEST ###
 
                 if self.domain_test(all_data):
 
@@ -73,21 +66,6 @@ class listener(StreamListener):
                     # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
-
-                    # # # #  MS-ISAC  Unique  # # # #
-
-                    # Check to see if a particular known user account contains the keyword "pastebin"
-                    # If the account posts a tweet containing this term, ignore the tweet.
-
-
-                    elif all_data['user']['screen_name'] == "hacked_emails":
-                        if "pastebin" in all_data['text']:
-                            self.counter_false = self.counter_false + 1
-                            self.counter_all = self.counter_all + 1
-                            pass
-
-                    # # # #  MS-ISAC  Unique  # # # #
-
 
                     else:
 
@@ -110,37 +88,21 @@ class listener(StreamListener):
                         # Display
                         starter.display_tweet(all_data, hit, trackFound)
 
-                ###                     ###
-                ###  SLTT Mention Test  ###
-                ###                     ###
+                ###  Account Mention Test  ###
 
-                elif self.SLTT_mention(all_data):
+                elif self.accountMention(all_data):
 
                     # If a tweet is found, check to see if a blacklisted term is in the tweet. If a blacklisted term
                     # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
 
-                    # # # #  MS-ISAC  Unique  # # # #
-
-                    # Check to see if a particular known user account contains the keyword "pastebin"
-                    # If the account posts a tweet containing this term, ignore the tweet.
-
-
-                    elif all_data['user']['screen_name'] == "hacked_emails":
-                        if "pastebin" in all_data['text']:
-                            self.counter_false = self.counter_false + 1
-                            self.counter_all = self.counter_all + 1
-                            pass
-
-                    # # # #  MS-ISAC  Unique  # # # #
-
                     else:
                         # Hit type
-                        hit = 'SLTT TWITTER MENTION'
+                        hit = 'ACCOUNT MENTION'
 
                         # Counter Increase
-                        self.counter_hit_SLTT = self.counter_hit_SLTT + 1
+                        self.counter_hit_Account = self.counter_hit_Account + 1
                         self.counter_hit = self.counter_hit + 1
                         self.counter_all = self.counter_all + 1
 
@@ -156,9 +118,7 @@ class listener(StreamListener):
                         starter.display_tweet(all_data, hit, trackFound)
 
 
-                ###                     ###
                 ###  CTA Mention Test   ###
-                ###                     ###
 
                 elif str(all_data["user"]["id"]) in self.user_names:
 
@@ -166,21 +126,6 @@ class listener(StreamListener):
                     # is found, ignore the tweet.
                     if self.blacklist(all_data):
                         pass
-
-
-                    # # # #  MS-ISAC  Unique  # # # #
-
-                    # Check to see if a particular known user account contains the keyword "pastebin"
-                    # If the account posts a tweet containing this term, ignore the tweet.
-
-
-                    elif all_data['user']['screen_name'] == "hacked_emails":
-                        if "pastebin" in all_data['text']:
-                            self.counter_false = self.counter_false + 1
-                            self.counter_all = self.counter_all + 1
-                            pass
-
-                    # # # #  MS-ISAC  Unique  # # # #
 
                     else:
                         # Hit type
@@ -213,8 +158,8 @@ class listener(StreamListener):
             if self.counter_all % 50000 == 0:
                 self.health_notify()
 
-
-        except Exception as e:
+        except Exception:
+            #TODO: Rework this entire section - this is terrible
 
             try:
                 # Exception to handle messages that indicate Tweets are becoming backlogged.
@@ -226,13 +171,13 @@ class listener(StreamListener):
                     print '\n'
                     time.sleep(2)
                     from TwitterStreamer import main
-                    print "Restarting Streamer Now..."
+                    print "[!] Restarting Streamer Now..."
                     notifier.refresh(all_data)
 
                 elif all_data['limit']['track'] % 5000 == 0:
                     print '\n'
                     print "#" * 60
-                    print "WARNING - SYSTEM IS FALLING BEHIND"
+                    print "[!] WARNING - SYSTEM IS FALLING BEHIND..."
                     print "#" * 60
                     print '\n'
 
@@ -242,7 +187,6 @@ class listener(StreamListener):
                 if 'text' or 'limit' in e:
                     print '\nException --> Message: %s\n' % e
                     pass
-
                 else:
                     # Exception to handle any other errors.
                     print "#" * 40
@@ -254,8 +198,9 @@ class listener(StreamListener):
 
 
     def health_notify(self):
+        # TODO: Move this function to notifier.py
         systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
-        health_data = """
+        message = """
                 -=This is an automated message from the Twitter Streamer=-
 
                 Server is up...
@@ -267,16 +212,16 @@ class listener(StreamListener):
                 Total Hits: %s
                 - Breakdown -
                 ******************************
-                Total SLTT Mentions: %s
+                Total Account Mentions: %s
                 Total Domain Mentions: %s
                 Total Keyword Mentions: %s
                 Exceptions raised: %s
 
     Thanks!
         - StreamerBot""" % (systime, self.counter_all, self.blacklistcounter, self.counter_false, self.counter_hit,
-                             self.counter_hit_SLTT, self.counter_hit_Domain, self.counter_hit_Keyword,
+                             self.counter_hit_Account, self.counter_hit_Domain, self.counter_hit_Keyword,
                              self.counter_exception)
-        gmail_mailer.error_message(health_data.encode('utf8'), 'health_check')
+        email_mailer.sendEmail(message, 'health_check')
         return
 
 
@@ -319,22 +264,22 @@ class listener(StreamListener):
                 else:
                     pass
         except Exception, e:
-            print "Domain Test Error: ", str(e)
+            print "[!] Domain Test Error: ", str(e)
             return False
         return any(result)
 
 
-    def SLTT_mention(self, data):
+    def accountMention(self, data):
         '''
-        Will test to see if the user_mentions screen_name is in the Twitter SLTT
+        Will test to see if the user_mentions screen_name is in MentionTwitterAccounts.csv
         '''
 
         result = []
         try:
             for x in data['entities']['user_mentions']:
-                result.append(x["screen_name"] in self.TwitSLTT)
+                result.append(x["screen_name"] in self.accountLoader)
         except Exception, e:
-            print "SLTT Mention Error: ", str(e)
+            print "[!] Account Mention Error: ", str(e)
             return False
         return any(result)
 
@@ -345,15 +290,11 @@ class listener(StreamListener):
         terms = []
 
         for term in track:
-            if term == 'ica':
-                pass
+            if term in twitData:
+                terms.append(term)
             else:
-                if term in twitData:
-                    terms.append(term)
-                else:
-                    pass
+                pass
         return terms
-
 
     def termInTweetText(self, all_data):
         track = self.trackLoader
