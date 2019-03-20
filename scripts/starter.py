@@ -18,8 +18,7 @@ def print_headers():
     print "#" * 80
     print "#" + " " * 18 + "Time to Hunt for Cyber Threats on Twitter!" + " " * 18 + "#"
     print "#" * 80
-    print "Twitter Streamer ver. 2.1"
-    print "This version of the Twitter Streamer has been optimized for public use.\n"
+    print "Twitter Streamer ver. 2.1.1"
     print "Developed by @langlois925 & @cyb3rdude"
     print "#" * 80, '\n'
     time.sleep(5)
@@ -159,7 +158,6 @@ def account_Loader():
     twitterAccounts = []
     file = open('data/MentionTwitterAccounts.csv', 'rU')
     reader = csv.reader(file)
-    next(reader, None)  # ignore the csv headers
     data = list(reader)
 
     for row in data:

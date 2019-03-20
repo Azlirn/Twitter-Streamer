@@ -42,7 +42,7 @@ def sendEmail(text_data, emailType):
         print "[*] Communicating with mail server..."
         server.login(myEmail, password='S^0VdStM5*ZM60j')
         server.sendmail(myEmail, destEmail, message.as_string())
-        print "[*] {%s} email sent successfully...\n" % displayType
+        print "[*] {%s} email sent successfully..." % displayType
     except Exception as e:
         print "[!] Exception Encountered: ", e
         exit()

@@ -7,7 +7,7 @@ def scriptstart_notify():
     systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
 
     message = """
-##### STREAMER RESTARTED #####
+##### STREAMER STARTED #####
 
 System Time: %s
 
@@ -50,36 +50,29 @@ def notify(data, url, hit, termFound):
 ##### NOTIFICATION #####
 
 System Time: %s
-\rHit Type: %s
-\rTerms/s Found: %s
-\rScreen Name: %s
-\rTweeter ID: %s
-\rTweet Text: %s
-\rMentions: %s
-\rCreated At: %s
-\rCreated Using: %s
-\rExpanded Urls: %s
-\rTweet Link: https://twitter.com/%s/status/%s\n
+Hit Type: %s
+Terms/s Found: %s
+Screen Name: %s
+Tweeter ID: %s
+Tweet Text: %s
+Mentions: %s
+Created At: %s
+Created Using: %s
+Expanded Urls: %s
+Tweet Link: https://twitter.com/%s/status/%s
 
 - StreamerBot
-
-P.S.
-"ICA" is a term used to track activity from the Islamic Cyber Army.
-Currently, this term, if found, will not appear in the above "Term/s Found" section.
-This is a known issue and we are working on a fix.
 
 ***************************************************************************
 This is an automated message from the Twitter Streamer.
 
-WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR
-INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
+WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
 ***************************************************************************
 
-            """ % (systime, hit, termFound, data["user"]["screen_name"], data['user']['id'], data["text"],
-                   starter.stringify_mentions(data), data["created_at"], data["source"], url,
-                   str(data['user']['screen_name']), str(data['id']))
+""" % (systime, hit, termFound, data["user"]["screen_name"], data['user']['id'], data["text"],
+       starter.stringify_mentions(data), data["created_at"], data["source"], url, str(data['user']['screen_name']),
+       str(data['id']))
 
-        # pass the text to the gmail-mailer script + encode to UTF to deal with none ascii chars
         email_mailer.sendEmail(message, "ALERT")
         return
 
@@ -91,7 +84,6 @@ def refresh(all_data):
 ##### SYSTEM REFRESH #####
 
 System Time is:  %s
-
 The streamer is having a hard time keeping up.
 
 You are currently %s tweets behind.
