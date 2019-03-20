@@ -35,7 +35,6 @@ class listener(StreamListener):
         self.blacklistLoader = starter.get_blacklist()
         self.trackLoader = starter.get_track()
 
-
     def on_data(self, data):
         """
         This part of the script takes in the data sent from Twitter and applies
@@ -195,8 +194,6 @@ class listener(StreamListener):
                     from notifier import error_notify
                     error_notify('Unknown Listener Error', '--No Data Available--')
 
-
-
     def health_notify(self):
         # TODO: Move this function to notifier.py
         systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
@@ -224,7 +221,6 @@ class listener(StreamListener):
         email_mailer.sendEmail(message, 'health_check')
         return
 
-
     def blacklist(self, all_data):
         twitText = str(all_data['text'].lower().encode('utf8'))
         twitHash = starter.stringify_hashtags_lower(all_data)
@@ -251,7 +247,6 @@ class listener(StreamListener):
                 self.counter_all = self.counter_all + 1
                 return True
 
-
     def domain_test(self, data):
         '''
         Will test to see if the Urls mentioned are part of the loaded domains.
@@ -267,7 +262,6 @@ class listener(StreamListener):
             print "[!] Domain Test Error: ", str(e)
             return False
         return any(result)
-
 
     def accountMention(self, data):
         '''
