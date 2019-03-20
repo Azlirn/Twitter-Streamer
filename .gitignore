@@ -9,7 +9,7 @@ venv/
 # Other files and folders
 .settings/
 Records/
-test.log
+*.log
 *.pyc
 *.xlsx
 .DS_Store
