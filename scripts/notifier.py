@@ -1,6 +1,6 @@
-import email_mailer
+from .email_mailer import sendEmail
 import datetime
-import starter
+from .utils import stringify_mentions
 
 
 def scriptstart_notify():
@@ -18,7 +18,7 @@ This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % systime
 
-    email_mailer.sendEmail(message, "script_start")
+    sendEmail(message, "script_start")
     return
 
 def error_notify(e, all_data):
@@ -41,7 +41,7 @@ This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % (systime, e, all_data)
 
-    email_mailer.sendEmail(message, 'system_error')
+    sendEmail(message, 'system_error')
     return
 
 def notify(data, url, hit, termFound):
@@ -76,11 +76,11 @@ INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
 ***************************************************************************
 
             """ % (systime, hit, termFound, data["user"]["screen_name"], data['user']['id'], data["text"],
-                   starter.stringify_mentions(data), data["created_at"], data["source"], url,
+                   stringify_mentions(data), data["created_at"], data["source"], url,
                    str(data['user']['screen_name']), str(data['id']))
 
         # pass the text to the gmail-mailer script + encode to UTF to deal with none ascii chars
-        email_mailer.sendEmail(message, "ALERT")
+        sendEmail(message, "ALERT")
         return
 
 
@@ -106,7 +106,7 @@ The tweets in the stream that are backlogged will be lost in this process.
 This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % (systime, all_data['limit']['track'])
-        email_mailer.sendEmail(message, 'backlog_refresh')
+        sendEmail(message, 'backlog_refresh')
         from TwitterStreamer import main
         main()
         return

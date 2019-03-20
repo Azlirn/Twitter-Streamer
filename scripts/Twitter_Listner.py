@@ -3,15 +3,15 @@
 import time
 import datetime
 import json
-import email_mailer
-import notifier
-import starter
-from urlparse import urlparse
+from .email_mailer import sendEmail
+from .notifier import notify, error_notify, refresh
+from .starter import domain_loader, username_loader, account_Loader, get_blacklist, get_track
+from .utils import write_to_json,stringify_url,display_tweet, stringify_hashtags_lower
+from urllib import parse
 from tweepy import API
 from tweepy.streaming import StreamListener
 
-reload(email_mailer)
-reload(notifier)
+
 
 
 class listener(StreamListener):
@@ -19,10 +19,11 @@ class listener(StreamListener):
     def __init__(self, api=None):
 
         # Variables used throughout the script
+        super().__init__(api)
         self.api = api or API()
-        self.domains = starter.domain_loader()
-        self.user_names = starter.username_loader()
-        self.accountLoader = starter.account_Loader()
+        self.domains = domain_loader()
+        self.user_names = username_loader()
+        self.accountLoader = account_Loader()
         self.counter_hit_Account = 0
         self.counter_hit_Domain = 0
         self.counter_hit_Keyword = 0
@@ -32,8 +33,8 @@ class listener(StreamListener):
         self.counter_exception = 0
         self.blacklistcounter = 0
         self.lasttime = datetime.datetime.now()
-        self.blacklistLoader = starter.get_blacklist()
-        self.trackLoader = starter.get_track()
+        self.blacklistLoader = get_blacklist()
+        self.trackLoader = get_track()
 
 
     def on_data(self, data):
@@ -71,22 +72,8 @@ class listener(StreamListener):
 
                         # Hit Type
                         hit = 'DOMAIN MENTION'
+                        self.hit_counter(hit=hit, data=all_data)
 
-                        # Counter increase
-                        self.counter_hit_Domain = self.counter_hit_Domain + 1
-                        self.counter_hit = self.counter_hit + 1
-                        self.counter_all = self.counter_all + 1
-
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
-
-                        # Notify
-                        trackFound = self.termHits(all_data)
-                        string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit, trackFound)
-
-                        # Display
-                        starter.display_tweet(all_data, hit, trackFound)
 
                 ###  Account Mention Test  ###
 
@@ -102,21 +89,7 @@ class listener(StreamListener):
                         hit = 'ACCOUNT MENTION'
 
                         # Counter Increase
-                        self.counter_hit_Account = self.counter_hit_Account + 1
-                        self.counter_hit = self.counter_hit + 1
-                        self.counter_all = self.counter_all + 1
-
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
-
-                        # Notify
-                        trackFound = self.termHits(all_data)
-                        string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit, trackFound)
-
-                        # Display
-                        starter.display_tweet(all_data, hit, trackFound)
-
+                        self.hit_counter(hit=hit, data=all_data)
 
                 ###  CTA Mention Test   ###
 
@@ -131,22 +104,7 @@ class listener(StreamListener):
                         # Hit type
                         hit = "KNOWN CTA ACTIVITY"
 
-                        # Counter increase
-                        self.counter_hit_Keyword = self.counter_hit_Keyword + 1
-                        self.counter_hit = self.counter_hit + 1
-                        self.counter_all = self.counter_all + 1
-
-                        # Write to JSON
-                        starter.write_to_json(all_data, hit)
-
-                        # Notify
-                        trackFound = self.termHits(all_data)
-                        string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit, trackFound)
-
-                        # Display
-                        starter.display_tweet(all_data, hit, trackFound)
-
+                    self.hit_counter(hit=hit, data=all_data)
 
                 # If no logical statement evaluates to True, then count the tweet as a false positive and move on.
                 else:
@@ -164,35 +122,34 @@ class listener(StreamListener):
             try:
                 # Exception to handle messages that indicate Tweets are becoming backlogged.
                 if all_data['limit']['track'] >= 10000:
-                    print '\n'
-                    print "#" * 60
-                    print "SYSTEM HAS FALLEN TOO FAR BEHIND AND RISKS CRASHING - AUTO REFRESHING CONNECTION"
-                    print "#" * 60
-                    print '\n'
+                    print('\n')
+                    print("#" * 60)
+                    print("SYSTEM HAS FALLEN TOO FAR BEHIND AND RISKS CRASHING - AUTO REFRESHING CONNECTION")
+                    print("#" * 60)
+                    print('\n')
                     time.sleep(2)
                     from TwitterStreamer import main
-                    print "[!] Restarting Streamer Now..."
-                    notifier.refresh(all_data)
+                    print("[!] Restarting Streamer Now...")
+                    refresh(all_data)
 
                 elif all_data['limit']['track'] % 5000 == 0:
-                    print '\n'
-                    print "#" * 60
-                    print "[!] WARNING - SYSTEM IS FALLING BEHIND..."
-                    print "#" * 60
-                    print '\n'
+                    print('\n')
+                    print("#" * 60)
+                    print("[!] WARNING - SYSTEM IS FALLING BEHIND...")
+                    print("#" * 60)
+                    print('\n')
 
             except Exception as e:
                 self.counter_exception = self.counter_exception + 1
                 # Exception to handle 'limit' errors.
                 if 'text' or 'limit' in e:
-                    print '\nException --> Message: %s\n' % e
+                    print('\nException --> Message: %s\n' % e)
                     pass
                 else:
                     # Exception to handle any other errors.
-                    print "#" * 40
-                    print '\nException --> Message: %s\n' % e
-                    print ''
-                    from notifier import error_notify
+                    print("#" * 40)
+                    print('\nException --> Message: %s\n' % e)
+                    print ('')
                     error_notify('Unknown Listener Error', '--No Data Available--')
 
 
@@ -221,13 +178,13 @@ class listener(StreamListener):
         - StreamerBot""" % (systime, self.counter_all, self.blacklistcounter, self.counter_false, self.counter_hit,
                              self.counter_hit_Account, self.counter_hit_Domain, self.counter_hit_Keyword,
                              self.counter_exception)
-        email_mailer.sendEmail(message, 'health_check')
+        sendEmail(message, 'health_check')
         return
 
 
     def blacklist(self, all_data):
         twitText = str(all_data['text'].lower().encode('utf8'))
-        twitHash = starter.stringify_hashtags_lower(all_data)
+        twitHash = stringify_hashtags_lower(all_data)
         screenName = str(all_data['user']['screen_name'].lower().encode('utf8'))
         bl = self.blacklistLoader
 
@@ -253,33 +210,33 @@ class listener(StreamListener):
 
 
     def domain_test(self, data):
-        '''
+        """
         Will test to see if the Urls mentioned are part of the loaded domains.
-        '''
+        """
         result = []
         try:
             for x in data['entities']['urls']:
                 if x['expanded_url'] is not None:
-                    result.append(str(urlparse(x["expanded_url"]).netloc).lower() in self.domains)
+                    result.append(str(parse.urlparse(x["expanded_url"]).netloc).lower() in self.domains)
                 else:
                     pass
-        except Exception, e:
-            print "[!] Domain Test Error: ", str(e)
+        except Exception as e:
+            print("[!] Domain Test Error: ", str(e))
             return False
         return any(result)
 
 
     def accountMention(self, data):
-        '''
+        """
         Will test to see if the user_mentions screen_name is in MentionTwitterAccounts.csv
-        '''
+        """
 
         result = []
         try:
             for x in data['entities']['user_mentions']:
                 result.append(x["screen_name"] in self.accountLoader)
-        except Exception, e:
-            print "[!] Account Mention Error: ", str(e)
+        except Exception as e:
+            print("[!] Account Mention Error: ", str(e))
             return False
         return any(result)
 
@@ -302,3 +259,30 @@ class listener(StreamListener):
         for term in track:
             if term not in all_data['text']:
                 return True
+
+    def hit_counter(self, data, hit):
+
+        if hit == "ACCOUNT MENTION":
+            self.counter_hit_Account = self.counter_hit_Account + 1
+        elif hit == "KNOWN CTA ACTIVITY":
+            self.counter_hit_Keyword = self.counter_hit_Keyword + 1
+        elif hit == "DOMAIN MENTION":
+            self.counter_hit_Domain = self.counter_hit_Domain + 1
+
+        else:
+            pass
+        # Counter Increase
+
+        self.counter_hit = self.counter_hit + 1
+        self.counter_all = self.counter_all + 1
+
+        # Write to JSON
+        write_to_json(data, hit)
+
+        # Notify
+        trackFound = self.termHits(data)
+        string_url = stringify_url(data)
+        notify(data, string_url, hit, trackFound)
+
+        # Display
+        display_tweet(data, hit, trackFound)

@@ -13,3 +13,6 @@ test.log
 *.pyc
 *.xlsx
 .DS_Store
+data/CyberThreatActorLoadingErrors.csv
+
+TwitterStreamer.log
