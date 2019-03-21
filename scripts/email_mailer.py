@@ -39,7 +39,7 @@ def sendEmail(text_data, emailType):
     server.ehlo()
     server.starttls()
     try:
-        print "[*] Communicating with mail server..."
+        print "\n[*] Communicating with mail server..."
         server.login(myEmail, password='S^0VdStM5*ZM60j')
         server.sendmail(myEmail, destEmail, message.as_string())
         print "[*] {%s} email sent successfully..." % displayType

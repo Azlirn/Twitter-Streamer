@@ -82,10 +82,10 @@ class listener(StreamListener):
                         # Notify
                         trackFound = self.termHits(all_data)
                         string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit, trackFound)
 
-                        # Display
                         starter.display_tweet(all_data, hit, trackFound)
+
+                        notifier.notify(all_data, string_url, hit, trackFound)
 
                 ###  Account Mention Test  ###
 
@@ -111,10 +111,10 @@ class listener(StreamListener):
                         # Notify
                         trackFound = self.termHits(all_data)
                         string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit, trackFound)
 
-                        # Display
                         starter.display_tweet(all_data, hit, trackFound)
+
+                        notifier.notify(all_data, string_url, hit, trackFound)
 
 
                 ###  CTA Mention Test   ###
@@ -141,11 +141,10 @@ class listener(StreamListener):
                         # Notify
                         trackFound = self.termHits(all_data)
                         string_url = starter.stringify_url(all_data)
-                        notifier.notify(all_data, string_url, hit, trackFound)
 
-                        # Display
                         starter.display_tweet(all_data, hit, trackFound)
 
+                        notifier.notify(all_data, string_url, hit, trackFound)
 
                 # If no logical statement evaluates to True, then count the tweet as a false positive and move on.
                 else:
