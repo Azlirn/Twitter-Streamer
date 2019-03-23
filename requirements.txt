@@ -1,0 +1,13 @@
+certifi==2019.3.9
+chardet==3.0.4
+idna==2.8
+jsonpickle==1.1
+Markdown==2.6.11
+oauthlib==3.0.1
+PySocks==1.6.8
+pytz==2018.5
+requests==2.21.0
+requests-oauthlib==1.2.0
+six==1.12.0
+tweepy==3.7.0
+urllib3==1.24.1

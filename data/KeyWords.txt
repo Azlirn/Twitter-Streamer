@@ -302,4 +302,4 @@ DefundDAPL,
 StopTheWall,
 OpSleepIn,
 OpNoDAPL,
-NoDAPL
+NoDAPL,

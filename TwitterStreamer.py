@@ -4,7 +4,7 @@ from scripts import starter, notifier, twitter_setup
 from importlib import reload
 
 
-#reload(starter)
+reload(starter)
 reload(notifier)
 
 # Activates the Streamer

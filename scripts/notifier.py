@@ -39,7 +39,7 @@ Please report this error to the application admin!
 ***************************************************************************
 This is an automated message from the Twitter Streamer.
 ***************************************************************************
-""" % (systime, e, all_data)
+""" % (systime, e, all_data.text)
 
     sendEmail(message, 'system_error')
     return
@@ -75,9 +75,9 @@ WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR
 INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
 ***************************************************************************
 
-            """ % (systime, hit, termFound, data["user"]["screen_name"], data['user']['id'], data["text"],
-                   stringify_mentions(data), data["created_at"], data["source"], url,
-                   str(data['user']['screen_name']), str(data['id']))
+            """ % (systime, hit, termFound, data.user.screen_name, data.user.id, data.text,
+                   stringify_mentions(data), data.created_at, data.source, url,
+                   str(data.user.screen_name), str(data.id))
 
         # pass the text to the gmail-mailer script + encode to UTF to deal with none ascii chars
         sendEmail(message, "ALERT")
