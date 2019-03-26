@@ -1,6 +1,6 @@
-import email_mailer
+from .email_mailer import sendEmail
 import datetime
-import starter
+from .utils import stringify_mentions
 
 
 def scriptstart_notify():
@@ -18,7 +18,7 @@ This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % systime
 
-    email_mailer.sendEmail(message, "script_start")
+    sendEmail(message, "script_start")
     return
 
 def error_notify(e, all_data):
@@ -39,9 +39,9 @@ Please report this error to the application admin!
 ***************************************************************************
 This is an automated message from the Twitter Streamer.
 ***************************************************************************
-""" % (systime, e, all_data)
+""" % (systime, e, all_data.text)
 
-    email_mailer.sendEmail(message, 'system_error')
+    sendEmail(message, 'system_error')
     return
 
 def notify(data, url, hit, termFound):
@@ -69,11 +69,12 @@ This is an automated message from the Twitter Streamer.
 WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR INAPPROPRIATE CONTENT. USE EXTREME CAUTION!
 ***************************************************************************
 
-""" % (systime, hit, termFound, data["user"]["screen_name"], data['user']['id'], data["text"],
-       starter.stringify_mentions(data), data["created_at"], data["source"], url, str(data['user']['screen_name']),
-       str(data['id']))
+            """ % (systime, hit, termFound, data.user.screen_name, data.user.id, data.text,
+                   stringify_mentions(data), data.created_at, data.source, url,
+                   str(data.user.screen_name), str(data.id))
 
-        email_mailer.sendEmail(message, "ALERT")
+        # pass the text to the gmail-mailer script + encode to UTF to deal with none ascii chars
+        sendEmail(message, "ALERT")
         return
 
 
@@ -98,7 +99,7 @@ The tweets in the stream that are backlogged will be lost in this process.
 This is an automated message from the Twitter Streamer.
 ***************************************************************************
 """ % (systime, all_data['limit']['track'])
-        email_mailer.sendEmail(message, 'backlog_refresh')
+        sendEmail(message, 'backlog_refresh')
         from TwitterStreamer import main
         main()
         return

@@ -39,11 +39,11 @@ def sendEmail(text_data, emailType):
     server.ehlo()
     server.starttls()
     try:
-        print "\n[*] Communicating with mail server..."
+        print("[*] Communicating with mail server...")
         server.login(myEmail, password='S^0VdStM5*ZM60j')
         server.sendmail(myEmail, destEmail, message.as_string())
-        print "[*] {%s} email sent successfully..." % displayType
+        print("[*] {%s} email sent successfully...\n" % displayType)
     except Exception as e:
-        print "[!] Exception Encountered: ", e
+        print("[!] Exception Encountered: ", e)
         exit()
     server.quit()
