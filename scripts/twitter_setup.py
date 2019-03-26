@@ -4,10 +4,13 @@ from .Twitter_Listner import listener
 
 
 def set_up_listener():
-    ckey = "ysXlbDzJePcaTgDUHuTFlQWrS"
-    csecret = "3kC7SxMjdDtsoYFB8pwDl6jFbu1tGSGSDqQq6OY3LqqvKe5Fuk"
-    atoken = "86768703-0T6rFyAIoKJdLjRD6mTD9V2nvZvah1wPBZ0bru9J8"
-    asecret = "B9au0cyO0EM2L01UewFFNyhEdg4S8V2XaNfnEaIxx0r3m"
+
+    # Add your Twitter API Keys here
+
+    ckey = ""
+    csecret = ""
+    atoken = ""
+    asecret = ""
 
     auth = tweepy.OAuthHandler(ckey, csecret)
     auth.set_access_token(atoken, asecret)

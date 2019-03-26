@@ -4,8 +4,8 @@ from email.mime.text import MIMEText
 def sendEmail(text_data, emailType):
     # me == my email address
     # you == recipient's email address
-    myEmail = "info@centerforcyberintelligence.org"
-    destEmail = "chris.cooley@centerforcyberintelligence.org"
+    myEmail = ""
+    destEmail = ""
 
     # Create message container - the correct MIME type is multipart/alternative.
     message = MIMEText(text_data)
@@ -40,7 +40,8 @@ def sendEmail(text_data, emailType):
     server.starttls()
     try:
         print("[*] Communicating with mail server...")
-        server.login(myEmail, password='S^0VdStM5*ZM60j')
+        # Add your password to your email account here
+        server.login(myEmail, password='')
         server.sendmail(myEmail, destEmail, message.as_string())
         print("[*] {%s} email sent successfully...\n" % displayType)
     except Exception as e:
