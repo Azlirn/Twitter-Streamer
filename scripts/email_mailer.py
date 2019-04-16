@@ -35,7 +35,8 @@ def sendEmail(text_data, emailType):
     message['To'] = destEmail
 
     # Send the message via local SMTP server.
-    server = smtplib.SMTP(host='smtp.gmail.com', port=587)
+    # Example: host='smtp.gmail.com', port=587
+    server = smtplib.SMTP(host='', port=)
     server.ehlo()
     server.starttls()
     try:
