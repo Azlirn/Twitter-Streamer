@@ -16,7 +16,9 @@ The application detects threats through keyword, domain, and Twitter accounts mo
 After a public threat is posted to Twitter, an automated email notification containing details of the post and the affiliated cyber threat actor is delivered to a specified recipient. 
 These details include the platform the Tweet was created with, the unique account ID associated with the actor (which can be used to track down and actor if their screen name changes), geolocation of the tweet (if available), and much more. 
 Further analytics may be available depending on the configuration of the application.
+
 ---
+
 
 ### Dependencies
 
