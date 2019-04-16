@@ -204,7 +204,7 @@ The twitter streamer can check tweets for mentions of specific twitter accounts.
 * Github: [planglois925](https://github.com/planglois925)
 * Twitter: [@langlois925](https://twitter.com/langlois925)
 
-**Co-Author & Maintainer:** _Chris Cooley_
+**Co-Author:** _Chris Cooley_
 
 * Email: chris.cooley@centerforcyberintelligence.org
 * Github: [Azlirn](https://github.com/Azlirn)
