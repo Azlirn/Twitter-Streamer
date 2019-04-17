@@ -1,11 +1,12 @@
 import os
-import time
-import datetime
-import csv
 import re
+import csv
+import time
+import tweepy
 import requests
 from urllib import parse
-import tweepy
+from datetime import datetime
+
 
 def authenticate_to_twitter():
     ckey = ""
@@ -19,7 +20,7 @@ def authenticate_to_twitter():
 
 
 def print_headers():
-    #TODO: Add a reference for the source code in the title
+    # TODO: Add a reference for the source code in the title
     """
     This function simply asks the OS to clear the existing window and presents a "title"
     """
@@ -40,26 +41,20 @@ def restart_program():
     This function will restart the script after 60 seconds if an Exception is triggered in the main() function in
     TwitterStreamer.py
     """
-    systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y% %H:%M:%S')
+    systime = datetime.strftime(datetime.now(), '%m-%d-%Y% %H:%M:%S')
     print("*" * 30)
     print("[!] Fatal Error - Disconnected at: %s" % systime)
     print("*" * 30)
     time.sleep(1)
 
-    print("     [!] Attempting to restart script in 60 seconds...")
-    time.sleep(10)
-    print("     [!] Attempting to restart script in 50 seconds...")
-    time.sleep(10)
-    print("     [!] Attempting to restart script in 40 seconds...")
-    time.sleep(10)
-    print("     [!] Attempting to restart script in 30 seconds...")
-    time.sleep(10)
-    print("     [!] Attempting to restart script in 20 seconds...")
-    time.sleep(10)
-    print("     [!] Attempting to restart script in 10 seconds...")
-    time.sleep(10)
-    print("[!] Attempting to restart script now...")
-    print('\n')
+    # iteratively print restart attempt until time expiration
+    sleeptime = 60
+    while sleeptime > 0:
+        print("     [!] Attempting to restart script in {!s} seconds...".format(sleeptime))
+        time.sleep(sleeptime)
+        sleeptime -= 10
+
+    print("[!] Attempting to restart script now...\n")
     time.sleep(5)
 
 
@@ -67,7 +62,7 @@ def get_track():
     """
     This function pulls keywords from KeyWords.txt and preps them to be sent to the Twitter API
     """
-    track = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/KeyWords.txt')]
+    track = [lines.replace('\n', '').replace(',', '').replace('\r', '').lower() for lines in open('data/KeyWords.txt')]
     return track
 
 
@@ -76,7 +71,7 @@ def get_blacklist():
     This function pulls terms from Blacklist.txt to be used in Twitter_Listener.py allowing users to ignore keywords
     from Twitter Streamer Alerts
     """
-    blacklist = [lines.replace('\n','').replace(',','').replace('\r', '').lower() for lines in open('data/Blacklist.txt')]
+    blacklist = [lines.replace('\n', '').replace(',', '').replace('\r', '').lower() for lines in open('data/Blacklist.txt')]
     return blacklist
 
 
@@ -99,19 +94,18 @@ def domain_loader():
         print("[!] Error occurred while loading domains - %s" % e)
 
 
-def save_usernameErrors(username, exception):
+def save_username_errors(username, exception):
     """
     This function will save any errors encountered while attempting to convert cyber threat actor twitter accounts to
     twitter IDs into a .csv file for reference at a later date.
     """
     with open("data/CyberThreatActorLoadingErrors.csv", "a") as f:
         writer = csv.writer(f)
-        writer.writerow([username, exception, datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')])
+        writer.writerow([username, exception, datetime.strftime(datetime.now(), '%m-%d-%Y %H:%M:%S')])
     f.close()
 
 
 def username_loader():
-
     #TODO: Add a capability to update values in the .csv if a screen name changes; requires to capture and store
     # Twitter ID
 
@@ -154,10 +148,11 @@ def username_loader():
             # Exception Example: [{u'message': u'User not found.', u'code': 50}]
 
             # Save any exceptions encountered to CyberThreatActorLoadingErrors.csv
-            save_usernameErrors(u, e)
+            save_username_errors(u, e)
             print("\n[!]", u, "=>", str(e), '\n')
             pass
     return follower
+
 
 def account_Loader():
     """
@@ -166,17 +161,20 @@ def account_Loader():
     print("\n[*] Loading \"GOOD\" Twitter accounts so we can check for mentions in \"BAD\" tweets...\n")
     time.sleep(1)
     twitterAccounts = []
-    file = open('data/MentionTwitterAccounts.csv', 'rU')
-    reader = csv.reader(file)
-    data = list(reader)
+
+    with open('data/MentionTwitterAccounts.csv', 'rU') as file:
+        reader = csv.reader(file)
+        data = list(reader)
 
     for row in data:
         parsed = parse.urlparse(row[0])
         twitterAccounts.append(re.sub('[/]', '', parsed.path))
         uname = re.sub('[/]', '', parsed.path)
         print("[+] Loaded Account:", uname)
+
     print("\n[*] Finished loading %s \"GOOD\" Twitter accounts..." % len(twitterAccounts))
     return twitterAccounts
+
 
 def disabling_ssl_warning():
     try:
@@ -185,4 +183,3 @@ def disabling_ssl_warning():
         print("[*] SSL Warnings disabled...\n")
     except Exception as e:
         print("[!] Failed to disable SSL Warnings - %s" % e)
-        pass
