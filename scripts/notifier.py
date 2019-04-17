@@ -1,10 +1,10 @@
+from datetime import datetime
 from .email_mailer import sendEmail
-import datetime
 from .utils import stringify_mentions
 
 
 def scriptstart_notify():
-    systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
+    systime = datetime.strftime(datetime.now(), '%m-%d-%Y %H:%M:%S')
 
     message = """
 ##### STREAMER STARTED #####
@@ -21,8 +21,9 @@ This is an automated message from the Twitter Streamer.
     sendEmail(message, "script_start")
     return
 
+
 def error_notify(e, all_data):
-    systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
+    systime = datetime.strftime(datetime.now(), '%m-%d-%Y %H:%M:%S')
     message = """
 ##### ERROR OCCURRED #####
 
@@ -44,8 +45,9 @@ This is an automated message from the Twitter Streamer.
     sendEmail(message, 'system_error')
     return
 
+
 def notify(data, url, hit, termFound):
-        systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
+        systime = datetime.strftime(datetime.now(), '%m-%d-%Y %H:%M:%S')
         message = """
 ##### NOTIFICATION #####
 
@@ -78,9 +80,8 @@ WARNING: THE ABOVE URLS ARE LIVE AND MAY CONTAIN MALICIOUS CODE AND/OR INAPPROPR
         return
 
 
-
 def refresh(all_data):
-        systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
+        systime = datetime.strftime(datetime.now(), '%m-%d-%Y %H:%M:%S')
         message = """
 ##### SYSTEM REFRESH #####
 

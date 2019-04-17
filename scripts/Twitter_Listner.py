@@ -1,15 +1,13 @@
 # coding=utf-8
 
-import datetime
-from .email_mailer import sendEmail
-from .notifier import notify
-from .starter import domain_loader, username_loader, account_Loader, get_blacklist, get_track
-from .utils import write_to_json,stringify_url,display_tweet, stringify_hashtags_lower
-from urllib import parse
 from tweepy import API
+from urllib import parse
+from .notifier import notify
+from datetime import datetime
+from .email_mailer import sendEmail
 from tweepy.streaming import StreamListener
-
-
+from .utils import write_to_json,stringify_url,display_tweet, stringify_hashtags_lower
+from .starter import domain_loader, username_loader, account_Loader, get_blacklist, get_track
 
 
 class listener(StreamListener):
@@ -30,12 +28,11 @@ class listener(StreamListener):
         self.counter_all = 0
         self.counter_exception = 0
         self.blacklistcounter = 0
-        self.lasttime = datetime.datetime.now()
+        self.lasttime = datetime.now()
         self.blacklistLoader = get_blacklist()
         self.trackLoader = get_track()
 
     def on_status(self, status):
-
         all_data = status
 
         try:
@@ -103,16 +100,16 @@ class listener(StreamListener):
 
         except Exception as e:
             # TODO: Rework this entire section - this is terrible
-
+            # should clean things like this up for professionalism's sake before going public
             print("we suck at %s" % e)
 
     def on_error(self, status_code):
-        #TODO: Figure out what kind of error handling we want, we could through it into a log instead print screen
+        # TODO: Figure out what kind of error handling we want, we could throw it into a log instead print screen
         print(status_code)
 
     def health_notify(self):
         # TODO: Move this function to notifier.py
-        systime = datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S')
+        systime = datetime.strftime(datetime.now(), '%m-%d-%Y %H:%M:%S')
         message = """
                 -=This is an automated message from the Twitter Streamer=-
 
@@ -139,7 +136,6 @@ class listener(StreamListener):
 
     def blacklist(self, all_data):
         try:
-
             twitText = str(all_data.text.lower().encode('utf8'))
             twitHash = stringify_hashtags_lower(all_data)
             screenName = str(all_data.user.screen_name.lower().encode('utf8'))
@@ -164,6 +160,7 @@ class listener(StreamListener):
                     self.blacklistcounter = self.blacklistcounter + 1
                     self.counter_all = self.counter_all + 1
                     return True
+
         except Exception as e:
             print("failed black list check: %s" %e)
 
